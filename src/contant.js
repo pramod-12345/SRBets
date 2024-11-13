@@ -15,7 +15,7 @@ export const menuData = {
     ],
   },
   accountButtons: {
-    // title: "Account",
+    title: "",
     buttons: [
       { label: "Profile", icon: sidebarImg.profile, path: "/#" },
       { label: "Wallet", icon: sidebarImg.wallet, path: "/#" },

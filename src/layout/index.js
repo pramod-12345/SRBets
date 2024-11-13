@@ -2,6 +2,7 @@ import { useState } from "react";
 import Sidebar from "../components/shared/sidebar";
 import Navbar from "../components/shared/navbar";
 import { Outlet } from "react-router-dom";
+// import Footer from "../components/shared/footer";
 
 // eslint-disable-next-line react/prop-types
 const Layout = () => {
@@ -14,14 +15,13 @@ const Layout = () => {
           setSidebarToggle={setSidebarToggle}
           sidebarToggle={sidebarToggle}
         />
-        <section className="pt-[4.5rem] min-h-[100vh] flex">
+        <section className="pt-[4.5rem] max-h-screen flex">
           <Sidebar sidebarToggle={sidebarToggle} />
           <div
-            className={`${
-              sidebarToggle ? "md:pl-[72px]" : "md:pl-[16.25rem]"
-            } p-0 truncate w-full`}
+            className={` p-0 w-full overflow-auto`}
           >
             <Outlet />
+            {/* <Footer/> */}
           </div>
         </section>
       </div>

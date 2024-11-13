@@ -6,14 +6,13 @@ import CommonButton from "../common/button";
 const Sidebar = ({ sidebarToggle }) => {
   return (
     <aside
-      className={`hidden sidebar-main no-scrollbar bg-gray-900 text-white h-full ${
-        sidebarToggle ? "w-[72px]" : "w-[260px]"
-      } md:flex flex-col fixed overflow-auto transition-all ease-in-out duration-500`}
+      style={{ overflow: "auto", maxHeight: "calc(100vh - 72px)", width: sidebarToggle ? '72px' : '260px' }}
+      className={`hidden sidebar-main no-scrollbar bg-gray-900 text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-500`}
     >
       <div
         className={`${
           sidebarToggle ? "p-[18px]" : "p-6"
-        } pb-0 pt-[1.812rem] flex flex-col gap-4`}
+        } pb-0 pt-[1.812rem] flex flex-col gap-4 transition-all ease-in-out duration-500`}
       >
         {menuData.mainButtons.buttons.map((button, index) => (
           <CommonButton
