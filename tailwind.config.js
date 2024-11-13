@@ -22,22 +22,21 @@ export default {
         "table-full": "824px",
       },
       width: {
-        '5px': "5px",
-        "9px": "9px",
-        "18px": "18px",
-        "260px": "260px",
-        "352px": "352px",
-        "1120px": "1120px"
+        '1.1': "5px",
+        "2.1": "9px",
+        "4.2": "18px",
+        "64.5": "260px",
+        "85.2": "352px",
+        "1120": "1120px"
       },
       maxWidth: {
-        '11rem': '11rem',
         '32p': '32%'
       },
       maxHeight: {
-        '17.5rem': '17.5rem',
+        '70': '17.5rem',
       },
       spacing: {
-        "72px": "72px", // Add your custom spacing here
+        "18": "72px", // Add your custom spacing here
       }
     },
   },
