@@ -6,8 +6,10 @@ import CommonButton from "../common/button";
 const Sidebar = ({ sidebarToggle }) => {
   return (
     <aside
-      style={{ overflow: "auto", maxHeight: "calc(100vh - 72px)", width: sidebarToggle ? '72px' : '260px' }}
-      className={`hidden sidebar-main no-scrollbar bg-gray-900 text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-500`}
+      style={{ maxHeight: "calc(100vh - 72px)"}}
+      className={`hidden sidebar-main no-scrollbar bg-gray-900 text-white h-full md:flex flex-col overflow-auto ${
+        sidebarToggle ? "w-[72px]" : "w-[260px]"
+      } transition-all ease-in-out duration-500`}
     >
       <div
         className={`${
@@ -17,13 +19,10 @@ const Sidebar = ({ sidebarToggle }) => {
         {menuData.mainButtons.buttons.map((button, index) => (
           <CommonButton
             key={index}
-            bgColor={button.color}
             imageStyle={"w-4 h-4"}
-            label={sidebarToggle ? null : button.label}
+            label={sidebarToggle ? null : button?.label}
             icon={button.icon}
-            style={`${
-              sidebarToggle ? "py-2.5 px-0" : "p-2.5"
-            } rounded-lg max-w-44 w-full h-9 gap-3 text-sm`}
+            type={button?.type}
           />
         ))}
       </div>

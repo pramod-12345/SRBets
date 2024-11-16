@@ -60,9 +60,8 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
                   className="sm:w-9 sm:h-9 h-5 w-5"
                 />
                 <CommonButton
-                  bgColor={"#673CFF"}
                   label={"Wallet"}
-                  style={`sm:h-10 h-7 rounded-lg sm:px-4 px-1.5 sm:text-sm text-xs`}
+                  type="nav"
                 />
               </div>
               <img

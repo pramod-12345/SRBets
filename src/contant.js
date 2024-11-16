@@ -10,8 +10,8 @@ export const menuData = {
   mainButtons: {
     title: "Main",
     buttons: [
-      { label: "Casino", color: "#F02A83", icon: sidebarImg?.casino },
-      { label: "Sports", color: "#7651FE", icon: sidebarImg.sports },
+      { label: "Casino", type: "secondary", icon: sidebarImg?.casino },
+      { label: "Sports", type: "primary", icon: sidebarImg.sports },
     ],
   },
   accountButtons: {
@@ -164,5 +164,59 @@ export const MbNavTabs = [
   {
     label: "Settings",
     icon: navImages.setting,
+  },
+];
+
+export const footerData = [
+  {
+    section: "Casino",
+    links: [
+      "Black Jack",
+      "Roulette",
+      "Poker",
+      "Baccarat",
+      "Deal or No Deal",
+      "Speed Baccarat",
+      "Teen Patti",
+      "Texas Hold Em Poker",
+    ],
+  },
+  {
+    section: "Sports",
+    links: [
+      "Cricket",
+      "Football",
+      "Horse Racing",
+      "Politics",
+      "Tennis",
+      "F1 Race",
+      "Golf",
+    ],
+  },
+  {
+    section: "Company",
+    links: [
+      "Profile",
+      "Wallet",
+      "Transaction History",
+      "Bets",
+      "Affiliate",
+      "Responsible Gaming",
+      "Support",
+      "Logout",
+    ],
+  },
+  {
+    section: "Legal",
+    links: [
+      "Privacy Policy",
+      "Terms & Conditions",
+      "Responsible Gambling",
+      "Gamble Aware",
+    ],
+  },
+  {
+    section: "Support",
+    links: ["Email Us", "Call us at +91-98100 98100"],
   },
 ];

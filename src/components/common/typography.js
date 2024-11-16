@@ -1,9 +1,9 @@
 import React from "react";
 
-const SectionHeader = ({title}) => {
+const Typography = ({ fontSize, fontWeight, color, lineHeight, children }) => {
   return (
-    <h1 className="m-0 font-bold sm:text-2xl text-base text-white">{title}</h1>
+    <div className={`${fontWeight} ${fontSize} ${color} ${lineHeight}`}>{children}</div>
   );
 };
 
-export default SectionHeader;
+export default Typography;

@@ -14,7 +14,12 @@ export default {
         themeBlack: "#0b0d1c",
         textMenu: "#9298B4",
         textMenuHover: "#664FFF",
-        gradientBorder: "#5A5F9C"
+        gradientBorder: "#5A5F9C",
+        btnSecondary: "#F02A83",
+        btnPrimary: "#5B2AED",
+        arrowDisabled: "#1F2136",
+        arrowActive: "#585E77",
+        "table-row":"#9298B4"
       },
       height: {
         "table-header": "44px", 

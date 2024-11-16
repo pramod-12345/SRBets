@@ -2,6 +2,8 @@ import { useState } from "react";
 import Sidebar from "../components/shared/sidebar";
 import Navbar from "../components/shared/navbar";
 import { Outlet } from "react-router-dom";
+import Container from "../components/common/container";
+import Footer from "../components/shared/footer";
 // import Footer from "../components/shared/footer";
 
 // eslint-disable-next-line react/prop-types
@@ -20,8 +22,10 @@ const Layout = () => {
           <div
             className={` p-0 w-full overflow-auto`}
           >
+            <Container>
             <Outlet />
-            {/* <Footer/> */}
+            <Footer/>
+            </Container>
           </div>
         </section>
       </div>

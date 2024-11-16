@@ -2,7 +2,7 @@ import React from "react";
 import CommonButton from "./button";
 import leftArrow from "../../assets/svg/left-arrow.svg";
 import rightArrow from "../../assets/svg/right-arrow.svg";
-import SectionHeader from "./typography";
+import SectionHeader from "./headerSection";
 
 const Slider = ({ children, title }) => {
   return (
@@ -11,16 +11,16 @@ const Slider = ({ children, title }) => {
         <SectionHeader title={title} />
         <div className="hidden md:flex items-center gap-3">
           <CommonButton
-            bgColor={"#1F2136"}
+            bgColor={"bg-arrowDisabled"}
             icon={leftArrow}
-            imageStyle={"w-[5px] h-[9px]"}
-            style={`rounded-2xl w-9 h-9`}
+            imageStyle={"w-[5px] h-[9px] mr-0"}
+            type="arrow"
           />
           <CommonButton
-            bgColor={"#585E77"}
+            bgColor={"bg-arrowActive"}
             icon={rightArrow}
-            imageStyle={"w-[5px] h-[9px]"}
-            style={`rounded-2xl w-9 h-9`}
+            imageStyle={"w-[5px] h-[9px] mr-0"}
+            type="arrow"
           />
         </div>
       </div>
