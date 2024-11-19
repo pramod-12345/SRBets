@@ -63,7 +63,7 @@ const HomePage = () => {
           ))}
         </Slider>
       </div>
-      <div className="mt-[48px]">
+      <div className="mt-12">
         <Tabs tabs={tabs}>
           <Table
             columns={columns}

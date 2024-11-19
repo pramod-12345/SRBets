@@ -4,7 +4,7 @@ import usd from "../../assets/svg/usd.svg";
 
 const SkeletonRow = ({ columns }) => {
   return (
-    <tr className="odd:bg-blackRussian even:bg-darkByzantineBlue py-[15px] h-[48px] rounded-xl">
+    <tr className="odd:bg-blackRussian even:bg-darkByzantineBlue py-[15px] h-12 rounded-xl">
       {columns.map((col, index) => (
         <td
           key={index}
@@ -46,7 +46,7 @@ const TableRow = ({ isHeader, columns, rowData }) => {
       className={`${
         isHeader
           ? "py-5 h-[54px]"
-          : "odd:bg-blackRussian even:bg-darkByzantineBlue py-[15px] h-[48px] rounded-xl font-medium"
+          : "odd:bg-blackRussian even:bg-darkByzantineBlue py-[15px] h-12 rounded-xl font-medium"
       }`}
     >
       {columns?.map((col, colIndex) => (

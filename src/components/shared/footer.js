@@ -29,7 +29,7 @@ const Footer = () => {
     { icon: footer?.tron },
   ];
   return (
-    <footer className="my-[48px] ">
+    <footer className="my-12 ">
       <div className="flex items-center justify-between py-7">
         <div className="flex flex-col gap-7 sm:gap-3">
           <div className="flex items-center gap-3 font-monasans">

@@ -8,6 +8,8 @@ import Table from "../../components/shared/table";
 import { columns, rows } from "../../data";
 import Tabs from "../../components/common/tab";
 import Badge from "../../components/common/badge";
+import Seperator from "../../components/common/seperator";
+import Accordion from "../../components/common/accordion";
 
 const SportsLandingPage = () => {
   const [isAccord, setIsAccord] = useState(false);
@@ -33,10 +35,10 @@ const SportsLandingPage = () => {
       <div className="mt-5">
         <Tabs tabs={tabs}>
           <div className="mt-4 w-full" id="in-play">
-            <div className="bg-darkBlueBlack p-4 w-full rounded-lg">
+            {/* <div className="bg-darkBlueBlack py-4 px-5 w-full rounded-lg">
               <div
                 className={`flex justify-between items-center ${
-                  isMainAccord ? "mb-4" : ""
+                  isMainAccord ? "mb-5" : ""
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -67,9 +69,7 @@ const SportsLandingPage = () => {
                 <>
                   <div className="bg-darkByzantineBlue rounded-lg mb-4 w-full">
                     <div
-                      className={`flex justify-between items-center p-4 ${
-                        isAccord ? "border-b border-gray-700" : ""
-                      }`}
+                      className={`flex justify-between items-center py-4 px-5 `}
                     >
                       <Typography
                         color={"vintageRibbon"}
@@ -85,59 +85,96 @@ const SportsLandingPage = () => {
                         onClick={() => setIsAccord(!isAccord)}
                       />
                     </div>
+                    {isAccord && <Seperator />}
 
                     {isAccord && (
                       <div className="p-4">
                         <div className="flex items-center gap-2 mb-2">
-                          <span className="bg-Amaranth text-white text-[10px] leading-3 px-2 py-0.5 rounded">
-                            LIVE
-                          </span>
-                          <span className="text-sm leading-4 font-medium text-vintageRibbon">
-                            First innings
-                          </span>
+                          <div className="bg-Amaranth px-1 rounded-[5px] h-4 flex items-center">
+                            <Typography
+                              color={"white"}
+                              variant={"size10SemiBold"}
+                              content={"LIVE"}
+                            />
+                          </div>
+                          <Typography
+                            color={"vintageRibbon"}
+                            variant={"textXsMedium"}
+                            content={"First innings"}
+                          />
                         </div>
 
-                        <div className="flex flex-col lg:flex-row justify-between items-center mt-4 gap-[48px]">
+                        <div className="flex flex-col lg:flex-row justify-between items-center mt-4 gap-12">
                           <div className="flex justify-between items-center w-full">
                             <div className="flex flex-col gap-1">
-                              <span className="text-sm leading-4 font-semibold">
-                                Pakistan
-                              </span>
-                              <span className="leading-4 text-sm font-semibold">England</span>
+                              <Typography
+                                color={"white"}
+                                variant={"textSmSemibold"}
+                                content={"Pakistan"}
+                              />
+                              <Typography
+                                color={"white"}
+                                variant={"textSmSemibold"}
+                                content={"England"}
+                              />
                             </div>
                             <div className="flex flex-col gap-1 font-semibold">
-                              <span className="text-[#F02A83] text-sm leading-4 font-semibold">
-                                328/4 (86)
-                              </span>
-                              <span className="text-vintageRibbon text-[14px] leading-4">
-                                Yet to bat
-                              </span>
+                              <Typography
+                                color={"secondary"}
+                                variant={"textSmSemibold"}
+                                content={"328/4 (86)"}
+                              />
+                              <Typography
+                                color={"vintageRibbon"}
+                                variant={"textSmSemibold"}
+                                content={"Yet to bat"}
+                              />
                             </div>
                           </div>
 
                           <div className="flex gap-4">
                             <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
-                              <div className="text-xs leading-4">India</div>
-                              <div className="text-chinesePurple font-bold text-[16px]">
-                                1.32
-                              </div>
+                              <Typography
+                                color={"white"}
+                                variant={"textXsNormal"}
+                                content={"India"}
+                              />
+                              <Typography
+                                color={"chinesePurple"}
+                                variant={"size16Bold"}
+                                content={"1.32"}
+                              />
                             </div>
                             <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
-                              <div className="text-xs leading-4">
-                                Bangladesh
-                              </div>
-                              <div className="text-chinesePurple font-bold text-[16px]">
-                                1.32
-                              </div>
+                              <Typography
+                                color={"white"}
+                                variant={"textXsNormal"}
+                                content={"Bangladesh"}
+                              />
+                              <Typography
+                                color={"chinesePurple"}
+                                variant={"size16Bold"}
+                                content={"1.32"}
+                              />
                             </div>
                             <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-1 bg-blackRussian rounded">
-                              <div className="text-xs leading-4">Draw</div>
-                              <div className="text-vintageRibbon leading-5 font-bold text-sm">
-                                NA
-                              </div>
+                              <Typography
+                                color={"white"}
+                                variant={"textXsNormal"}
+                                content={"Draw"}
+                              />
+                              <Typography
+                                color={"vintageRibbon"}
+                                variant={"size16Bold"}
+                                content={"NA"}
+                              />
                             </div>
                             <div className="flex items-center w-[60px] h-[56px] bg-blackRussian px-3 rounded-lg">
-                              <span>+28</span>
+                              <Typography
+                                color={"white"}
+                                variant={"textSmSemibold"}
+                                content={"+28"}
+                              />
                             </div>
                           </div>
                         </div>
@@ -230,7 +267,109 @@ const SportsLandingPage = () => {
                   </div>
                 </>
               )}
-            </div>
+            </div> */}
+
+            <Accordion
+              title={"International"}
+              isMain={true}
+              badgeContent={"3"}
+              labelIcon={globe}
+            >
+              <Accordion isSeperator={true} title={"Test Series Pakistan vs. England"}>
+                <div className="p-4">
+                  <div className="flex items-center gap-2 mb-2 relative">
+                    <div className="w-1 h-[15px] bg-Amaranth absolute left-[-15px]"></div>
+                    <div className="bg-Amaranth px-1 rounded-[5px] h-4 flex items-center">
+                      <Typography
+                        color={"white"}
+                        variant={"size10SemiBold"}
+                        content={"LIVE"}
+                      />
+                    </div>
+                    <Typography
+                      color={"vintageRibbon"}
+                      variant={"textXsMedium"}
+                      content={"First innings"}
+                    />
+                  </div>
+
+                  <div className="flex flex-col lg:flex-row justify-between items-center mt-4 gap-12">
+                    <div className="flex justify-between items-center w-full">
+                      <div className="flex flex-col gap-1">
+                        <Typography
+                          color={"white"}
+                          variant={"textSmSemibold"}
+                          content={"Pakistan"}
+                        />
+                        <Typography
+                          color={"white"}
+                          variant={"textSmSemibold"}
+                          content={"England"}
+                        />
+                      </div>
+                      <div className="flex flex-col gap-1 font-semibold">
+                        <Typography
+                          color={"secondary"}
+                          variant={"textSmSemibold"}
+                          content={"328/4 (86)"}
+                        />
+                        <Typography
+                          color={"vintageRibbon"}
+                          variant={"textSmSemibold"}
+                          content={"Yet to bat"}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
+                        <Typography
+                          color={"white"}
+                          variant={"textXsNormal"}
+                          content={"India"}
+                        />
+                        <Typography
+                          color={"chinesePurple"}
+                          variant={"size16Bold"}
+                          content={"1.32"}
+                        />
+                      </div>
+                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
+                        <Typography
+                          color={"white"}
+                          variant={"textXsNormal"}
+                          content={"Bangladesh"}
+                        />
+                        <Typography
+                          color={"chinesePurple"}
+                          variant={"size16Bold"}
+                          content={"1.32"}
+                        />
+                      </div>
+                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-1 bg-blackRussian rounded">
+                        <Typography
+                          color={"white"}
+                          variant={"textXsNormal"}
+                          content={"Draw"}
+                        />
+                        <Typography
+                          color={"vintageRibbon"}
+                          variant={"size16Bold"}
+                          content={"NA"}
+                        />
+                      </div>
+                      <div className="flex items-center w-[60px] h-[56px] bg-blackRussian px-3 rounded-lg">
+                        <Typography
+                          color={"white"}
+                          variant={"textSmSemibold"}
+                          content={"+28"}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Accordion>
+            </Accordion>
           </div>
         </Tabs>
       </div>
