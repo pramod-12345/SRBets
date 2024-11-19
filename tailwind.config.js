@@ -23,7 +23,11 @@ export default {
         neonBlue: "#7651FE",
         yankeesBlue: "#222441",
         eigengrau: "#1c1c2e",
-        Amaranth:'#F02A5C'
+        Amaranth:'#F02A5C',
+        mountainMeadow: '#1AC35D',
+        carminePink:"#E54E3D",
+        ebonyClay:'#2B2E45',
+        oxfordBlue:'#393D5D'
       },
       height: {
         "table-header": "44px", 

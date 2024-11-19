@@ -51,7 +51,7 @@ const Accordion = ({ title, children, badgeContent, isMain, labelIcon, isSeperat
           />
         )}
       </div>
-      {(isOpen && isSeperator) && <Seperator />}
+      {(isOpen && isSeperator) && <Seperator color={'oxfordBlue'}/>}
       {/* Accordion Content */}
       {isOpen && <div className="mt-4">{children}</div>}
     </div>

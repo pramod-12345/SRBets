@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Seperator = () => {
+const Seperator = ({color='yankeesBlue'}) => {
   return (
-    <hr className="bg-yankeesBlue w-full h-px opacity-40" />
+    <hr className={`bg-${color} w-full h-px opacity-30`} />
   )
 }
 

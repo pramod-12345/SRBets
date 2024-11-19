@@ -1,5 +1,8 @@
 import React from "react";
 import Typography from "./typography";
+import Seperator from "./seperator";
+import dollarIcon from "../../assets/svg/usd-icon.svg";
+import CommonButton from "./button";
 
 export const BannerCard = ({ bannerImg, containerStyle, imgStyle }) => {
   return (
@@ -69,64 +72,112 @@ export const SportsCard = ({ bgImg, title, number, onClick }) => {
   );
 };
 
-export const BetCards = ({ date, status, match, result, odds, betAmount, payout, infoIcon , isButton=false }) => {
+export const BetCards = ({
+  date,
+  status,
+  match,
+  result,
+  odds,
+  betAmount,
+  payout,
+  infoIcon,
+  isButton = false,
+}) => {
   return (
-    <div className="bg-[#2B2E45] w-full rounded-lg shadow-lg">
+    <div className="bg-ebonyClay w-full rounded-lg shadow-lg">
       {/* Date and Status */}
-      <div className="flex justify-between items-center p-2">
-        <span className="text-vintageRibbon leading-4 font-semibold text-sm">{date}</span>
+      <div className="flex justify-between items-center px-4 py-3">
+        <Typography
+          color={"vintageRibbon"}
+          variant={"textSmBold"}
+          content={date}
+        />
         <div className="flex items-center gap-2">
-          <span 
-            className={`flex justify-center items-center w-[30px] h-[16px] text-white text-[10px] leading-3 font-semibold rounded ${
-              status === "WIN" ? "bg-[#1AC35D]" : "bg-[#E54E3D]"
+          <div
+            className={`flex justify-center items-center w-[30px] h-[16px] rounded ${
+              status === "WIN" ? "bg-mountainMeadow" : "bg-carminePink"
             }`}
           >
-            {status}
-          </span>
+            <Typography
+              color={"white"}
+              variant={"size10SemiBold"}
+              content={status}
+            />
+          </div>
           <span>
             <img src={infoIcon} alt="Info" />
           </span>
         </div>
       </div>
 
-      {/* Match Info */}
-      <div className="bg-darkByzantineBlue p-4">
-        <div>
-          <p className="font-semibold text-vintageRibbon text-[14px] leading-4 mb-1.5">{match}</p>
-          <p className="text-vintageRibbon text-sm font-medium leading-4 mb-1.5">Winner (incl. super over)</p>
-          <div className="flex justify-between items-center mb-2">
-            <p className="text-white text-[14px]  leading-4">{result}</p>
-            {/* Odds */}
+      <div className="bg-darkByzantineBlue rounded-b-lg p-4">
+        <div className="flex flex-col gap-1">
+          <Typography
+            color={"vintageRibbon"}
+            variant={"textSmBold"}
+            content={match}
+          />
+          <Typography
+            color={"vintageRibbon"}
+            variant={"textSmNormal"}
+            content={"Winner (incl. super over)"}
+          />
+          <div className="flex justify-between items-center">
+            <Typography
+              color={"white"}
+              variant={"textSmSemibold"}
+              content={result}
+            />
             <div className="text-right">
-              <span className="text-[#673CFF] text-[14px] leading-4 font-semibold">{odds}</span>
+              <Typography
+                color={"primary"}
+                variant={"textSmSemibold"}
+                content={odds}
+              />
             </div>
           </div>
         </div>
-        <hr className="border border-[#2B2E45]" />
-        {/* Details */}
+        <div className="py-6">
+          <Seperator color={"ebonyClay"} />
+        </div>
         <div className="space-y-2 text-white mt-2">
           <div className="flex justify-between text-[14px] leading-4">
             <span className="text-vintageRibbon">Odds</span>
-            <span className="text-vintageRibbon">{odds}</span>
+            <Typography
+              color={"vintageRibbon"}
+              variant={"textSmNormal"}
+              content={`$${odds}`}
+            />
           </div>
           <div className="flex justify-between text-[14px] leading-4">
             <span className="text-vintageRibbon">Total bet amount</span>
-            <span>
-              ${betAmount} <span className="text-[#1AC35D]">$</span>
-            </span>
+            <div className="flex gap-1 items-center">
+              <Typography
+                color={"white"}
+                variant={"textSmNormal"}
+                content={`$${betAmount}`}
+              />{" "}
+              <img src={dollarIcon} className="w-4 h-4" />
+            </div>
           </div>
           <div className="flex justify-between text-[14px] leading-4">
-            <span className="text-vintageRibbon">Payout</span>
-            <span>
-              ${payout} <span className="text-[#1AC35D]">$</span>
-            </span>
+            <Typography
+              color={"vintageRibbon"}
+              variant={"textSmSemibold"}
+              content={"Payout"}
+            />
+            {/* <span className="text-vintageRibbon">Payout</span> */}
+            <div className="flex gap-1 items-center">
+              <Typography
+                color={"white"}
+                variant={"textSmSemibold"}
+                content={`$${payout}`}
+              />{" "}
+              <img src={dollarIcon} className="w-4 h-4" />
+            </div>
           </div>
         </div>
-            {
-              isButton &&  <button className="w-full text-[16px] font-semibold leading-5 rounded-lg bg-vintageRibbon p-2 text-white mt-2">
-              Cashout $0.80
-            </button> 
-            }
+        {isButton && <CommonButton label={"Cashout $0.80"} type="cashoutBtn" />}
       </div>
     </div>
   );

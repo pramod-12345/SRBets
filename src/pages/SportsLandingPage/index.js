@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Typography from "../../components/common/typography";
 import globe from "../../assets/svg/globe.svg";
-import arrowDown from "../../assets/svg/arrow-down.svg";
-import minusIcon from "../../assets/svg/accordion-minus-icon.svg";
-import plusIcon from "../../assets/svg/accordion-plus-icon.svg";
 import Table from "../../components/shared/table";
 import { columns, rows } from "../../data";
 import Tabs from "../../components/common/tab";
-import Badge from "../../components/common/badge";
-import Seperator from "../../components/common/seperator";
 import Accordion from "../../components/common/accordion";
 
 const SportsLandingPage = () => {

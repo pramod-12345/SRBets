@@ -59,7 +59,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <Seperator />
+      <Seperator color={'yankeesBlue'}/>
       <div className=" sm:py-8 py-5 sm:px-4 px-0">
         <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
           {footerData.map((section, index) => (
@@ -87,7 +87,7 @@ const Footer = () => {
           ))}
         </div>
       </div>
-      <Seperator />
+      <Seperator color={'yankeesBlue'}/>
       <div className="sm:py-8 py-5 sm:px-4 px-0 flex items-center gap-x-[75px] gap-y-[34px] flex-wrap">
         {coins?.map((i) => (
           <img src={i?.icon} alt="" className=" h-[36px]" />
