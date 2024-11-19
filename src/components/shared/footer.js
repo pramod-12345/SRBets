@@ -3,7 +3,7 @@ import navImages from "../../assets/svg/navbar";
 import Typography from "../common/typography";
 import { footer } from "../../assets/svg/footer";
 import Seperator from "../common/seperator";
-import { footerData } from "../../contant";
+import { footerData } from "../../data";
 
 const Footer = () => {
   const socialIcons = [
@@ -38,7 +38,7 @@ const Footer = () => {
               alt="logo"
               className="sm:w-9 sm:h-9 h-8 w-8"
             />
-            <span className="text-2xl text-white hidden md:block">
+            <span className="text-2xl text-white">
               <b className="mr-2">SR</b>Bets
             </span>
           </div>
@@ -48,12 +48,10 @@ const Footer = () => {
             ))}
           </div>
           <Typography
-            color={"text-arrowActive"}
-            fontSize={"text-sm"}
-            fontWeight={"font-medium"}
-          >
-            © 2024 SRbets.com | All Rights Reserved.
-          </Typography>
+            color={"purpleFog"}
+            variant={"textSmMedium"}
+            content={"© 2024 SRbets.com | All Rights Reserved."}
+          />
         </div>
         <div className="hidden sm:flex gap-6 items-center">
           {socialIcons?.map((i) => (
@@ -66,16 +64,22 @@ const Footer = () => {
         <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8">
           {footerData.map((section, index) => (
             <div key={index} className="">
-              <h2 className="text-xs font-medium text-arrowActive uppercase">
-                {section.section}
-              </h2>
+              <Typography
+                color={"purpleFog"}
+                variant={"textXsMedium"}
+                content={section.section?.toUpperCase()}
+              />
               <ul className="mt-4 gap-2 flex flex-col">
                 {section.links.map((link, linkIndex) => (
                   <li
                     key={linkIndex}
-                    className="text-white text-xs hover:text-white transition duration-200"
+                    className="transition duration-200 cursor-pointer"
                   >
-                    {link}
+                    <Typography
+                      color={"white"}
+                      variant={"textXsNormal"}
+                      content={link}
+                    />
                   </li>
                 ))}
               </ul>
@@ -90,26 +94,22 @@ const Footer = () => {
         ))}
         <div>
           <Typography
-            fontWeight={"font-medium"}
-            fontSize={"text-xs"}
-            color={"text-arrowActive"}
-          >
-            SRbets is committed to responsible gambling, for more information
-            visit Gamblingtherapy.org
-          </Typography>
+            variant={"textXsMedium"}
+            color={"purpleFog"}
+            content="SRbets is committed to responsible gambling, for more information
+            visit Gamblingtherapy.org"
+          />
           <div className="mt-3">
             <Typography
-              fontWeight={"font-medium"}
-              fontSize={"text-xs"}
-              color={"text-arrowActive"}
-            >
-              Stake is owned and operated by Medium Rare N.V., registration
+              variant={"textXsMedium"}
+              color={"purpleFog"}
+              content="Stake is owned and operated by Medium Rare N.V., registration
               number: 145353, registered address: Korporaalweg 10, Willemstad,
               Curaçao. Contact us at support@stake.com. Payment agent company is
               Medium Rare Limited with address 7-9 Riga Feraiou, LIZANTIA COURT,
               Office 310, Agioi Omologites, 1087 Nicosia, Cyprus and
-              Registration number: HE 410775
-            </Typography>
+              Registration number: HE 410775"
+            />
           </div>
         </div>
       </div>

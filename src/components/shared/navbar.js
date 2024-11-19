@@ -1,10 +1,12 @@
 import React from "react";
 import navImages from "../../assets/svg/navbar";
-import { MbNavTabs } from "../../contant";
+import { MbNavTabs } from "../../data";
 import CommonButton from "../common/button";
 import Search from "../common/search";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
+  const navigate= useNavigate();
   const NavItem = ({ icon, label }) => (
     <div className="flex flex-col items-center text-gray-400 hover:text-white">
       <img src={icon} alt="" className="h-8 w-8" />
@@ -16,7 +18,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
         {label}
       </span>
       {label === "Home" ? (
-        <span className="w-7 h-1 bg-[#673CFF] rounded-t-md mt-2"></span>
+        <span className="w-7 h-1 bg-primary rounded-t-md mt-2"></span>
       ) : null}
     </div>
   );
@@ -24,7 +26,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
   return (
     <>
       <header
-        className={`flex w-full items-center bg-[#141525] sm:px-6 sm:py-3.5 p-4 fixed z-20 border-b border-[lightgrey] border-opacity-10`}
+        className={`flex w-full items-center bg-blackRussian sm:px-6 sm:py-3.5 p-4 fixed z-20 border-b border-[lightgrey] border-opacity-10`}
       >
         <div className="w-full">
           <div className="relative  flex items-center justify-between">
@@ -36,7 +38,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
               >
                 <img src={navImages.menuIcon} alt="logo" className="w-4 h-4" />
               </div>
-              <div className="flex items-center gap-3 font-monasans">
+              <div className="flex items-center gap-3 font-monasans cursor-pointer" onClick={()=>navigate('/')}>
                 <img
                   src={navImages.logoStarIcon}
                   alt="logo"
@@ -49,7 +51,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
             </div>
             <Search />
             <div className="flex items-center gap-5">
-              <div className="bg-[#0B0D1C] h-11 rounded-lg flex items-center gap-2 pr-[2px]">
+              <div className="bg-themeBlack h-11 rounded-lg flex items-center gap-2 pr-[2px]">
                 <div className="flex items-center gap-2 pl-3">
                   <img src={navImages.usdIcon} alt="logo" className="w-5 h-5" />
                   <span className="text-sm text-white">2.56</span>
@@ -79,7 +81,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
         </div>
       </header>
 
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-[#1B1E2A] rounded-full px-8 pt-2.5 pb-px w-[352px] flex justify-between items-center md:hidden  shadow-lg">
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] flex justify-between items-center md:hidden  shadow-lg">
         {MbNavTabs?.map((i, index) => (
           <NavItem key={index} icon={i?.icon} label={i?.label} />
         ))}

@@ -2,6 +2,8 @@ import "./App.css";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Layout from "./layout";
 import HomePage from "./pages/HomePage";
+import SportsLandingPage from "./pages/SportsLandingPage";
+import MyBets from "./pages/MyBets";
 
 function App() {
   return (
@@ -9,6 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/sports-landing" element={<SportsLandingPage />} />
+          <Route path="/my-bets" element={<MyBets />} />
         </Route>
       </Routes>
     </Router>

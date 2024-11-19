@@ -1,8 +1,22 @@
 import React from "react";
 
-const Typography = ({ fontSize, fontWeight, color, lineHeight, children }) => {
+const Typography = ({variant, content, color}) => {
+
+  const fontType = {
+    h1: 'font-bold text-[2rem] leading-[2.4rem]',
+    h2: 'font-bold text-[1.75rem] leading-[2.1rem]',
+    h3: 'font-bold text-2xl leading-[1.8rem]',
+    h3Normal: 'font-medium text-2xl',
+    textSmSemibold: 'font-semibold text-sm',
+    textSmMedium: 'font-medium text-sm',
+    textSmNormal: 'font-normal text-sm',
+    textXsBold: 'font-bold text-xs',
+    textXsMedium: 'font-medium text-xs',
+    textXsNormal: 'font-normal text-xs',
+  }
+
   return (
-    <div className={`${fontWeight} ${fontSize} ${color} ${lineHeight}`}>{children}</div>
+    <span className={`${fontType[variant]} text-${color}`}>{content}</span>
   );
 };
 

@@ -4,9 +4,7 @@ import Navbar from "../components/shared/navbar";
 import { Outlet } from "react-router-dom";
 import Container from "../components/common/container";
 import Footer from "../components/shared/footer";
-// import Footer from "../components/shared/footer";
 
-// eslint-disable-next-line react/prop-types
 const Layout = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
 

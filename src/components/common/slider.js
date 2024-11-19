@@ -11,16 +11,15 @@ const Slider = ({ children, title }) => {
         <SectionHeader title={title} />
         <div className="hidden md:flex items-center gap-3">
           <CommonButton
-            bgColor={"bg-arrowDisabled"}
+            bgColor={"bg-darkByzantineBlue"}
             icon={leftArrow}
-            imageStyle={"w-[5px] h-[9px] mr-0"}
-            type="arrow"
+            type="iconBtn"
+            disabled={true}
           />
           <CommonButton
-            bgColor={"bg-arrowActive"}
+            bgColor={"bg-purpleFog"}
             icon={rightArrow}
-            imageStyle={"w-[5px] h-[9px] mr-0"}
-            type="arrow"
+            type="iconBtn"
           />
         </div>
       </div>

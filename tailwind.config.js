@@ -7,19 +7,23 @@ export default {
         monasans: ["Mona Sans", "sans-serif"],
       },
       colors: {
-        label: "#333333",
+        darkCharcoal: "#333333",
         primary: "#673CFF",
-        accent: "#141525",
-        accentLight: "#1B1E2A",
+        blackRussian : "#141525",
+        darkGunmetal: "#1B1E2A",
         themeBlack: "#0b0d1c",
-        textMenu: "#9298B4",
-        textMenuHover: "#664FFF",
-        gradientBorder: "#5A5F9C",
-        btnSecondary: "#F02A83",
-        btnPrimary: "#5B2AED",
-        arrowDisabled: "#1F2136",
-        arrowActive: "#585E77",
-        "table-row":"#9298B4"
+        vintageRibbon: "#9298B4",
+        electricViolet: "#664FFF",
+        darkBlueGray: "#5A5F9C",
+        darkBlueBlack: "#1a1b2e",
+        secondary: "#F02A83",
+        chinesePurple: "#5B2AED",
+        darkByzantineBlue: "#1F2136",
+        purpleFog: "#585E77",
+        neonBlue: "#7651FE",
+        yankeesBlue: "#222441",
+        eigengrau: "#1c1c2e",
+        Amaranth:'#F02A5C'
       },
       height: {
         "table-header": "44px", 
@@ -42,7 +46,16 @@ export default {
       },
       spacing: {
         "18": "72px", // Add your custom spacing here
-      }
+      },
+      keyframes: {
+        bottomToTop: {
+          '0%': { transform: 'translateY(40px)', opacity: 0 },
+          '100%': { transform: 'translateY(0)', opacity: 1 },
+        },
+      },
+      animation: {
+        bottomToTop: 'bottomToTop .3s ease-out',
+      },
     },
   },
   plugins: [],
