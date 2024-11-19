@@ -7,8 +7,6 @@ import Tabs from "../../components/common/tab";
 import Accordion from "../../components/common/accordion";
 
 const SportsLandingPage = () => {
-  const [isAccord, setIsAccord] = useState(false);
-  const [isMainAccord, setIsMainAccord] = useState(false);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -302,7 +300,7 @@ const SportsLandingPage = () => {
                           content={"England"}
                         />
                       </div>
-                      <div className="flex flex-col gap-1 font-semibold">
+                      <div className="flex flex-col gap-1 text-Amaranth font-semibold">
                         <Typography
                           color={"secondary"}
                           variant={"textSmSemibold"}
@@ -316,8 +314,9 @@ const SportsLandingPage = () => {
                       </div>
                     </div>
 
-                    <div className="flex gap-4">
-                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
+                    <div className="flex flex-wrap lg:flex-nowrap gap-4">
+                      <div className="flex items-center gap-4 w-full">
+                      <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                         <Typography
                           color={"white"}
                           variant={"textXsNormal"}
@@ -329,7 +328,7 @@ const SportsLandingPage = () => {
                           content={"1.32"}
                         />
                       </div>
-                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-2 bg-blackRussian rounded">
+                      <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                         <Typography
                           color={"white"}
                           variant={"textXsNormal"}
@@ -341,7 +340,7 @@ const SportsLandingPage = () => {
                           content={"1.32"}
                         />
                       </div>
-                      <div className="text-center w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start pl-4 pt-1 bg-blackRussian rounded">
+                      <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                         <Typography
                           color={"white"}
                           variant={"textXsNormal"}
@@ -353,7 +352,9 @@ const SportsLandingPage = () => {
                           content={"NA"}
                         />
                       </div>
-                      <div className="flex items-center w-[60px] h-[56px] bg-blackRussian px-3 rounded-lg">
+                      </div>
+                     
+                      <div className="flex items-center justify-center w-full lg:w-[60px] h-[36px] lg:h-[56px] bg-blackRussian px-3 rounded-lg">
                         <Typography
                           color={"white"}
                           variant={"textSmSemibold"}
