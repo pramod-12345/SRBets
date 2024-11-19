@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import SportsLandingPage from "./pages/SportsLandingPage";
 import MyBets from "./pages/MyBets";
 import SportsHome from "./pages/SportsHome"
+import CasinoHome from "./pages/CasinoHome";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/sports-landing" element={<SportsLandingPage />} />
           <Route path="/sports-home" element={<SportsHome/>}/>
+          <Route path="/casino-home" element={<CasinoHome/>}/>
           <Route path="/my-bets" element={<MyBets />} />
         </Route>
       </Routes>

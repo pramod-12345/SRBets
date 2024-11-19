@@ -10,7 +10,7 @@ export const menuData = {
   mainButtons: {
     title: "Main",
     buttons: [
-      { label: "Casino", type: "secondary", icon: sidebarImg?.casino, path:'/#' },
+      { label: "Casino", type: "secondary", icon: sidebarImg?.casino, path:'/casino-home' },
       { label: "Sports", type: "primary", icon: sidebarImg.sports, path:'/sports-home' },
     ],
   },

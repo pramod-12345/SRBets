@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import Typography from "../../components/common/typography";
 import Advertisement from "../../components/common/advertisement";
 import Search from "../../components/common/search";
-import { columns, rows, sportsGames } from "../../data";
+import { casinoGames, columns, rows, sportsGames } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
 
-const SportsHome = () => {
+const CasinoHome = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -19,7 +19,7 @@ const SportsHome = () => {
 
   return (
     <div>
-      <Typography color={"white"} variant={"h1"} content={"Sports home"} />
+      <Typography color={"white"} variant={"h1"} content={"Casino home"} />
       <div className="mt-5">
         <Advertisement />
       </div>
@@ -30,17 +30,11 @@ const SportsHome = () => {
         <Typography
           color={"white"}
           variant={"h3"}
-          content={"Top 10 Sports Games"}
+          content={"Top 10 Casino Games"}
         />
         <div className="flex gap-3 md:grid-cols-3 lg:grid-cols-5 flex-wrap mt-7">
-          {sportsGames?.map((item, index) => (
-            <SportsCard
-              key={index}
-              width={'208px'}
-              bgImg={item?.icon}
-              title={item?.title}
-              number={item?.number}
-            />
+          {casinoGames?.map((item, index) => (
+            <SportsCard key={index} bgImg={item?.icon}  width={'208px'} />
           ))}
         </div>
       </div>
@@ -53,4 +47,4 @@ const SportsHome = () => {
   );
 };
 
-export default SportsHome;
+export default CasinoHome;
