@@ -11,7 +11,7 @@ export const menuData = {
     title: "Main",
     buttons: [
       { label: "Casino", type: "secondary", icon: sidebarImg?.casino, path:'/#' },
-      { label: "Sports", type: "primary", icon: sidebarImg.sports, path:'/#' },
+      { label: "Sports", type: "primary", icon: sidebarImg.sports, path:'/sports-home' },
     ],
   },
   accountButtons: {

@@ -20,13 +20,13 @@ export const CasinoCard = ({ icon }) => {
   );
 };
 
-export const SportsCard = ({ bgImg, title, number, onClick }) => {
+export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
   return (
-    <div className="min-w-[176px] min-h-[280px] transform transition duration-300 hover:-translate-y-2">
+    <div className={`${width === '176px' ? 'min-w-[176px] max-w-[176px]' : 'min-w-[208px] max-w-[208px]'} min-h-[280px] transform transition duration-300 hover:-translate-y-2`}>
       <div
         style={{
           backgroundImage: `url(${bgImg})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
@@ -85,7 +85,6 @@ export const BetCards = ({
 }) => {
   return (
     <div className="bg-ebonyClay w-full rounded-lg shadow-lg">
-      {/* Date and Status */}
       <div className="flex justify-between items-center px-4 py-3">
         <Typography
           color={"vintageRibbon"}
@@ -166,7 +165,6 @@ export const BetCards = ({
               variant={"textSmSemibold"}
               content={"Payout"}
             />
-            {/* <span className="text-vintageRibbon">Payout</span> */}
             <div className="flex gap-1 items-center">
               <Typography
                 color={"white"}

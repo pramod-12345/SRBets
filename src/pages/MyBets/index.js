@@ -5,7 +5,6 @@ import infoIcon from "../../assets/svg/info-icon.svg";
 import { cardData, columns, rows } from "../../data";
 import Table from "../../components/shared/table";
 
-
 const MyBets = () => {
   const tabs = [
     { id: "casino", label: "Casino" },
@@ -19,7 +18,6 @@ const MyBets = () => {
   return (
     <div className="mt-5 flex flex-col items-center justify-between ">
       <Tabs tabs={tabs} isOptions={true}>
-
         {/* Cards */}
         <div
           id="casino"
@@ -41,9 +39,9 @@ const MyBets = () => {
         </div>
       </Tabs>
       <div className="mt-8 w-full">
-      <Tabs tabs={tableTabs}>
-        <Table columns={columns} data={rows} id={'top-bets'}/>
-      </Tabs>
+        <Tabs tabs={tableTabs}>
+          <Table columns={columns} data={rows} id={"top-bets"} />
+        </Tabs>
       </div>
     </div>
   );
