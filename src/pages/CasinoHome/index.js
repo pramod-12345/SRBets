@@ -5,6 +5,7 @@ import Search from "../../components/common/search";
 import { casinoGames, columns, rows, sportsGames } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
+import NoBetsFound from "../../components/common/NoBetsFound";
 
 const CasinoHome = () => {
   const [loading, setLoading] = useState(true);
