@@ -6,6 +6,7 @@ const Typography = ({ variant, content, color }) => {
     h2: "font-bold text-[1.75rem] leading-[2.1rem]",
     h3: "font-bold text-2xl leading-[1.8rem]",
     h3Normal: "font-medium text-2xl",
+    size20Semibold:"text-xl font-semibold",
     size16Bold: "font-bold text-base",
     size10SemiBold: "font-semibold text-[10px]",
     size14Bold: "font-bold text-sm",
