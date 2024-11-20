@@ -83,7 +83,7 @@ const Sidebar = ({ sidebarToggle }) => {
         maxHeight: "calc(100vh - 72px)",
         minHeight: "calc(100vh - 72px)",
       }}
-      className={`hidden sidebar-main no-scrollbar bg-gray-900 text-white h-full md:flex flex-col overflow-auto ${
+      className={`hidden sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto ${
         sidebarToggle ? "min-w-[72px] w-[72px]" : "min-w-[260px] w-[260px]"
       } transition-all ease-in-out duration-300`}
     >

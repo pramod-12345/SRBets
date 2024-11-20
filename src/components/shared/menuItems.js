@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const MenuItems = ({sidebarToggle, buttons, title}) => {
     const location = useLocation();
@@ -11,9 +11,9 @@ const MenuItems = ({sidebarToggle, buttons, title}) => {
         <h3 className="text-vintageRibbon text-xs font-bold mb-0.5 transition-all ease-in-out duration-1000">{ sidebarToggle ? '' : title}</h3>
       )}
       {buttons.map((button, index) => (
-        <a
+        <Link
           key={index}
-          href={button.path}
+          to={button.path}
         >
           <button
             style={{ color: button.color }}
@@ -26,7 +26,7 @@ const MenuItems = ({sidebarToggle, buttons, title}) => {
             <img src={button.icon} alt="" className="w-7 h-7" />
             {sidebarToggle ? "" : button.label}
           </button>
-        </a>
+        </Link>
       ))}
     </div>
   )

@@ -5,7 +5,7 @@ import CommonButton from "../common/button";
 import Search from "../common/search";
 import { useNavigate } from "react-router-dom";
 
-const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
+const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipToggle }) => {
   const navigate= useNavigate();
   const NavItem = ({ icon, label }) => (
     <div className="flex flex-col items-center text-gray-400 hover:text-white">
@@ -76,6 +76,13 @@ const Navbar = ({ setSidebarToggle, sidebarToggle }) => {
                 alt="logo"
                 className="sm:w-7 sm:h-7 w-5 h-5"
               />
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => setBetSlipToggle(!betSlipToggle)}
+                className="hidden md:block"
+              >
+                <img src={navImages.menuIcon} alt="logo" className="w-4 h-4" />
+              </div>
             </div>
           </div>
         </div>

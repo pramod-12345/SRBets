@@ -19,7 +19,7 @@ const Dropdown = ({
         <div className={`relative`}>
             <button 
             onClick={() => setIsOpen((prev) => !prev)}
-            className="flex items-center text-[14px] justify-between gap-2 font-medium leading-4 max-w-[150px] bg-[#1F2136] px-4 py-3.5 rounded-lg">
+            className="flex items-center text-[14px] justify-between gap-2 font-medium leading-4 max-w-[150px] bg-darkByzantineBlue px-4 py-3.5 rounded-lg">
             {selected || placeholder}
             <img src={arrowDown} className="w-7 h-7" alt="Down Arrow" />
           </button>
@@ -33,7 +33,7 @@ const Dropdown = ({
                                 key={index}
                                 onClick={() => handleSelect(item)}
                                 className="p-2 cursor-pointer">
-                                <span className="text-[#141525] text-[14px] leading-10  font-semibold">{item?.label}</span>
+                                <span className="text-blackRussian text-[14px] leading-10  font-semibold">{item?.label}</span>
                             </li>
                         ))}
                     </ul>

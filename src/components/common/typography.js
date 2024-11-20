@@ -15,6 +15,10 @@ const Typography = ({ variant, content, color }) => {
     size12Bold: "font-bold text-xs",
     size12Medium: "font-medium text-xs",
     size12Normal: "font-normal text-xs",
+    text14Medium: "text-[14px] leading-4 font-medium",
+    text12Normal: "text-[12px] leading-3 font-normal",
+    text12Semibold: "text-[12px] leading-3 font-semibold",
+    text14Semibold: "text-[14px] leading-4 font-semibold"
   };
 
   const colorType = {
