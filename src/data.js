@@ -154,6 +154,21 @@ export const sportsGames = [
     title: "F1 race",
     number: "1253"
   },
+  {
+    icon: sportsImages?.politcs,
+    title: "Politcs",
+    number: "1253"
+  },
+  {
+    icon: sportsImages?.tennis,
+    title: "Tennis",
+    number: "1253"
+  },
+  {
+    icon: sportsImages?.f1Racing,
+    title: "F1 race",
+    number: "1253"
+  },
 ];
 
 export const MbNavTabs = [

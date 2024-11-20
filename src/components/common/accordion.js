@@ -21,14 +21,14 @@ const Accordion = ({ title, children, badgeContent, isMain, labelIcon, isSeperat
 
           <Typography
             color={isMain ? "white" : "vintageRibbon"}
-            variant={"textSmSemibold"}
+            variant={"size14Semibold"}
             content={title}
           />
           {badgeContent && (
             <Badge color={"vintageRibbon"}>
               <Typography
                 color={"white"}
-                variant={"textSmSemibold"}
+                variant={"size14Semibold"}
                 content={badgeContent}
               />
             </Badge>

@@ -10,7 +10,7 @@ const NoBetsFound = () => {
       <div className='mt-7'>
         <Typography content={"No Active Bets"} variant={"h3"} color={"vintageRibbon"}/>
         <div className='text-center mt-2'>
-        <Typography content={"Start Betting Now!"} variant={"textSmSemibold"} color={"white"}/>
+        <Typography content={"Start Betting Now!"} variant={"size14Semibold"} color={"white"}/>
         </div>
       </div>
       </div>

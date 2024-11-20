@@ -49,7 +49,7 @@ const Footer = () => {
           </div>
           <Typography
             color={"purpleFog"}
-            variant={"textSmMedium"}
+            variant={"size14Medium"}
             content={"© 2024 SRbets.com | All Rights Reserved."}
           />
         </div>
@@ -66,7 +66,7 @@ const Footer = () => {
             <div key={index} className="">
               <Typography
                 color={"purpleFog"}
-                variant={"textXsMedium"}
+                variant={"size12Medium"}
                 content={section.section?.toUpperCase()}
               />
               <ul className="mt-4 gap-2 flex flex-col">
@@ -77,7 +77,7 @@ const Footer = () => {
                   >
                     <Typography
                       color={"white"}
-                      variant={"textXsNormal"}
+                      variant={"size12Normal"}
                       content={link}
                     />
                   </li>
@@ -94,14 +94,14 @@ const Footer = () => {
         ))}
         <div>
           <Typography
-            variant={"textXsMedium"}
+            variant={"size12Medium"}
             color={"purpleFog"}
             content="SRbets is committed to responsible gambling, for more information
             visit Gamblingtherapy.org"
           />
           <div className="mt-3">
             <Typography
-              variant={"textXsMedium"}
+              variant={"size12Medium"}
               color={"purpleFog"}
               content="Stake is owned and operated by Medium Rare N.V., registration
               number: 145353, registered address: Korporaalweg 10, Willemstad,

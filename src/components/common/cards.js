@@ -55,12 +55,12 @@ export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
               <div className="flex items-center gap-1">
                 <Typography
                   color={"text-white"}
-                  variant={"textXsBold"}
+                  variant={"size12Bold"}
                   content={number}
                 />{" "}
                 <Typography
                   color={"text-white"}
-                  variant={"textXsNormal"}
+                  variant={"size12Normal"}
                   content={"Playing"}
                 />
               </div>
@@ -88,7 +88,7 @@ export const BetCards = ({
       <div className="flex justify-between items-center px-4 py-3">
         <Typography
           color={"vintageRibbon"}
-          variant={"textSmBold"}
+          variant={"size14Bold"}
           content={date}
         />
         <div className="flex items-center gap-2">
@@ -113,24 +113,24 @@ export const BetCards = ({
         <div className="flex flex-col gap-1">
           <Typography
             color={"vintageRibbon"}
-            variant={"textSmBold"}
+            variant={"size14Bold"}
             content={match}
           />
           <Typography
             color={"vintageRibbon"}
-            variant={"textSmNormal"}
+            variant={"size14Normal"}
             content={"Winner (incl. super over)"}
           />
           <div className="flex justify-between items-center">
             <Typography
               color={"white"}
-              variant={"textSmSemibold"}
+              variant={"size14Semibold"}
               content={result}
             />
             <div className="text-right">
               <Typography
                 color={"primary"}
-                variant={"textSmSemibold"}
+                variant={"size14Semibold"}
                 content={odds}
               />
             </div>
@@ -144,7 +144,7 @@ export const BetCards = ({
             <span className="text-vintageRibbon">Odds</span>
             <Typography
               color={"vintageRibbon"}
-              variant={"textSmNormal"}
+              variant={"size14Normal"}
               content={`$${odds}`}
             />
           </div>
@@ -153,7 +153,7 @@ export const BetCards = ({
             <div className="flex gap-1 items-center">
               <Typography
                 color={"white"}
-                variant={"textSmNormal"}
+                variant={"size14Normal"}
                 content={`$${betAmount}`}
               />{" "}
               <img src={dollarIcon} className="w-4 h-4" />
@@ -162,13 +162,13 @@ export const BetCards = ({
           <div className="flex justify-between text-[14px] leading-4">
             <Typography
               color={"vintageRibbon"}
-              variant={"textSmSemibold"}
+              variant={"size14Semibold"}
               content={"Payout"}
             />
             <div className="flex gap-1 items-center">
               <Typography
                 color={"white"}
-                variant={"textSmSemibold"}
+                variant={"size14Semibold"}
                 content={`$${payout}`}
               />{" "}
               <img src={dollarIcon} className="w-4 h-4" />

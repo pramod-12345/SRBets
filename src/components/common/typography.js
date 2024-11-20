@@ -8,13 +8,13 @@ const Typography = ({ variant, content, color }) => {
     h3Normal: "font-medium text-2xl",
     size16Bold: "font-bold text-base",
     size10SemiBold: "font-semibold text-[10px]",
-    textSmBold: "font-bold text-sm",
-    textSmSemibold: "font-semibold text-sm",
-    textSmMedium: "font-medium text-sm",
-    textSmNormal: "font-normal text-sm",
-    textXsBold: "font-bold text-xs",
-    textXsMedium: "font-medium text-xs",
-    textXsNormal: "font-normal text-xs",
+    size14Bold: "font-bold text-sm",
+    size14Semibold: "font-semibold text-sm",
+    size14Medium: "font-medium text-sm",
+    size14Normal: "font-normal text-sm",
+    size12Bold: "font-bold text-xs",
+    size12Medium: "font-medium text-xs",
+    size12Normal: "font-normal text-xs",
   };
 
   const colorType = {

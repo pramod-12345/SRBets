@@ -50,7 +50,7 @@ const SportsLandingPage = () => {
                     </div>
                     <Typography
                       color={"vintageRibbon"}
-                      variant={"textXsMedium"}
+                      variant={"size12Medium"}
                       content={"First innings"}
                     />
                   </div>
@@ -60,24 +60,24 @@ const SportsLandingPage = () => {
                       <div className="flex flex-col gap-1">
                         <Typography
                           color={"white"}
-                          variant={"textSmSemibold"}
+                          variant={"size14Semibold"}
                           content={"Pakistan"}
                         />
                         <Typography
                           color={"white"}
-                          variant={"textSmSemibold"}
+                          variant={"size14Semibold"}
                           content={"England"}
                         />
                       </div>
                       <div className="flex flex-col gap-1 text-Amaranth font-semibold">
                         <Typography
                           color={"secondary"}
-                          variant={"textSmSemibold"}
+                          variant={"size14Semibold"}
                           content={"328/4 (86)"}
                         />
                         <Typography
                           color={"vintageRibbon"}
-                          variant={"textSmSemibold"}
+                          variant={"size14Semibold"}
                           content={"Yet to bat"}
                         />
                       </div>
@@ -88,7 +88,7 @@ const SportsLandingPage = () => {
                         <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                           <Typography
                             color={"white"}
-                            variant={"textXsNormal"}
+                            variant={"size12Normal"}
                             content={"India"}
                           />
                           <Typography
@@ -100,7 +100,7 @@ const SportsLandingPage = () => {
                         <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                           <Typography
                             color={"white"}
-                            variant={"textXsNormal"}
+                            variant={"size12Normal"}
                             content={"Bangladesh"}
                           />
                           <Typography
@@ -112,7 +112,7 @@ const SportsLandingPage = () => {
                         <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
                           <Typography
                             color={"white"}
-                            variant={"textXsNormal"}
+                            variant={"size12Normal"}
                             content={"Draw"}
                           />
                           <Typography
@@ -126,7 +126,7 @@ const SportsLandingPage = () => {
                       <div className="flex items-center justify-center w-full lg:w-[60px] h-[36px] lg:h-[56px] bg-blackRussian px-3 rounded-lg">
                         <Typography
                           color={"white"}
-                          variant={"textSmSemibold"}
+                          variant={"size14Semibold"}
                           content={"+28"}
                         />
                       </div>

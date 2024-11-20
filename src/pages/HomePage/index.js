@@ -48,14 +48,14 @@ const HomePage = () => {
         </Slider>
         <Slider title={"Top 10 casino games"}>
           {casinoGames?.map((item, index) => (
-            <SportsCard key={index} bgImg={item?.icon}  width={'176px'} />
+            <SportsCard key={index} bgImg={item?.icon} width={"176px"} />
           ))}
         </Slider>
         <Slider title={"Top 10 sport games"}>
           {sportsGames?.map((item, index) => (
             <SportsCard
               key={index}
-              width={'176px'}
+              width={"176px"}
               bgImg={item?.icon}
               title={item?.title}
               number={item?.number}

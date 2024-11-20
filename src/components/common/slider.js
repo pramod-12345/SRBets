@@ -1,31 +1,82 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import CommonButton from "./button";
 import leftArrow from "../../assets/svg/left-arrow.svg";
 import rightArrow from "../../assets/svg/right-arrow.svg";
 import SectionHeader from "./headerSection";
 
 const Slider = ({ children, title }) => {
+  const scrollContainerRef = useRef(null);
+  const [isLeftDisabled, setIsLeftDisabled] = useState(true);
+  const [isRightDisabled, setIsRightDisabled] = useState(false);
+
+  const updateButtonStates = () => {
+    const scrollContainer = scrollContainerRef.current;
+    if (scrollContainer) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+
+      // Disable the left button if at the start
+      setIsLeftDisabled(scrollLeft <= 0);
+
+      // Disable the right button if at the end
+      setIsRightDisabled(scrollLeft + clientWidth >= scrollWidth);
+    }
+  };
+
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: -200, // Adjust based on card width and gap
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: 200, // Adjust based on card width and gap
+        behavior: "smooth",
+      });
+    }
+  };
+
+  useEffect(() => {
+    updateButtonStates(); // Initial check
+    const scrollContainer = scrollContainerRef.current;
+
+    if (scrollContainer) {
+      // Update button states on scroll
+      scrollContainer.addEventListener("scroll", updateButtonStates);
+
+      return () => {
+        scrollContainer.removeEventListener("scroll", updateButtonStates);
+      };
+    }
+  }, []);
+
   return (
     <div>
       <div className=" flex items-center justify-between">
         <SectionHeader title={title} />
         <div className="hidden md:flex items-center gap-3">
           <CommonButton
-            bgColor={"bg-darkByzantineBlue"}
             icon={leftArrow}
             type="iconBtn"
-            disabled={true}
+            disabled={isLeftDisabled}
+            onClick={scrollLeft}
           />
           <CommonButton
-            bgColor={"bg-purpleFog"}
             icon={rightArrow}
             type="iconBtn"
+            disabled={isRightDisabled}
+            onClick={scrollRight}
           />
         </div>
       </div>
       <div
         className="flex item-center justify-start sm:pt-5 pt-5 gap-4 overflow-x-auto no-scrollbar"
         style={{ whiteSpace: "nowrap" }}
+        ref={scrollContainerRef}
       >
         {children}
       </div>
