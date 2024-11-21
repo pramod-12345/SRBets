@@ -9,6 +9,7 @@ import insta from "./assets/svg/insta.svg";
 import google from "./assets/svg/google.svg";
 import facebook from "./assets/svg/facebook.svg";
 import twitter from "./assets/svg/twitter.svg";
+import { list } from "postcss";
 
 export const menuData = {
   mainButtons: {
@@ -179,18 +180,22 @@ export const MbNavTabs = [
   {
     label: "Home",
     icon: navImages.home,
+    link: "/"
   },
   {
     label: "My Bets",
     icon: navImages.bets,
+    link:"/my-bets"
   },
   {
     label: "Casino",
     icon: navImages.casino,
+    link: "/casino-home"
   },
   {
     label: "Sports",
     icon: navImages.sports,
+    link:"/sports-home"
   },
   {
     label: "Settings",

@@ -3,7 +3,7 @@ import navImages from "../../assets/svg/navbar";
 import { MbNavTabs } from "../../data";
 import CommonButton from "../common/button";
 import Search from "../common/search";
-import { useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Modal from "../common/Modal";
 import Login from "../../pages/Login";
 import Register from "../../pages/Register";
@@ -19,21 +19,20 @@ const Navbar = ({
   const navigate = useNavigate();
   const [isLogin, setIsLogin] = useState(false);
   const [modalType, setModalType] = useState('')
-  const NavItem = ({ icon, label }) => (
-    <div className="flex flex-col items-center text-gray-400 hover:text-white">
-      <img src={icon} alt="" className="h-8 w-8" />
-      <span
-        className={`text-xs font-semibold ${
-          label === "Home" ? "text-white" : ""
-        } mt-1`}
-      >
-        {label}
-      </span>
-      {label === "Home" ? (
-        <span className="w-7 h-1 bg-primary rounded-t-md mt-2"></span>
-      ) : null}
-    </div>
-  );
+  const NavItem = ({ icon, label, link }) => {
+    const location = useLocation();
+    const isActive = location.pathname === link;
+  
+    return (
+      <Link to={link} className="flex flex-col items-center text-gray-400 hover:text-white">
+        <img src={icon} alt={`${label} icon`} className="h-8 w-8" />
+        <span className={`text-xs font-semibold ${isActive ? "text-white" : ""} mt-1`}>
+          {label}
+        </span>
+        {isActive && <span className="w-7 h-1 bg-primary rounded-t-md mt-2"></span>}
+      </Link>
+    );
+  };
 
   const handleToggleLogin =()=>{
     setIsLogin(false);
@@ -112,9 +111,9 @@ const Navbar = ({
         </div>
       </header>
 
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] flex justify-between items-center md:hidden  shadow-lg">
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] z-50 flex justify-between items-center md:hidden  shadow-lg">
         {MbNavTabs?.map((i, index) => (
-          <NavItem key={index} icon={i?.icon} label={i?.label} />
+          <NavItem key={index} icon={i?.icon} label={i?.label} link={i?.link} />
         ))}
       </div>
       {isLogin && (

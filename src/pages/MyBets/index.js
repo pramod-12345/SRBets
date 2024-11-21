@@ -16,7 +16,7 @@ const MyBets = () => {
     { id: "sports", label: "Sports leaderboard" },
   ];
   return (
-    <div className="mt-5 flex flex-col items-center justify-between ">
+    <div className="mt-5 flex flex-col items-center justify-between items-center ">
       <Tabs tabs={tabs} isOptions={true}>
         {/* Cards */}
         <div

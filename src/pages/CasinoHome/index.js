@@ -56,7 +56,7 @@ const CasinoHome = () => {
                     { label: "Status", value: "Completed" },
                 ]}
             /> */}
-            <WithdrawCrypto/>
+            {/* <WithdrawCrypto/> */}
         </div>
     );
 };
