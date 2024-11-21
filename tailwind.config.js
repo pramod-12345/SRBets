@@ -27,7 +27,8 @@ export default {
         mountainMeadow: '#1AC35D',
         carminePink:"#E54E3D",
         ebonyClay:'#2B2E45',
-        oxfordBlue:'#393D5D'
+        oxfordBlue:'#393D5D',
+        richBlack:"#0A0B1A"
       },
       height: {
         "table-header": "44px", 

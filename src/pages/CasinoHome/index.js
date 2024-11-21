@@ -5,6 +5,8 @@ import Search from "../../components/common/search";
 import { casinoGames, columns, rows, sportsGames } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
+import PaymentSuccessful from "../../Modals/PaymentSuccessful";
+import PaymentFail from "../../Modals/PaymentFail";
 
 const CasinoHome = () => {
   const [loading, setLoading] = useState(true);
@@ -43,6 +45,7 @@ const CasinoHome = () => {
         <Typography color={"white"} variant={"h3"} content={"Top Bets"} />
         <Table columns={columns} data={data} id="top-bets" loading={loading} />
       </div>
+      <PaymentFail/>
     </div>
   );
 };
