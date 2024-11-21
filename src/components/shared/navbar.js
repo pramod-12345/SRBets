@@ -119,7 +119,7 @@ const Navbar = ({
       </div>
       {isLogin && (
         <Modal onClose={handleToggleLogin}>
-          {modalType === 'login' && <TwoFactorAuthentication setModalType={setModalType}/>}
+          {modalType === 'login' && <Login setModalType={setModalType}/>}
           {modalType === 'register' && <Register setModalType={setModalType} />}
           {modalType === 'forgotPassword' && <ForgotPassword />}
         </Modal>
