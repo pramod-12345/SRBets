@@ -15,6 +15,7 @@ const DepositMoney = () => {
         { id: "crypto", label: "Crypto" },
         { id: "local-currency", label: "Local Currency" },
     ];
+    
     return (
         <Modal>
             <Typography
