@@ -1,12 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import navImages from "../../assets/svg/navbar";
 import { MbNavTabs } from "../../data";
 import CommonButton from "../common/button";
 import Search from "../common/search";
 import { useNavigate } from "react-router-dom";
+import Modal from "../common/Modal";
+import Login from "../../pages/Login";
+import Register from "../../pages/Register";
+import ForgotPassword from "../../pages/ForgotPassword";
+import TwoFactorAuthentication from "../../pages/TwoFactorAuthentication";
 
-const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipToggle }) => {
-  const navigate= useNavigate();
+const Navbar = ({
+  setSidebarToggle,
+  sidebarToggle,
+  setBetSlipToggle,
+  betSlipToggle,
+}) => {
+  const navigate = useNavigate();
+  const [isLogin, setIsLogin] = useState(false);
+  const [modalType, setModalType] = useState('')
   const NavItem = ({ icon, label }) => (
     <div className="flex flex-col items-center text-gray-400 hover:text-white">
       <img src={icon} alt="" className="h-8 w-8" />
@@ -23,6 +35,10 @@ const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipTo
     </div>
   );
 
+  const handleToggleLogin =()=>{
+    setIsLogin(false);
+  }
+
   return (
     <>
       <header
@@ -38,7 +54,10 @@ const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipTo
               >
                 <img src={navImages.menuIcon} alt="logo" className="w-4 h-4" />
               </div>
-              <div className="flex items-center gap-3 font-monasans cursor-pointer" onClick={()=>navigate('/')}>
+              <div
+                className="flex items-center gap-3 font-monasans cursor-pointer"
+                onClick={() => navigate("/")}
+              >
                 <img
                   src={navImages.logoStarIcon}
                   alt="logo"
@@ -61,11 +80,16 @@ const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipTo
                   alt="logo"
                   className="sm:w-9 sm:h-9 h-5 w-5"
                 />
-                <CommonButton
-                  label={"Wallet"}
-                  type="nav"
-                />
+                <CommonButton label={"Wallet"} type="nav" />
               </div>
+              <CommonButton
+                label={"Login"}
+                type="nav"
+                onClick={() => {
+                  setIsLogin(true);
+                  setModalType('login')
+                }}
+              />
               <img
                 src={navImages.mbSearchIcon}
                 alt="logo"
@@ -93,6 +117,13 @@ const Navbar = ({ setSidebarToggle, sidebarToggle , setBetSlipToggle , betSlipTo
           <NavItem key={index} icon={i?.icon} label={i?.label} />
         ))}
       </div>
+      {isLogin && (
+        <Modal onClose={handleToggleLogin}>
+          {modalType === 'login' && <TwoFactorAuthentication setModalType={setModalType}/>}
+          {modalType === 'register' && <Register setModalType={setModalType} />}
+          {modalType === 'forgotPassword' && <ForgotPassword />}
+        </Modal>
+      )}
     </>
   );
 };
