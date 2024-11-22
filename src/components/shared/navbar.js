@@ -5,10 +5,9 @@ import CommonButton from "../common/button";
 import Search from "../common/search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Modal from "../common/Modal";
-import Login from "../../pages/Login";
-import Register from "../../pages/Register";
-import ForgotPassword from "../../pages/ForgotPassword";
-import TwoFactorAuthentication from "../../pages/TwoFactorAuthentication";
+import Login from "../modals/auth/login";
+import Register from "../modals/auth/register";
+import ForgotPassword from "../modals/auth/forgotPassword";
 
 const Navbar = ({
   setSidebarToggle,

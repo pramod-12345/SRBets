@@ -9,7 +9,7 @@ import qrImg from "../assets/svg/qr.svg";
 import ethIcon from "../assets/svg/eth.svg"
 import Tabs from '../components/common/tab'
 
-const DepositMoneyEtc = () => {
+const DepositCryptoEth = () => {
     const tabs = [
         { id: "crypto", label: "Crypto" },
         { id: "local-currency", label: "Local Currency" },
@@ -29,8 +29,8 @@ const DepositMoneyEtc = () => {
                     <div className="flex items-center gap-3">
                         <img src={ethIcon} alt="ETH" className="w-7 h-7" />
                         <div className="flex flex-col gap-px justify-center">
-                            <Typography variant={"text12Semibold"} color={"white"} content={"ETH"} />
-                            <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"Ethereum"} />
+                            <Typography variant={"size12Semibold"} color={"white"} content={"ETH"} />
+                            <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Ethereum"} />
                         </div>
                     </div>
                     <img src={dropdownIcon} alt="Dropdown Menu" />
@@ -43,7 +43,7 @@ const DepositMoneyEtc = () => {
 
 
                 <div className="mt-7">
-                    <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"Your Bitcoin deposit address"} />
+                    <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Your Bitcoin deposit address"} />
                     <div class="bg-darkByzantineBlue px-4 py-5 rounded-xl flex items-center justify-between mt-3">
                         <span class="truncate">vcbd34245243sfdETGBV46457557755ddghfhfhf</span>
                         <div class="flex gap-x-7">
@@ -69,4 +69,4 @@ const DepositMoneyEtc = () => {
     )
 }
 
-export default DepositMoneyEtc
+export default DepositCryptoEth

@@ -9,18 +9,19 @@ const Typography = ({ variant, content, color }) => {
     size20Semibold:"text-xl font-semibold",
     size20Bold:"text-xl font-bold",
     size16Bold: "font-bold text-base",
-    size10SemiBold: "font-semibold text-[10px]",
-    size14Bold: "font-bold text-sm",
-    size14Semibold: "font-semibold text-sm",
-    size14Medium: "font-medium text-sm",
-    size14Normal: "font-normal text-sm",
-    size12Bold: "font-bold text-xs",
-    size12Medium: "font-medium text-xs",
-    size12Normal: "font-normal text-xs",
-    text14Medium: "text-[14px] leading-4 font-medium",
-    text12Normal: "text-[12px] leading-3 font-normal",
-    text12Semibold: "text-[12px] leading-3 font-semibold",
-    text14Semibold: "text-[14px] leading-4 font-semibold"
+    size10SemiBold: "font-semibold text-size10",
+    size14Bold: "font-bold text-size14",
+    size14Semibold: "font-semibold text-size14",
+    size14Medium: "font-medium text-size14",
+    size14Normal: "font-normal text-size14",
+    size12Bold: "font-bold text-size12",
+    size12Medium: "font-medium text-size12",
+    size16Medium: "font-medium text-size16",
+    size12Normal: "font-normal text-size12",
+    // size14Medium: "text-[14px] leading-4 font-medium",
+    // size12Normal: "text-[12px] leading-3 font-normal",
+    size12Semibold: "text-[12px] leading-3 font-semibold",
+    size14Semibold: "text-[14px] leading-4 font-semibold"
   };
 
   const colorType = {
@@ -46,6 +47,7 @@ const Typography = ({ variant, content, color }) => {
     carminePink: "text-carminePink",
     ebonyClay: "text-ebonyClay",
     oxfordBlue: "text-oxfordBlue",
+    pecanVeneer:'text-pecanVeneer'
   };
 
   return (

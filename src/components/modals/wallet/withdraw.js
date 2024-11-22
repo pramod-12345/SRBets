@@ -7,7 +7,7 @@ import dropdownIcon from "../assets/svg/dropdown-arrow.svg"
 import Input from '../components/common/input';
 import CommonButton from '../components/common/button';
 
-const WithdrawCrypto = () => {
+const Withdraw = () => {
     const tabs = [
         { id: "crypto", label: "Crypto" },
         { id: "local-currency", label: "Local Currency" },
@@ -28,14 +28,14 @@ const WithdrawCrypto = () => {
                                 <div className="flex items-center gap-3">
                                     <img src={btcIcon} alt="BTC" className="w-7 h-7" />
                                     <div className="flex flex-col justify-center">
-                                        <Typography variant={"text12Semibold"} color={"white"} content={"BTC"} />
-                                        <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"Bitcoin"} />
+                                        <Typography variant={"size12Semibold"} color={"white"} content={"BTC"} />
+                                        <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Bitcoin"} />
                                     </div>
                                 </div>
                                 <div className='flex gap-x-4'>
                                     <div className="flex flex-col justify-center items-end">
-                                        <Typography variant={"text12Semibold"} color={"white"} content={"0.0000056"} />
-                                        <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"$0.5"} />
+                                        <Typography variant={"size12Semibold"} color={"white"} content={"0.0000056"} />
+                                        <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"$0.5"} />
                                     </div>
                                     <img src={dropdownIcon} alt="Dropdown Menu" />
                                 </div>
@@ -66,13 +66,13 @@ const WithdrawCrypto = () => {
                                 <div className="flex items-center gap-3">
                                     <img src={btcIcon} alt="BTC" className="w-7 h-7" />
                                     <div className="flex flex-col justify-center">
-                                        <Typography variant={"text12Semibold"} color={"white"} content={"INR"} />
-                                        <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"Indian Rupee"} />
+                                        <Typography variant={"size12Semibold"} color={"white"} content={"INR"} />
+                                        <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Indian Rupee"} />
                                     </div>
                                 </div>
                                 <div className="flex flex-col justify-center items-end">
-                                    <Typography variant={"text12Semibold"} color={"white"} content={"106.56"} />
-                                    <Typography variant={"text12Normal"} color={"vintageRibbon"} content={"$12"} />
+                                    <Typography variant={"size12Semibold"} color={"white"} content={"106.56"} />
+                                    <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"$12"} />
                                 </div>
                             </div>
                         </div>
@@ -86,7 +86,7 @@ const WithdrawCrypto = () => {
                             <div class="flex items-center justify-between bg-darkByzantineBlue px-4 py-5 rounded-xl mt-4">
                                 <div className="flex items-center gap-3">
 
-                                    <Typography variant={"text12Normal"} color={"white"} content={"ICICI Bank 0035 0147 2345"} />
+                                    <Typography variant={"size12Normal"} color={"white"} content={"ICICI Bank 0035 0147 2345"} />
                                 </div>
                                 <img src={dropdownIcon} alt="Dropdown Menu" />
                             </div>
@@ -113,4 +113,4 @@ const WithdrawCrypto = () => {
     )
 }
 
-export default WithdrawCrypto
+export default Withdraw

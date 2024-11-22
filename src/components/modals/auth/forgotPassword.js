@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Typography from "../../components/common/typography";
-import CommonButton from "../../components/common/button";
-import Input from "../../components/common/input";
+import Typography from "../../common/typography";
+import CommonButton from "../../common/button";
+import Input from "../../common/input";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");
@@ -10,7 +10,7 @@ const ForgotPassword = () => {
       <Typography
         color={"white"}
         variant={"size20Bold"}
-        content={"Login to SR bets"}
+        content={"Forgot Password"}
       />
       <div className="pt-8">
         <Input setValue={setEmail} value={email} label={"Email *"} />

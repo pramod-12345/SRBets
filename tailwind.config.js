@@ -6,6 +6,13 @@ export default {
       fontFamily: {
         monasans: ["Mona Sans", "sans-serif"],
       },
+      fontSize:{
+        size16: '16px',
+        size10: '10px',
+        size12: '12px',
+        size14: '14px',
+        size20: '20px',
+      },
       colors: {
         darkCharcoal: "#333333",
         primary: "#673CFF",
@@ -28,7 +35,10 @@ export default {
         carminePink:"#E54E3D",
         ebonyClay:'#2B2E45',
         oxfordBlue:'#393D5D',
-        richBlack:"#0A0B1A"
+        richBlack:"#0A0B1A",
+        patriotBlue: '#42395F',
+        coffee:'#6A4A36',
+        pecanVeneer:'#E09E75'
       },
       height: {
         "table-header": "44px", 

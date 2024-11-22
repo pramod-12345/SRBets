@@ -9,7 +9,7 @@ import copyIcon from "../assets/svg/copy.svg"
 import qrImg from "../assets/svg/qr.svg";
 
 
-const DepositMoney = () => {
+const DepositCrypto = () => {
 
     const tabs = [
         { id: "crypto", label: "Crypto" },
@@ -65,4 +65,4 @@ const DepositMoney = () => {
     )
 }
 
-export default DepositMoney
+export default DepositCrypto

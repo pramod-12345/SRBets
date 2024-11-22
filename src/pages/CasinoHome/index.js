@@ -5,8 +5,6 @@ import Search from "../../components/common/search";
 import { casinoGames, columns, rows, sportsGames } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
-import PaymentStatus from "../../Modals/PaymentStatus";
-import WithdrawCrypto from "../../Modals/WithdrawCrypto";
 
 const CasinoHome = () => {
     const [loading, setLoading] = useState(true);
@@ -56,7 +54,6 @@ const CasinoHome = () => {
                     { label: "Status", value: "Completed" },
                 ]}
             /> */}
-            {/* <WithdrawCrypto/> */}
         </div>
     );
 };

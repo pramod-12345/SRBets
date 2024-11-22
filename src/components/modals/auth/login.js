@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Typography from "../../components/common/typography";
-import Input from "../../components/common/input";
-import CommonButton from "../../components/common/button";
-import { loginIcons } from "../../data";
+import Typography from "../../common/typography";
+import Input from "../../common/input";
+import CommonButton from "../../common/button";
+import { loginIcons } from "../../../data";
+import SocialLogin from "./socialLogin";
 
 const Login = ({ setModalType }) => {
   const [userName, setUserName] = useState("");
@@ -20,6 +21,7 @@ const Login = ({ setModalType }) => {
           setValue={setUserName}
           value={userName}
           label={"Email/Username *"}
+          placeholder={'Enter email/username'}
         />
       </div>
       <div className="pt-6">
@@ -29,6 +31,7 @@ const Login = ({ setModalType }) => {
           label={"Password *"}
           isForgot={true}
           setModalType={setModalType}
+          placeholder={'Enter password'}
         />
       </div>
       <div className="w-full flex justify-center items-center mt-9">
@@ -41,19 +44,7 @@ const Login = ({ setModalType }) => {
           content={"or login using below options"}
         />
       </div>
-      <div className="flex justify-center items-center gap-4 mt-4">
-        {loginIcons?.map((i) => (
-          <div className="bg-darkByzantineBlue rounded-xl p-3.5 cursor-pointer">
-            <img src={i?.icon} alt="" className="w-7 h-7" />
-          </div>
-        ))}
-      </div>
-      <div className="mt-5 flex items-center justify-center gap-2 text-center">
-        <Typography color={"white"} content={"Don’t have ac account?"} />
-        <div className="cursor-pointer" onClick={() => setModalType("register")}>
-          <Typography color={"chinesePurple"} content={"Create New"} />
-        </div>
-      </div>
+      <SocialLogin setModalType={setModalType} isLogin={true} />
     </div>
   );
 };

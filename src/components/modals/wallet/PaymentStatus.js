@@ -23,12 +23,12 @@ const PaymentStatus = ({ isError, amount, balance, details, onRetry }) => {
                         <div className="flex flex-col justify-center items-center mt-4">
                             <Typography variant="size20Semibold" color="white" content={title} />
                             <div className="mt-1.5 text-center">
-                                <Typography variant="text14Medium" color="white" content={message} />
+                                <Typography variant="size14Medium" color="white" content={message} />
                             </div>
                             {!isError && (
                                 <div className="mt-6">
                                     <Typography
-                                        variant="text14Semibold"
+                                        variant="size14Semibold"
                                         color="white"
                                         content={`Total available balance: $${balance}`}
                                     />
@@ -45,7 +45,7 @@ const PaymentStatus = ({ isError, amount, balance, details, onRetry }) => {
                                     </button>
                                 </div>
                                 <div className='text-center mt-5'>
-                                <Typography variant={"text12Normal"} color={"white"} content={"Please note: If the transaction fails but the money is deducted, your account should be automatically credited within 3–5 working days."}/>
+                                <Typography variant={"size12Normal"} color={"white"} content={"Please note: If the transaction fails but the money is deducted, your account should be automatically credited within 3–5 working days."}/>
                             </div>
                             </>
                             )}
@@ -54,11 +54,11 @@ const PaymentStatus = ({ isError, amount, balance, details, onRetry }) => {
 
                     {/* Payment Details Section */}
                     <div className="bg-blackRussian mt-11">
-                        <Typography variant="text12Normal" color="vintageRibbon" content="PAYMENT DETAILS" />
+                        <Typography variant="size12Normal" color="vintageRibbon" content="PAYMENT DETAILS" />
                         {details.map(({ label, value }, index) => (
                             <div className="flex justify-between mt-3" key={index}>
-                                <Typography variant="text14Semibold" color="white" content={label} />
-                                <Typography variant="text14Medium" color="white" content={value} />
+                                <Typography variant="size14Semibold" color="white" content={label} />
+                                <Typography variant="size14Medium" color="white" content={value} />
                             </div>
                         ))}
                     </div>
@@ -66,7 +66,7 @@ const PaymentStatus = ({ isError, amount, balance, details, onRetry }) => {
                     {/* Disclaimer Section */}
                     <div className="bg-darkByzantineBlue rounded-lg py-3.5 text-center mt-11">
                         <Typography
-                            variant="text12Normal"
+                            variant="size12Normal"
                             color="vintageRibbon"
                             content="Disclaimer: text goes here"
                         />
