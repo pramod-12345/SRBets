@@ -28,8 +28,8 @@ const WalletModal = () => {
                 content={"Wallet"}
             /> 
             </div>
-            <div className="mt-5 md:w-[552px] md:h-[296px] md:rounded-lg md:border border-ebonyClay">
-                <div className="bg-ebonyClay md:rounded-t-lg p-6">
+            <div className="mt-5 w-[552px] h-[296px] rounded-lg border border-ebonyClay">
+                <div className="bg-ebonyClay rounded-t-lg p-6">
                     <div className="flex items-center gap-2">
                         <Typography variant={"size14Semibold"} color={"vintageRibbon"} content={"Estimate Balance"} />
                         <img src={eyeIcon} alt="Eye" />
@@ -37,7 +37,7 @@ const WalletModal = () => {
 
                     <div className="flex items-center justify-between mt-1.5">
                         <h3 className="text-[32px] font-bold">$0.12</h3>
-                        <div className="flex gap-3 hidden md:block">
+                        <div className="flex gap-3">
                             <button className="w-[122px] text-[14px] leading-4 font-semibold bg-vintageRibbon rounded-lg">
                                 Withdraw
                             </button>

@@ -42,7 +42,7 @@ const CasinoHome = () => {
                 <Typography color={"white"} variant={"h3"} content={"Top Bets"} />
                 <Table columns={columns} data={data} id="top-bets" loading={loading} />
             </div>
-            <PaymentStatus
+            {/* <PaymentStatus
                 isError={false}
                 amount={500}
                 balance={580}
@@ -52,7 +52,7 @@ const CasinoHome = () => {
                     { label: "Deposit Amount", value: "$500" },
                     { label: "Status", value: "Completed" },
                 ]}
-            />
+            /> */}
             {/* <Withdraw/> */}
         </div>
     );
