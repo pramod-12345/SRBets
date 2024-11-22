@@ -1,13 +1,13 @@
 import React from 'react'
-import Typography from '../components/common/typography'
-import Modal from '../components/common/Modal'
-import Input from '../components/common/input'
-import dropdownIcon from "../assets/svg/dropdown-arrow.svg"
-import reloadIcon from "../assets/svg/reload.svg"
-import copyIcon from "../assets/svg/copy.svg"
-import qrImg from "../assets/svg/qr.svg";
-import ethIcon from "../assets/svg/eth.svg"
-import Tabs from '../components/common/tab'
+import Typography from '../../common/typography'
+import Modal from '../../common/Modal'
+import Input from '../../common/input'
+import dropdownIcon from "../../../assets/svg/dropdown-arrow.svg"
+import reloadIcon from "../../../assets/svg/reload.svg"
+import copyIcon from "../../../assets/svg/copy.svg"
+import qrImg from "../../../assets/svg/qr.svg";
+import ethIcon from "../../../assets/svg/eth.svg"
+import Tabs from '../../common/tab'
 
 const DepositCryptoEth = () => {
     const tabs = [
@@ -16,11 +16,24 @@ const DepositCryptoEth = () => {
     ];
     return (
         <Modal>
+             <div className='md:hidden mx-4 py-5 bg-blackRussian'>
+           <div className='flex items-center gap-2 mb-4'>
+           <img src={backIcon} alt='Back'/>
             <Typography
                 color={"white"}
                 variant={"size20Bold"}
                 content={"Deposit Money"}
             />
+           </div>
+           <Seperator/>
+            </div>
+            <div className='hidden md:block'>
+             <Typography
+                color={"white"}
+                variant={"size20Bold"}
+                content={"Deposit Money"}
+            /> 
+            </div>
             <div className="mt-5">
                 <Tabs tabs={tabs} />
             </div>

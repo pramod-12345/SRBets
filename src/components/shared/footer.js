@@ -44,7 +44,7 @@ const Footer = () => {
           </div>
           <div className="flex sm:hidden gap-6 items-center">
             {socialIcons?.map((i) => (
-              <img src={i?.icon} className="w-6 h-6" />
+              <img src={i?.icon} alt="Social Icons" className="w-6 h-6" />
             ))}
           </div>
           <Typography
@@ -55,7 +55,7 @@ const Footer = () => {
         </div>
         <div className="hidden sm:flex gap-6 items-center">
           {socialIcons?.map((i) => (
-            <img src={i?.icon} className="w-6 h-6" />
+            <img src={i?.icon} alt="Social Icons" className="w-6 h-6" />
           ))}
         </div>
       </div>

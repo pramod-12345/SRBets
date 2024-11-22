@@ -23,7 +23,7 @@ const Navbar = ({
     const isActive = location.pathname === link;
   
     return (
-      <Link to={link} className="flex flex-col items-center text-gray-400 hover:text-white">
+      <Link to={link} className="flex flex-col items-center text-vintageRibbon hover:text-white">
         <img src={icon} alt={`${label} icon`} className="h-8 w-8" />
         <span className={`text-xs font-semibold ${isActive ? "text-white" : ""} mt-1`}>
           {label}
@@ -68,7 +68,7 @@ const Navbar = ({
             </div>
             <Search />
             <div className="flex items-center gap-5">
-              <div className="bg-themeBlack h-11 rounded-lg flex items-center gap-2 pr-[2px]">
+              <div className="bg-themeBlack h-11 rounded-lg flex items-center gap-2 pr-0.5">
                 <div className="flex items-center gap-2 pl-3">
                   <img src={navImages.usdIcon} alt="logo" className="w-5 h-5" />
                   <span className="text-sm text-white">2.56</span>

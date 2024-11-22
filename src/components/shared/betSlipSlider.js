@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import closeIcon from "../../assets/svg/close.svg"
 import Typography from '../common/typography';
 import Seperator from '../common/seperator';
@@ -41,13 +41,13 @@ const BetSlipSlider = ({ betSlipToggle }) => {
                         </button>
                     </div>
 
-                    <Seperator c />
+                    <Seperator color='ebonyClay' />
                     <div className='mt-5'>
                         <Tabs tabs={tabs} />
                     </div>
 
                     <div className='mt-5'>
-                        <Seperator />
+                        <Seperator color='ebonyClay' />
                     </div>
 
                     <div className='flex items-center justify-between mt-3'>

@@ -94,7 +94,7 @@ export const BetCards = ({
         />
         <div className="flex items-center gap-2">
           <div
-            className={`flex justify-center items-center w-[30px] h-[16px] rounded ${status === "WIN" ? "bg-mountainMeadow" : "bg-carminePink"
+            className={`flex justify-center text-[10px] py-0.5 px-1 items-center w-[30px] h-[16px] rounded ${status === "WIN" ? "bg-mountainMeadow" : "bg-carminePink"
               }`}
           >
             <Typography
@@ -156,7 +156,7 @@ export const BetCards = ({
                 variant={"size14Normal"}
                 content={`$${betAmount}`}
               />{" "}
-              <img src={dollarIcon} className="w-4 h-4" />
+              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
             </div>
           </div>
           <div className="flex justify-between text-[14px] leading-4">
@@ -171,7 +171,7 @@ export const BetCards = ({
                 variant={"size14Semibold"}
                 content={`$${payout}`}
               />{" "}
-              <img src={dollarIcon} className="w-4 h-4" />
+              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
             </div>
           </div>
         </div>

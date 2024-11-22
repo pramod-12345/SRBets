@@ -1,21 +1,35 @@
 import React from 'react'
-import Modal from '../components/common/Modal'
-import eyeIcon from "../assets/svg/eye.svg"
-import rupeesIcon from "../assets/svg/rupees.svg"
-import rippleIcon from "../assets/svg/ripple.svg"
-import Typography from '../components/common/typography'
-import Seperator from '../components/common/seperator'
+import Modal from '../../common/Modal'
+import eyeIcon from "../../../assets/svg/eye.svg"
+import backIcon from "../../../assets/svg/back.svg"
+import rupeesIcon from "../../../assets/svg/rupees.svg"
+import rippleIcon from "../../../assets/svg/ripple.svg"
+import Typography from '../../common/typography'
+import Seperator from '../../common/seperator'
 
 const WalletModal = () => {
     return (
         <Modal>
+            <div className='md:hidden p-0 py-5 px-4 bg-blackRussian'>
+           <div className='flex items-center gap-2 mb-4'>
+           <img src={backIcon} alt='Back'/>
             <Typography
-        color={"white"}
-        variant={"size20Bold"}
-        content={"Wallet"}
-      />
-            <div className="mt-5 w-[552px] h-[296px] rounded-lg border border-ebonyClay">
-                <div className="bg-ebonyClay rounded-t-lg p-6">
+                color={"white"}
+                variant={"size20Bold"}
+                content={"Wallet"}
+            />
+           </div>
+           <Seperator/>
+            </div>
+            <div className='hidden md:block'>
+             <Typography
+                color={"white"}
+                variant={"size20Bold"}
+                content={"Wallet"}
+            /> 
+            </div>
+            <div className="mt-5 md:w-[552px] md:h-[296px] md:rounded-lg md:border border-ebonyClay">
+                <div className="bg-ebonyClay md:rounded-t-lg p-6">
                     <div className="flex items-center gap-2">
                         <Typography variant={"size14Semibold"} color={"vintageRibbon"} content={"Estimate Balance"} />
                         <img src={eyeIcon} alt="Eye" />
@@ -23,7 +37,7 @@ const WalletModal = () => {
 
                     <div className="flex items-center justify-between mt-1.5">
                         <h3 className="text-[32px] font-bold">$0.12</h3>
-                        <div className="flex gap-3">
+                        <div className="flex gap-3 hidden md:block">
                             <button className="w-[122px] text-[14px] leading-4 font-semibold bg-vintageRibbon rounded-lg">
                                 Withdraw
                             </button>

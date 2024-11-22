@@ -2,9 +2,12 @@ import React, { useEffect, useState } from "react";
 import Typography from "../../components/common/typography";
 import Advertisement from "../../components/common/advertisement";
 import Search from "../../components/common/search";
-import { casinoGames, columns, rows, sportsGames } from "../../data";
+import { casinoGames, columns, rows } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
+import BetDetails from "../../components/modals/BetDetails";
+import PaymentStatus from "../../components/modals/wallet/index";
+import CasinoGamesCard from "./casinoGames";
 
 const CasinoHome = () => {
     const [loading, setLoading] = useState(true);
@@ -32,18 +35,14 @@ const CasinoHome = () => {
                     variant={"h3"}
                     content={"Top 10 Casino Games"}
                 />
-                <div className="flex gap-3 md:grid-cols-3 lg:grid-cols-5 flex-wrap mt-7">
-                    {casinoGames?.map((item, index) => (
-                        <SportsCard key={index} bgImg={item?.icon} width={'208px'} />
-                    ))}
-                </div>
+               <CasinoGamesCard/>
             </div>
 
             <div className="mt-12">
                 <Typography color={"white"} variant={"h3"} content={"Top Bets"} />
                 <Table columns={columns} data={data} id="top-bets" loading={loading} />
             </div>
-            {/* <PaymentStatus
+            <PaymentStatus
                 isError={false}
                 amount={500}
                 balance={580}
@@ -53,7 +52,8 @@ const CasinoHome = () => {
                     { label: "Deposit Amount", value: "$500" },
                     { label: "Status", value: "Completed" },
                 ]}
-            /> */}
+            />
+            {/* <Withdraw/> */}
         </div>
     );
 };

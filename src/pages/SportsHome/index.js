@@ -5,6 +5,7 @@ import Search from "../../components/common/search";
 import { columns, rows, sportsGames } from "../../data";
 import Table from "../../components/shared/table";
 import { SportsCard } from "../../components/common/cards";
+import SportsGamesCard from "./sportsGames";
 
 const SportsHome = () => {
   const [loading, setLoading] = useState(true);
@@ -32,17 +33,7 @@ const SportsHome = () => {
           variant={"h3"}
           content={"Top 10 Sports Games"}
         />
-        <div className="flex gap-3 md:grid-cols-3 lg:grid-cols-5 flex-wrap mt-7">
-          {sportsGames?.map((item, index) => (
-            <SportsCard
-              key={index}
-              width={'208px'}
-              bgImg={item?.icon}
-              title={item?.title}
-              number={item?.number}
-            />
-          ))}
-        </div>
+        <SportsGamesCard/>
       </div>
 
       <div className="mt-12">

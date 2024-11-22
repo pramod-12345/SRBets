@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import arrowDown from "../../assets/svg/arrow-down.svg";
 import Dropdown from "./dropdown";
 import { cricketItems, numberItems, selectedBetItems } from "../../data";
 

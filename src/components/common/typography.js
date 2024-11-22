@@ -21,7 +21,7 @@ const Typography = ({ variant, content, color }) => {
     // size14Medium: "text-[14px] leading-4 font-medium",
     // size12Normal: "text-[12px] leading-3 font-normal",
     size12Semibold: "text-[12px] leading-3 font-semibold",
-    size14Semibold: "text-[14px] leading-4 font-semibold"
+    // size14Semibold: "text-[14px] leading-4 font-semibold"
   };
 
   const colorType = {
@@ -50,8 +50,10 @@ const Typography = ({ variant, content, color }) => {
     pecanVeneer:'text-pecanVeneer'
   };
 
+  const fontColor = `text-${color}`
+
   return (
-    <span className={`${fontType[variant]} ${colorType[color]}`}>
+    <span className={`${fontType[variant]} ${fontColor}`}>
       {content}
     </span>
   );

@@ -9,7 +9,7 @@ import insta from "./assets/svg/insta.svg";
 import google from "./assets/svg/google.svg";
 import facebook from "./assets/svg/facebook.svg";
 import twitter from "./assets/svg/twitter.svg";
-import { list } from "postcss";
+
 
 export const menuData = {
   mainButtons: {

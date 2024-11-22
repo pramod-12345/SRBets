@@ -1,11 +1,13 @@
 import React from 'react'
-import Modal from '../components/common/Modal'
-import Typography from '../components/common/typography'
-import Tabs from '../components/common/tab'
-import btcIcon from "../assets/svg/btc.svg";
-import dropdownIcon from "../assets/svg/dropdown-arrow.svg"
-import Input from '../components/common/input';
-import CommonButton from '../components/common/button';
+import Modal from '../../common//Modal'
+import Typography from '../../common/typography'
+import Tabs from '../../common/tab'
+import btcIcon from "../../../assets/svg/btc.svg";
+import dropdownIcon from "../../../assets/svg/dropdown-arrow.svg"
+import backIcon from "../../../assets/svg/back.svg"
+import Input from '../../common/input';
+import CommonButton from '../../common/button';
+import Seperator from '../../common/seperator';
 
 const Withdraw = () => {
     const tabs = [
@@ -15,16 +17,29 @@ const Withdraw = () => {
 
     return (
         <Modal>
+            <div className='md:hidden p-0 py-5 px-4 bg-blackRussian'>
+           <div className='flex items-center gap-2 mb-4'>
+           <img src={backIcon} alt='Back'/>
             <Typography
                 color={"white"}
                 variant={"size20Bold"}
                 content={"Withdraw"}
             />
+           </div>
+           <Seperator/>
+            </div>
+            <div className='hidden md:block'>
+             <Typography
+                color={"white"}
+                variant={"size20Bold"}
+                content={"Withdraw"}
+            /> 
+            </div>
             <div className='mt-5'>
                 <Tabs tabs={tabs}>
                     <div id='crypto'>
                         <div className='mt-6'>
-                            <div class="flex items-center justify-between space-x-3 bg-darkByzantineBlue px-4 py-3.5 rounded-xl mt-6">
+                            <div class="flex items-center justify-between  space-x-3 bg-darkByzantineBlue px-4 py-3.5 rounded-xl mt-6">
                                 <div className="flex items-center gap-3">
                                     <img src={btcIcon} alt="BTC" className="w-7 h-7" />
                                     <div className="flex flex-col justify-center">

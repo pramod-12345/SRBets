@@ -4,6 +4,9 @@ import { BetCards } from "../../components/common/cards";
 import infoIcon from "../../assets/svg/info-icon.svg";
 import { cardData, columns, rows } from "../../data";
 import Table from "../../components/shared/table";
+import CardData from "./cardData";
+import DepositCrypto from "../../components/modals/wallet/depositCrypto";
+import Withdraw from "../../components/modals/wallet/withdraw";
 
 const MyBets = () => {
   const tabs = [
@@ -16,26 +19,10 @@ const MyBets = () => {
     { id: "sports", label: "Sports leaderboard" },
   ];
   return (
-    <div className="mt-5 flex flex-col items-center justify-between items-center ">
+    <div className="mt-5 flex flex-col items-center justify-between ">
       <Tabs tabs={tabs} isOptions={true}>
-        {/* Cards */}
-        <div
-          id="casino"
-          className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-5 pt-6 w-full"
-        >
-          {cardData.map((card, index) => (
-            <BetCards
-              key={index}
-              date={card.date}
-              status={card.status}
-              match={card.match}
-              result={card.result}
-              odds={card.odds}
-              betAmount={card.betAmount}
-              payout={card.payout}
-              infoIcon={infoIcon}
-            />
-          ))}
+        <div id="casino">
+          <CardData/>
         </div>
       </Tabs>
       <div className="mt-8 w-full">

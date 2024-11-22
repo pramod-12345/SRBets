@@ -5,7 +5,7 @@ const MenuItems = ({sidebarToggle, buttons, title}) => {
     const location = useLocation();
   return (
     <div
-      className={`${sidebarToggle ? "p-[18px]" : "p-6"} ${title == "" ? 'pt-4' : '' } flex flex-col gap-3.5`}
+      className={`${sidebarToggle ? "p-[18px]" : "p-6"} ${title === "" ? 'pt-4' : '' } flex flex-col gap-3.5`}
     >
       {!sidebarToggle && title !== "" && (
         <h3 className="text-vintageRibbon text-xs font-bold mb-0.5 transition-all ease-in-out duration-1000">{ sidebarToggle ? '' : title}</h3>
