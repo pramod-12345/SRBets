@@ -23,3 +23,35 @@ body {
     flex: 0 0 100%;
     min-width: 0;
   }
+
+
+  /* Spinner Container */
+.spinner {
+    width: 70px;
+    height: 70px;
+    border: 8px solid rgba(0, 0, 0, 0.1); /* Light gray border */
+    border-top: 8px solid white; /* Blue border at the top */
+    border-radius: 50%; /* Make it a circle */
+    animation: spin 1s linear infinite; /* Infinite spinning */
+  }
+  
+  /* Keyframes for spinning animation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #1F2136 inset !important; /* Force background color */
+    color: #fff !important; /* Change text color */
+    border: none !important; /* Remove border */
+  }
+  
+  input:-webkit-autofill::first-line {
+    color: #fff !important; /* Change text color for the first line */
+  }
+  

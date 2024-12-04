@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import arrowDown from "../../assets/svg/arrow-down.svg";
-import minusIcon from "../../assets/svg/accordion-minus-icon.svg";
-import plusIcon from "../../assets/svg/accordion-plus-icon.svg";
+import {
+  arrowDown,
+  accordionMinusIcon,
+  accordionPlusIcon
+} from "assets"
 import Typography from "./typography";
 import Badge from "./badge";
 import Seperator from "./seperator";
@@ -37,7 +39,7 @@ const Accordion = ({ title, children, badgeContent, isMain, labelIcon, isSeperat
 
         {isMain ? (
           <img
-            src={isOpen ? minusIcon : plusIcon}
+            src={isOpen ? accordionMinusIcon : accordionPlusIcon}
             alt={isOpen ? "Collapse" : "Expand"}
             className="w-3 h-3 cursor-pointer"
             onClick={() => setIsOpen(!isOpen)}

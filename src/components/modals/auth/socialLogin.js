@@ -1,8 +1,10 @@
 import React from "react";
 import { loginIcons } from "../../../data";
-import Typography from "../../common/typography";
+import { Typography } from "components"
+import { useDispatch } from "react-redux";
 
 const SocialLogin = ({ setModalType, isLogin }) => {
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="flex justify-center items-center gap-4 mt-4">
@@ -16,15 +18,17 @@ const SocialLogin = ({ setModalType, isLogin }) => {
         <Typography
           color={"white"}
           content={
-            !isLogin ? "Already have ac account?" : "Don’t have ac account?"
+            !isLogin ? "Already have an account?" : "Don’t have an account?"
           }
         />
         <div
           className="cursor-pointer"
-          onClick={() => setModalType(!isLogin ? "login" : "register")}
+          onClick={() =>
+            dispatch(setModalType(!isLogin ? "login" : "register"))
+          }
         >
           <Typography
-            color={"chinesePurple"}
+            color={"primary"}
             content={!isLogin ? "Login here" : "Create New"}
           />
         </div>

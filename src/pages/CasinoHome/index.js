@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Typography from "../../components/common/typography";
-import Advertisement from "../../components/common/advertisement";
-import Search from "../../components/common/search";
-import { casinoGames, columns, rows } from "../../data";
-import Table from "../../components/shared/table";
-import { SportsCard } from "../../components/common/cards";
-import BetDetails from "../../components/modals/BetDetails";
-import PaymentStatus from "../../components/modals/wallet/index";
+import {
+    Typography,
+    Advertisement,
+    Search,
+    Table
+} from "components"
+import { columns, rows } from "../../data";
 import CasinoGamesCard from "./casinoGames";
 
 const CasinoHome = () => {
@@ -35,25 +34,13 @@ const CasinoHome = () => {
                     variant={"h3"}
                     content={"Top 10 Casino Games"}
                 />
-               <CasinoGamesCard/>
+                <CasinoGamesCard />
             </div>
 
             <div className="mt-12">
                 <Typography color={"white"} variant={"h3"} content={"Top Bets"} />
                 <Table columns={columns} data={data} id="top-bets" loading={loading} />
             </div>
-            {/* <PaymentStatus
-                isError={false}
-                amount={500}
-                balance={580}
-                details={[
-                    { label: "Reference no.", value: "#35576786566" },
-                    { label: "Payment date and time", value: "25 Oct 2024, 06:20 PM" },
-                    { label: "Deposit Amount", value: "$500" },
-                    { label: "Status", value: "Completed" },
-                ]}
-            /> */}
-            {/* <Withdraw/> */}
         </div>
     );
 };

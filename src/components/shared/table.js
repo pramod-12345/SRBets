@@ -1,6 +1,5 @@
 import React from "react";
-import btc from "../../assets/svg/btc.svg";
-import usd from "../../assets/svg/usd.svg";
+import { btcIcon , usd } from "assets";
 
 const SkeletonRow = ({ columns }) => {
   return (
@@ -30,7 +29,7 @@ const TableCell = ({ isHeader, content, currency }) => {
         {content}{" "}
         {currency && (
           <img
-            src={currency === "USD" ? usd : btc}
+            src={currency === "USD" ? usd : btcIcon}
             alt=""
             className="w-5 h-5"
           />

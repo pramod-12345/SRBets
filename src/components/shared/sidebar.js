@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import MenuItems from "./menuItems";
 import { menuData } from "../../data";
-import CommonButton from "../common/button";
+import { CommonButton } from "components";
 import { useNavigate } from "react-router-dom";
 
 const SidebarContent = ({ sidebarToggle }) => {
@@ -15,7 +15,7 @@ const SidebarContent = ({ sidebarToggle }) => {
             label={sidebarToggle ? null : button?.label}
             icon={button.icon}
             type={button?.type}
-            onClick={()=>navigate(button?.path)}
+            onClick={() => navigate(button?.path)}
           />
         ))}
       </div>

@@ -1,16 +1,20 @@
 import React from 'react'
-import Modal from '../common/Modal'
-import Typography from '../common/typography'
-import { BetCards } from '../common/cards'
-import infoIcon from "../../assets/svg/info-icon.svg";
-import copyIcon from "../../assets/svg/copy.svg"
-import backIcon from "../../assets/svg/back.svg"
-import Seperator from '../common/seperator';
+import {
+    Modal,
+    Typography,
+    BetCards,
+    Seperator
+} from "components"
+import {
+    infoIcon,
+    copy,
+    backIcon
+} from "assets"
 
 
-const BetDetails = () => {
+const BetDetails = ({handleClose}) => {
     return (
-        <Modal>
+        <Modal onClose={handleClose}>
             <div className='md:hidden p-0 py-5 px-4 bg-blackRussian'>
            <div className='flex items-center gap-2 mb-4'>
            <img src={backIcon} alt='Back'/>
@@ -43,7 +47,7 @@ const BetDetails = () => {
                                 <Typography variant={"size12Semibold"} color={"vintageRibbon"} content={"ID"} />
                                 <div className='flex items-center gap-1'>
                                 <Typography variant={"size14Normal"} color={"white"} content={"#467586688"} />
-                                <img src={copyIcon} alt='Copy icon'/>
+                                <img src={copy} alt='Copy icon'/>
                                 </div>
                             </div>
                         </div>

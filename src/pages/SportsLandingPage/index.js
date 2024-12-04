@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from "react";
-import Typography from "../../components/common/typography";
-import globe from "../../assets/svg/globe.svg";
-import Table from "../../components/shared/table";
+import { Typography, Table, Tabs, Accordion } from "components";
+import { globe } from "assets";
 import { columns, rows } from "../../data";
-import Tabs from "../../components/common/tab";
-import Accordion from "../../components/common/accordion";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setBets } from "../../redux/reducers/dashboard";
 
 const SportsLandingPage = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [activeBet, setActiveBet] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -15,6 +18,35 @@ const SportsLandingPage = () => {
     { id: "upcoming", label: "Upcoming" },
   ];
 
+  const betData = {
+    india: {
+      match: "India vs England",
+      country: "india",
+      value: 1.32,
+    },
+    england: { match: "India vs England", country: "England", value: 4.32 },
+  };
+
+  const handleActiveBets = (data) => {
+    setActiveBet((prevActiveBets) => {
+      const isBetActive = prevActiveBets.some(
+        (bet) => bet.country === data.country
+      );
+
+      if (isBetActive) {
+        // Remove the bet if already selected
+        return prevActiveBets.filter((bet) => bet.country !== data.country);
+      } else {
+        // Add the bet if not selected
+        return [...prevActiveBets, data];
+      }
+    });
+  };
+  const getActiveBet = (label) => {
+    const active = activeBet?.find((i) => i?.country === label);
+    return active?.country;
+  };
+
   useEffect(() => {
     // Simulate data loading
     setTimeout(() => {
@@ -22,6 +54,11 @@ const SportsLandingPage = () => {
       setLoading(false);
     }, 2000); // Simulate a 2-second loading time
   }, []);
+
+  useEffect(() => {
+    dispatch(setBets(activeBet))
+  }, [activeBet])
+  
   return (
     <div>
       <Typography color={"white"} variant={"h1"} content={"Cricket"} />
@@ -57,7 +94,10 @@ const SportsLandingPage = () => {
 
                   <div className="flex flex-col lg:flex-row justify-between items-center mt-4 gap-12">
                     <div className="flex justify-between items-center w-full">
-                      <div className="flex flex-col gap-1">
+                      <div
+                        className="flex flex-col gap-1 cursor-pointer"
+                        onClick={() => navigate("/cricket-details")}
+                      >
                         <Typography
                           color={"white"}
                           variant={"size14Semibold"}
@@ -85,31 +125,47 @@ const SportsLandingPage = () => {
 
                     <div className="flex flex-wrap lg:flex-nowrap gap-4">
                       <div className="flex items-center gap-4 w-full">
-                        <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
+                        <div
+                          onClick={() => handleActiveBets(betData?.india)}
+                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                            getActiveBet(betData?.india?.country)
+                              ? "bg-[#1475e1]"
+                              : "bg-blackRussian"
+                          }`}
+                        >
                           <Typography
-                            color={"white"}
+                            color={getActiveBet(betData?.india?.country) ? 'themeBlack' : "white"}
                             variant={"size12Normal"}
                             content={"India"}
                           />
                           <Typography
-                            color={"chinesePurple"}
+                            color={getActiveBet(betData?.india?.country) ? 'white' :"primary"}
                             variant={"size16Bold"}
                             content={"1.32"}
                           />
                         </div>
-                        <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
+                        <div
+                          onClick={() => handleActiveBets(betData?.england)}
+                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                            getActiveBet(betData?.england?.country)
+                              ? "bg-[#1475e1]"
+                              : "bg-blackRussian"
+                          }`}
+                        >
                           <Typography
-                            color={"white"}
+                            color={getActiveBet(betData?.england?.country) ? 'themeBlack' : "white"}
                             variant={"size12Normal"}
-                            content={"Bangladesh"}
+                            content={"England"}
                           />
                           <Typography
-                            color={"chinesePurple"}
+                            color={getActiveBet(betData?.england?.country) ? 'white' :"primary"}
                             variant={"size16Bold"}
-                            content={"1.32"}
+                            content={"4.32"}
                           />
                         </div>
-                        <div className="text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded">
+                        <div
+                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded`}
+                        >
                           <Typography
                             color={"white"}
                             variant={"size12Normal"}

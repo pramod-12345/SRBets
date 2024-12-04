@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Slider from "../../components/common/slider";
+import {
+  Slider,
+  SportsCard,
+  CommonButton,
+  Table,
+  Tabs,
+  Advertisement
+} from "components"
 import {
   casinoGames,
   columns,
@@ -7,17 +14,21 @@ import {
   rows,
   sportsGames,
 } from "../../data";
-import { SportsCard } from "../../components/common/cards";
-import CommonButton from "../../components/common/button";
-import Table from "../../components/shared/table";
-import Tabs from "../../components/common/tab";
-import Advertisement from "../../components/common/advertisement";
 import { useNavigate } from "react-router-dom";
+import { fetchLayout } from "../../services/dashboard.service";
+import useAxios from "../../hooks/useAxios";
+import { useDispatch, useSelector } from "react-redux";
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const makeRequest = useAxios();
+  const dispatch = useDispatch();
+  const { layoutData } = useSelector((state) => state?.dashboard);
+  const casinoSection = layoutData?.layout?.casinoSection
+  const sportsSection = layoutData?.layout?.sportsSection
+
   const tabs = [
     { id: "top-bets", label: "Top bets" },
     { id: "casino", label: "Casino leaderboard" },
@@ -29,11 +40,13 @@ const HomePage = () => {
       setData(rows);
       setLoading(false);
     }, 2000);
+
+    fetchLayout(makeRequest, dispatch);
   }, []);
 
   return (
     <>
-      <Advertisement />
+      <Advertisement promoBanner={layoutData?.layout?.promoBanners?.banners} />
       <div className=" flex flex-col sm:gap-12 gap-6 sm:pt-7 pt-6">
         <Slider title={"Recently played"}>
           {recentPlayed?.map((item, index) => (
@@ -46,19 +59,19 @@ const HomePage = () => {
             />
           ))}
         </Slider>
-        <Slider title={"Top 10 casino games"}>
-          {casinoGames?.map((item, index) => (
-            <SportsCard key={index} bgImg={item?.icon} width={"176px"} />
+        <Slider title={casinoSection?.title}>
+          {(casinoSection?.featuredCasinoGames ?? casinoGames)?.map((item, index) => (
+            <SportsCard key={index} bgImg={item?.imageUrl} width={"176px"} onClick={() => navigate("/poker")}/>
           ))}
         </Slider>
-        <Slider title={"Top 10 sport games"}>
-          {sportsGames?.map((item, index) => (
+        <Slider title={sportsSection?.title}>
+          {(sportsSection?.featuredSportsGames ?? sportsGames)?.map((item) => (
             <SportsCard
-              key={index}
+              key={item?.id}
               width={"176px"}
-              bgImg={item?.icon}
-              title={item?.title}
-              number={item?.number}
+              bgImg={item?.imageUrl}
+              title={item?.name}
+              number={'3224'}
               onClick={() => navigate("/sports-landing")}
             />
           ))}

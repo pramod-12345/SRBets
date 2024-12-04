@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Typography from "../../components/common/typography";
-import Advertisement from "../../components/common/advertisement";
-import Search from "../../components/common/search";
-import { columns, rows, sportsGames } from "../../data";
-import Table from "../../components/shared/table";
-import { SportsCard } from "../../components/common/cards";
+import {
+  Typography,
+  Advertisement,
+  Search,
+  Table
+} from "components"
+import { columns, rows } from "../../data";
 import SportsGamesCard from "./sportsGames";
 
 const SportsHome = () => {

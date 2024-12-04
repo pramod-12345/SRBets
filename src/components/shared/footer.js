@@ -1,8 +1,10 @@
 import React from "react";
+import {
+  Typography,
+  Seperator
+} from "components"
 import navImages from "../../assets/svg/navbar";
-import Typography from "../common/typography";
 import { footer } from "../../assets/svg/footer";
-import Seperator from "../common/seperator";
 import { footerData } from "../../data";
 
 const Footer = () => {

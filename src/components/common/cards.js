@@ -1,8 +1,7 @@
 import React from "react";
 import Typography from "./typography";
 import Seperator from "./seperator";
-import dollarIcon from "../../assets/svg/usd-icon.svg";
-import correctIcon from "../../assets/svg/correctIcon.svg"
+import {usdIcon , correctIcon} from "assets"
 import CommonButton from "./button";
 
 export const BannerCard = ({ bannerImg, containerStyle, imgStyle }) => {
@@ -23,11 +22,11 @@ export const CasinoCard = ({ icon }) => {
 
 export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
   return (
-    <div className={`${width === '176px' ? 'min-w-[176px] max-w-[176px]' : 'min-w-[208px] max-w-[208px]'} min-h-[280px] transform transition duration-300 hover:-translate-y-2`}>
+    <div className={`${width === '176px' ? 'min-w-[176px] max-w-[176px]' : 'min-w-[195px] max-w-[195px]'} min-h-[290px] transform transition duration-300 hover:-translate-y-2`}>
       <div
         style={{
           backgroundImage: `url(${bgImg})`,
-          backgroundSize: "cover",
+          backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
@@ -83,6 +82,7 @@ export const BetCards = ({
   payout,
   infoIcon,
   isButton = false,
+  setIsOpen
 }) => {
   return (
     <div className="bg-ebonyClay w-full rounded-lg shadow-lg">
@@ -103,7 +103,7 @@ export const BetCards = ({
               content={status}
             />
           </div>
-          <span>
+          <span className="cursor-pointer" onClick={()=>setIsOpen(true)}>
             <img src={infoIcon} alt="Info" />
           </span>
         </div>
@@ -156,7 +156,7 @@ export const BetCards = ({
                 variant={"size14Normal"}
                 content={`$${betAmount}`}
               />{" "}
-              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
+              <img src={usdIcon} alt="Dollar Icon" className="w-4 h-4" />
             </div>
           </div>
           <div className="flex justify-between text-[14px] leading-4">
@@ -171,7 +171,7 @@ export const BetCards = ({
                 variant={"size14Semibold"}
                 content={`$${payout}`}
               />{" "}
-              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
+              <img src={usdIcon} alt="Dollar Icon" className="w-4 h-4" />
             </div>
           </div>
         </div>
@@ -181,16 +181,18 @@ export const BetCards = ({
   );
 };
 
-export const BetSlipCards = () => {
+export const BetSlipCards = ({ isInput = false, data }) => {
+  console.log('data>>>>', data);
+  
   return (
     <>
 
-      <div className="bg-darkByzantineBlue h-[172px] w-[392px] rounded-lg">
+      <div className="bg-darkByzantineBlue w-[392px] rounded-lg">
         <div className="flex bg-ebonyClay px-4 py-3 items-center gap-2 rounded-t-lg">
           {/* <div className="text-vintageRibbon text-[14px] leading-4 font-medium">
             India vs Bangladesh
           </div> */}
-          <Typography variant={"size14Medium"} color={"vintageRibbon"} content={"India vs Bangladesh"}/>
+          <Typography variant={"size14Medium"} color={"vintageRibbon"} content={data?.match} />
           <img src={correctIcon} alt="Correct" />
         </div>
 
@@ -198,45 +200,96 @@ export const BetSlipCards = () => {
           {/* <div className="text-vintageRibbon font-medium text-[14px] leading-4">
             Winner (incl. super over)
           </div> */}
-           <Typography variant={"size14Medium"} color={"vintageRibbon"} content={"Winner (incl. super over)"}/>
+          <Typography variant={"size14Medium"} color={"vintageRibbon"} content={"Winner (incl. super over)"} />
           <div className="flex justify-between items-center mt-2">
             {/* <div className="text-white text-[14px] leading-4 font-medium">
               Bangladesh
             </div> */}
-           <Typography variant={"size14Medium"} color={"white"} content={"Bangladesh"}/>
+            <Typography variant={"size14Medium"} color={"white"} content={data?.country} />
             {/* <div className="text-primary text-[14px] leading-4 font-medium">
               1.24
             </div> */}
-           <Typography variant={"size14Medium"} color={"primary"} content={"1.24"}/>
+            <Typography variant={"size14Medium"} color={"primary"} content={data?.value} />
           </div>
         </div>
 
-        <div className="flex justify-between items-center mt-2 px-4">
+        <div className="flex justify-between items-center mt-2 px-4 pb-6">
           <div>
-            {/* <div className="text-vintageRibbon text-[12px] leading-3 font-normal">
-              Total bet amount
-            </div> */}
-           <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Total Bet Amount"}/>
-            <div className="flex items-center gap-1 mt-1">
-              {/* <span className="text-vintageRibbon text-[14px] leading-4 font-semibold">$1.00</span> */}
-           <Typography variant={"size14Semibold"} color={"vintageRibbon"} content={"$1.00"}/>
-              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
-            </div>
+            {/* Conditional Rendering */}
+            {isInput ? (
+              <div className="relative flex items-center bg-themeBlack text-white rounded-lg px-4 py-2 border border-ebonyClay w-[140px]">
+                {/* Input Box */}
+                <input
+                  type="text"
+                  placeholder="0.00"
+                  className="bg-transparent text-sm flex-1 outline-none placeholder-white"
+                />
+
+                {/* Dollar Icon */}
+                <div className="absolute right-2">
+                  <img src={usdIcon} className="w-5 h-5" alt="Dollar Icon" />
+                </div>
+              </div>
+            ) : (
+              <div>
+                {/* Display Total Bet Amount */}
+                <Typography
+                  variant="size12Normal"
+                  color="vintageRibbon"
+                  content="Total Bet Amount"
+                />
+                <div className="flex items-center gap-1 mt-1">
+                  <Typography
+                    variant="size14Semibold"
+                    color="vintageRibbon"
+                    content="$1.00"
+                  />
+                  <img src={usdIcon} alt="Dollar Icon" className="w-4 h-4" />
+                </div>
+              </div>
+            )}
           </div>
+
 
           <div className="text-right">
             {/* <div className="text-vintageRibbon text-[12px] leading-3 fon">
               Est. payout
             </div> */}
-           <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Est. payout"}/>
+            <Typography variant={"size12Normal"} color={"vintageRibbon"} content={"Est. payout"} />
             <div className="flex items-center gap-1 mt-1">
               {/* <span className="text-vintageRibbon text-[12px] leading-3 font-semibold ">$4.50</span> */}
-           <Typography variant={"size14Semibold"} color={"vintageRibbon"} content={"$4.50"}/>
-              <img src={dollarIcon} alt="Dollar Icon" className="w-4 h-4" />
+              <Typography variant={"size14Semibold"} color={"vintageRibbon"} content={"$4.50"} />
+              <img src={usdIcon} alt="Dollar Icon" className="w-4 h-4" />
             </div>
           </div>
         </div>
       </div>
     </>
+  )
+}
+
+
+ export const CasinoGamesCards = () => {
+  return (
+    <div className="bg-blackRussian p-6 rounded-[20px] rounded-lg w-[360px] h-[200px] flex flex-col justify-between relative">
+      {/* Title */}
+      <div className='flex flex-col justify-center'>
+        <Typography color={"primary"} variant={"size12Semibold"} content={"TEEN PATTI"} />
+        <div className='mt-1.5'>
+          <Typography color={"white"} variant={"size16Semibold"} content={"Offer name goes here"} />
+        </div>
+        <div className='mt-2'>
+          <Typography variant={"size14Medium"} color={"vintageRibbon"} content={"3 Sixes payout"} />
+        </div>
+      </div>
+
+      {/* Button */}
+      <div className="mt-auto">
+        <CommonButton label={"Play now"} type='playNowBtn' />
+      </div>
+
+      {/* Placeholder for image */}
+      <div className="absolute top-6 right-4 w-[104px] h-[104px] bg-themeBlack rounded-2xl"></div>
+    </div>
   )
 }

@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import auth from './authSlice';
-
+import authSlice from "./authSlice"
+import dashboard from './dashboard'
 
 const appReducer = combineReducers({
-    auth: auth
+    auth : authSlice,
+    dashboard: dashboard
 });
 
 const rootReducer = (state, action) => {

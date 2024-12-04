@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import CommonButton from "./button";
-import leftArrow from "../../assets/svg/left-arrow.svg";
-import rightArrow from "../../assets/svg/right-arrow.svg";
+import { rightArrow , sliderLeftArrow } from "assets";
 import SectionHeader from "./headerSection";
 
 const Slider = ({ children, title }) => {
@@ -60,7 +59,7 @@ const Slider = ({ children, title }) => {
         <SectionHeader title={title} />
         <div className="hidden md:flex items-center gap-3">
           <CommonButton
-            icon={leftArrow}
+            icon={sliderLeftArrow}
             type="iconBtn"
             disabled={isLeftDisabled}
             onClick={scrollLeft}

@@ -5,10 +5,7 @@ import tennis from "./assets/svg/sidebar/tennis.svg";
 import { casinoImages } from "./assets/svg/casino-games";
 import { sportsImages } from "./assets/svg/sports-games";
 import navImages from "./assets/svg/navbar";
-import insta from "./assets/svg/insta.svg";
-import google from "./assets/svg/google.svg";
-import facebook from "./assets/svg/facebook.svg";
-import twitter from "./assets/svg/twitter.svg";
+import { insta , google , faceBookIcon , twitter } from "assets";
 
 
 export const menuData = {
@@ -424,6 +421,6 @@ export const selectedBetItems = [
 export const loginIcons = [
   { id: 1, icon: insta},
   { id: 2, icon: google },
-  { id: 3, icon: facebook },
+  { id: 3, icon: faceBookIcon },
   { id: 4, icon: twitter },
 ]
