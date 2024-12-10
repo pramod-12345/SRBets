@@ -1,5 +1,6 @@
 // authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+import { jwtDecode } from "jwt-decode";
 
 const initialState = {
   isLoggedIn: false, // Default is logged out
@@ -16,7 +17,9 @@ const authSlice = createSlice({
   reducers: {
     login: (state, action) => {
       state.isLoggedIn = true;
-      state.user = action.payload; // Can store user info here
+      const decodedToken = jwtDecode(action?.payload?.body?.userContextToken);
+      const userData = {...action.payload, ...decodedToken }
+      state.user = userData; // Can store user info here
     },
     logout: (state) => {
       state.isLoggedIn = false;

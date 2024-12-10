@@ -83,7 +83,7 @@ const BetSlipSlider = ({ betSlipToggle, setBetSlipToggle }) => {
           </div>
         </header>
 
-        <div style={{height: 'calc(55vh - 100px)'}} className="mt-5 min-h-[300px] overflow-auto no-scrollbar">
+        <div id='dra-456-bet-slip-space' style={{height: 'calc(55vh - 100px)'}} className="mt-5 min-h-[300px] overflow-auto no-scrollbar">
           <div className="space-y-4">
             {bets?.map((item, index) => (
               <BetSlipCards  key={index} isInput={true} data={item} />

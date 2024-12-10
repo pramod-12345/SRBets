@@ -59,7 +59,7 @@ const Input = ({
 
       {/* Input Field */}
       <div className="flex flex-col">
-        <div className="flex items-center px-4 py-5 bg-darkByzantineBlue rounded-xl">
+        <div className="flex items-center px-2 py-3 bg-darkByzantineBlue rounded-xl">
           {isAmount && (
             <div className="mr-3">
               <Typography
@@ -72,7 +72,7 @@ const Input = ({
           <input
             name={name}
             placeholder={placeholder}
-            className="outline-none w-full text-white font-semibold text-sm bg-darkByzantineBlue rounded-xl"
+            className="outline-none w-full text-white px-2 py-2 font-semibold text-sm bg-darkByzantineBlue "
             value={value}
             onChange={onChange}
             onBlur={onBlur} // Handle blur for Formik
@@ -81,12 +81,14 @@ const Input = ({
 
         {/* Error Message */}
         {touched && error && (
-          <Typography
-            color="red"
-            variant="size12Normal"
-            content={error}
-            className="mt-2"
-          />
+          <div className="pl-3">
+            <Typography
+              color="red"
+              variant="size12NormalError"
+              content={error}
+              className="mt-2"
+            />
+          </div>
         )}
       </div>
     </div>

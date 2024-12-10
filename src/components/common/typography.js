@@ -19,6 +19,7 @@ const Typography = ({ variant, content, color }) => {
     size16Semibold: "font-semibold text-size16",
     size16Medium: "font-medium text-size16",
     size12Normal: "font-normal text-size12",
+    size12NormalError: "font-normal text-size12 text-red-400",
     size12Semibold: "text-[12px] leading-3 font-semibold",
   };
 

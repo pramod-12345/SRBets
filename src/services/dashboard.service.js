@@ -29,6 +29,11 @@ export const checkBalance = async (makeRequest, payload) => {
   makeRequest({
       url: CHECK_BALANCE,
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        clientKey: "QXNoaXNo",
+        clientId: "QXNoaXNo",
+      },
       data: payload
     })
 };

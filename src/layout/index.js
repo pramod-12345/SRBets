@@ -6,10 +6,10 @@ import {
   Sidebar,
   Footer,
   BetSlipSlider,
-  GlobalLoader
+  GlobalLoader,
 } from "components";
 import { useSelector } from "react-redux";
-import { ToastProvider } from "hooks"
+import { ToastProvider } from "hooks";
 
 const Layout = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
