@@ -126,7 +126,7 @@ const DepositeViaUpi = () => {
                 />
               )}
             </div>
-            <div className="w-full flex justify-center items-center pt-7 flex-col gap-6">
+            <div className="w-full flex justify-center items-center lg:pt-7 pt-9 flex-col gap-6">
               <CommonButton
                 type="viewBetsBtn"
                 label={

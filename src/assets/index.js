@@ -52,6 +52,7 @@ import usdIcon from "./svg/usd-icon.svg"
 import usd from "./svg/usd.svg"
 import waiting from "./svg/waiting.svg"
 import sliderLeftArrow from "./svg/slider-left-arrow.svg"
+import rightDisabled from "./svg/rightDisabled.svg"
 
 
 export {
@@ -75,6 +76,7 @@ export {
     bannerMb1,
     arrowDown,
     leftArrow,
+    rightDisabled,
     dropdownArrow,
     btc2Icon,
     btcIcon,

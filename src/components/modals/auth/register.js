@@ -44,8 +44,9 @@ const Register = ({ setModalType }) => {
   return (
     <div>
       <div className="md:hidden bg-blackRussian">
-        <div className="flex items-center px-4 gap-2 py-5">
-          <img
+        <div className="flex items-center justify-between px-4 gap-2 py-5">
+         <div className="flex items-center gap-2">
+         <img
             src={backIcon}
             alt="Back"
             onClick={() => dispatch(setModalType("login"))}
@@ -56,6 +57,7 @@ const Register = ({ setModalType }) => {
             variant={"size20Bold"}
             content={"Register new account"}
           />
+         </div>
           <Typography
             color={"vintageRibbon"}
             variant={"size16Medium"}

@@ -5,15 +5,24 @@ import tennis from "./assets/svg/sidebar/tennis.svg";
 import { casinoImages } from "./assets/svg/casino-games";
 import { sportsImages } from "./assets/svg/sports-games";
 import navImages from "./assets/svg/navbar";
-import { insta , google , faceBookIcon , twitter } from "assets";
-
+import { insta, google, faceBookIcon, twitter } from "assets";
 
 export const menuData = {
   mainButtons: {
     title: "Main",
     buttons: [
-      { label: "Casino", type: "secondary", icon: sidebarImg?.casino, path:'/casino-home' },
-      { label: "Sports", type: "primary", icon: sidebarImg.sports, path:'/sports-home' },
+      {
+        label: "Casino",
+        type: "secondary",
+        icon: sidebarImg?.casino,
+        path: "/casino-home",
+      },
+      {
+        label: "Sports",
+        type: "primary",
+        icon: sidebarImg.sports,
+        path: "/sports-home",
+      },
     ],
   },
   accountButtons: {
@@ -129,47 +138,47 @@ export const sportsGames = [
   {
     icon: sportsImages?.cricket,
     title: "Cricket",
-    number: "1254"
+    number: "1254",
   },
   {
     icon: sportsImages?.football,
-    title:"Football",
-    number: "1253"
+    title: "Football",
+    number: "1253",
   },
   {
     icon: sportsImages?.horseRacing,
     title: "Horse Racing",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.politcs,
     title: "Politcs",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.tennis,
     title: "Tennis",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.f1Racing,
     title: "F1 race",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.politcs,
     title: "Politcs",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.tennis,
     title: "Tennis",
-    number: "1253"
+    number: "1253",
   },
   {
     icon: sportsImages?.f1Racing,
     title: "F1 race",
-    number: "1253"
+    number: "1253",
   },
 ];
 
@@ -177,26 +186,27 @@ export const MbNavTabs = [
   {
     label: "Home",
     icon: navImages.home,
-    link: "/"
+    link: "/",
   },
   {
     label: "My Bets",
     icon: navImages.bets,
-    link:"/my-bets"
+    link: "/my-bets",
   },
   {
     label: "Casino",
     icon: navImages.casino,
-    link: "/casino-home"
+    link: "/casino-home",
   },
   {
     label: "Sports",
     icon: navImages.sports,
-    link:"/sports-home"
+    link: "/sports-home",
   },
   {
     label: "Settings",
     icon: navImages.setting,
+    link: "/#",
   },
 ];
 
@@ -414,13 +424,12 @@ export const numberItems = [
 
 export const selectedBetItems = [
   { id: 1, label: "Settled Bet" },
-  { id: 2, label: "Ongoing Bet" },
-  { id: 3, label: "Cancelled Bet" },
+  { id: 2, label: "Active Bet" },
 ];
 
 export const loginIcons = [
-  { id: 1, icon: insta},
+  { id: 1, icon: insta },
   { id: 2, icon: google },
   { id: 3, icon: faceBookIcon },
   { id: 4, icon: twitter },
-]
+];

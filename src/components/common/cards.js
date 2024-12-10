@@ -22,23 +22,22 @@ export const CasinoCard = ({ icon }) => {
 
 export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
   return (
-    <div className={`${width === '176px' ? 'min-w-[176px] max-w-[176px]' : 'min-w-[195px] max-w-[195px]'} min-h-[290px] transform transition duration-300 hover:-translate-y-2`}>
+    <div className={`${width === '176px' ? 'md:min-w-[176px] md:max-w-[176px]' : 'md:min-w-[176px] md:max-w-[176px]'} min-w-[132px] max-w-[132px] min-h-[178px] md:min-h-[280px] transform transition duration-300 hover:-translate-y-2`}>
       <div
         style={{
           backgroundImage: `url(${bgImg})`,
-          backgroundSize: "contain",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
         }}
-        className="rounded-lg w-full h-full p-2.5 overflow-hidden"
+        className="rounded-xl md:rounded-[20px] w-full h-full p-2.5 overflow-hidden bg-cover md:bg-contain"
         onClick={onClick}
       >
         {/* Content */}
         <div className="flex flex-col h-[inherit] justify-between">
           {/* Title */}
           {title && (
-            <div className="flex pt-4 pl-3 flex items-center ">
-              <h1 className="text-white text-[28px] font-bold text-wrap tracking-wider drop-shadow-lg">
+            <div className="flex pt-1.5 pl-1 flex items-center ">
+              <h1 className="text-white text-[20px] md:text-[28px] font-bold md:font-black text-wrap tracking-wider drop-shadow-lg">
                 {title}
               </h1>
               {/* <Typography
@@ -50,7 +49,7 @@ export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
           )}
           {/* Playing Count */}
           {number && (
-            <div className="flex items-center bg-black/50 gap-[7px] text-white text-xs py-2 px-2 rounded-full w-fit">
+            <div className="flex items-center bg-black/50 gap-[7px] text-white text-xs py-1 md:py-2 px-2 rounded-full w-fit">
               <div className="w-2.5 h-2.5 bg-green-500 rounded-full" />
               <div className="flex items-center gap-1">
                 <Typography

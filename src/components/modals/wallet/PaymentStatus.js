@@ -29,7 +29,7 @@ const PaymentStatus = ({ isError, amount, balance, onRetry }) => {
     // <Modal>
     <div className="flex items-center justify-center bg-blackRussian md:p-0 p-4">
       <div
-          className="cursor-pointer absolute md:static right-4 top-4"
+          className="cursor-pointer absolute md:static block md:hidden right-4 top-4"
           onClick={closeModal}
         >
           <img src={closeIcon} alt="close" />

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import CommonButton from "./button";
-import { rightArrow , sliderLeftArrow } from "assets";
+import { rightArrow , leftArrow, sliderLeftArrow, rightDisabled } from "assets";
 import SectionHeader from "./headerSection";
 
 const Slider = ({ children, title }) => {
@@ -59,13 +59,13 @@ const Slider = ({ children, title }) => {
         <SectionHeader title={title} />
         <div className="hidden md:flex items-center gap-3">
           <CommonButton
-            icon={sliderLeftArrow}
+            icon={isLeftDisabled ? leftArrow : sliderLeftArrow}
             type="iconBtn"
             disabled={isLeftDisabled}
             onClick={scrollLeft}
           />
           <CommonButton
-            icon={rightArrow}
+            icon={isRightDisabled ? rightDisabled : rightArrow}
             type="iconBtn"
             disabled={isRightDisabled}
             onClick={scrollRight}
@@ -73,7 +73,7 @@ const Slider = ({ children, title }) => {
         </div>
       </div>
       <div
-        className="flex item-center justify-start sm:pt-5 pt-5 gap-4 overflow-x-auto no-scrollbar"
+        className="flex item-center justify-start sm:pt-5 pt-4 gap-4 overflow-x-auto no-scrollbar"
         style={{ whiteSpace: "nowrap" }}
         ref={scrollContainerRef}
       >

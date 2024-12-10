@@ -10,7 +10,7 @@ const AddNewBankAccount = () => {
     <div>
       <div className="md:hidden bg-blackRussian">
         <div className="flex items-center px-4 gap-2 py-5">
-          <img src={backIcon} alt="Back" />
+          <img src={backIcon} alt="Back" className="cursor-pointer"  onClick={() => dispatch(setModalType("withdraw"))} />
           <Typography
             variant="size20Bold"
             color={"white"}

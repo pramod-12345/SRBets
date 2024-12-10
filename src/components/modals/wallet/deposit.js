@@ -102,7 +102,7 @@ const Deposit = () => {
                   </div>
                 </div>
               </div>
-              <div className="p-6 mt-4 flex flex-col gap-4 text-center bg-darkByzantineBlue rounded-xl justify-center items-center">
+              <div className="p-6 lg:mt-4 mt-6 flex flex-col gap-4 text-center bg-darkByzantineBlue rounded-xl justify-center items-center">
                 <img
                   src={qrCode}
                   alt="QR Code"

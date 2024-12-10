@@ -165,7 +165,7 @@ const Withdraw = () => {
                   touched={cryptoFormik.touched.amount}
                 />
               </div>
-              <div className="mt-6">
+              <div className="lg:mt-6 mt-4">
                 <Input
                   name="address"
                   value={cryptoFormik.values.address}
@@ -186,7 +186,7 @@ const Withdraw = () => {
                   variant={"size12Normal"}
                 />
               </div>
-              <div className="mt-10">
+              <div className="lg:mt-10 mt-9">
                 <CommonButton
                   btnType={"submit"}
                   type="viewBetsBtn"

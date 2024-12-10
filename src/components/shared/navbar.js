@@ -17,7 +17,7 @@ import {
   AddNewBankAccount,
   PaymentStatus,
 } from "components";
-import navImages from "../../assets/svg/navbar";
+import navImages, { MBBets, MBCasino, MBFootball, MBHome, MBSetting } from "../../assets/svg/navbar";
 import { MbNavTabs } from "../../data";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -38,7 +38,12 @@ const Navbar = ({
   const dispatch = useDispatch();
   const { makeRequest } = useAxios();
   const [isOpen, setIsOpen] = useState(false);
-  const [selected, setSelected] = useState({ id: 1, label: "INR", icon: rupees, value: 0 });
+  const [selected, setSelected] = useState({
+    id: 1,
+    label: "INR",
+    icon: rupees,
+    value: 0,
+  });
   const { isLoggedIn } = useSelector((state) => state.auth);
 
   // Get modal type and visibility from Redux state
@@ -50,6 +55,23 @@ const Navbar = ({
     { id: 2, label: "BTC", icon: btcIcon, value: 0 },
   ];
 
+  const getActiveIconMBNav = (link, isActive) => {
+    switch (link) {
+      case "/":
+        return <MBHome color={isActive ? "#fff" : "#9298B4"} />;
+      case "/my-bets":
+        return <MBBets color={isActive ? "#fff" : "#9298B4"} />;
+      case "/casino-home":
+        return <MBCasino color={isActive ? "#fff" : "#9298B4"} />;
+      case "/sports-home":
+        return <MBFootball color={isActive ? "#fff" : "#9298B4"} />;
+      case "/#":
+        return <MBSetting color={isActive ? "#fff" : "#9298B4"} />;
+      default:
+        return null;
+    }
+  };
+
   const NavItem = ({ icon, label, link }) => {
     const location = useLocation();
     const isActive = location.pathname === link;
@@ -59,7 +81,8 @@ const Navbar = ({
         to={link}
         className="flex flex-col items-center text-vintageRibbon hover:text-white"
       >
-        <img src={icon} alt={`${label} icon`} className="h-8 w-8" />
+        {/* <img src={icon} alt={`${label} icon`} className="h-8 w-8" /> */}
+        {getActiveIconMBNav(link, isActive)}
         <span
           className={`text-xs font-semibold ${
             isActive ? "text-white" : ""

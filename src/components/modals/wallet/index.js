@@ -120,13 +120,13 @@ const WalletModal = ({ onClose }) => {
       </div>
       <div
        className="flex md:hidden gap-3.5 flex-col px-4 pb-5 md:static absolute bottom-7 w-full left-0">
+         <CommonButton type="viewBetsBtn" label={"+ Add Money"} onClick={()=> dispatch(setModalType("deposit"))} />
         <CommonButton
           type="viewBetsBtn"
           label={"Withdraw"}
           bgColor="bg-vintageRibbon"
           onClick={()=> dispatch(setModalType("withdraw"))}
         />
-        <CommonButton type="viewBetsBtn" label={"+ Add Money"} onClick={()=> dispatch(setModalType("deposit"))} />
       </div>
     </div>
   );

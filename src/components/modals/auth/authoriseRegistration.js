@@ -32,7 +32,7 @@ const AuthoriseRegistration = () => {
         </div>
         <Seperator />
       </div>
-      <div className="pt-8">
+      <div className="pt-8 px-4 lg:px-0">
         <Input
           setValue={setdisplayName}
           value={displayName}
@@ -40,7 +40,7 @@ const AuthoriseRegistration = () => {
           placeholder={'Enter Display Name'}
         />
       </div>
-      <div className="w-full flex justify-center items-center pt-8">
+      <div className="w-full flex justify-center items-center pt-8 px-4 lg:px-0">
         <CommonButton type="viewBetsBtn" label={"Continue"}  onClick={()=>dispatch(setModalType("twoFactorAuthentication"))} />
       </div>
     </div>

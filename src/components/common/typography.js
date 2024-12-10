@@ -2,9 +2,9 @@ import React from "react";
 
 const Typography = ({ variant, content, color }) => {
   const fontType = {
-    h1: "font-bold text-[2rem] leading-[2.4rem]",
+    h1: "font-bold text-size24 md:text-[2rem] leading-[2.4rem]",
     h2: "font-bold text-[1.75rem] leading-[2.1rem]",
-    h3: "font-bold text-2xl leading-[1.8rem]",
+    h3: "font-bold text-size16 md:text-2xl leading-[1.8rem]",
     h3Normal: "font-medium text-2xl",
     size20Semibold:"text-xl font-semibold",
     size20Bold:"text-xl font-bold",

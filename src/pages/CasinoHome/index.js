@@ -25,10 +25,10 @@ const CasinoHome = () => {
             <div className="mt-5">
                 <Advertisement />
             </div>
-            <div className="w-full mt-7">
+            <div className="w-full mt-7 hidden md:flex">
                 <Search variant="full" bgColor="bg-blackRussian" />
             </div>
-            <div className="mt-10">
+            <div className="mt-7 md:mt-10">
                 <Typography
                     color={"white"}
                     variant={"h3"}

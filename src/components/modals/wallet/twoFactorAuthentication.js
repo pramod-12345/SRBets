@@ -6,24 +6,35 @@ import {
   Seperator
 } from "components"
 import { qrCode , backIcon, reload, copy } from "assets";
+import { useDispatch } from "react-redux";
+import { setModalType } from "../../../redux/reducers/authSlice";
 
 const TwoFactorAuthentication = () => {
   const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="md:hidden bg-blackRussian">
         <div className="flex items-center px-4 gap-2 py-5">
-          <img src={backIcon} alt="Back" />
-          <Typography
+          <img src={backIcon} alt="Back" onClick={() => dispatch(setModalType("login"))} />
+        </div>
+        <Seperator />
+      </div>
+      <div className="hidden md:block">
+        <Typography
+          color={"white"}
+          variant={"size20Bold"}
+          content={"Two Factor Authentication"}
+        />
+      </div>
+      <div className="px-4 md:px-0">
+      <div className="pt-1.5">
+      <Typography
             variant="size20Bold"
             color={"white"}
             content={"Two factor authentication"}
           />
-        </div>
-        <Seperator />
-      </div>
-      <div className="px-4 md:px-0">
-      <div className="pt-1.5">
+          <div className="mt-1.5">
         <Typography
           color={"vintageRibbon"}
           variant={"size14Normal"}
@@ -31,6 +42,7 @@ const TwoFactorAuthentication = () => {
             "To keep your account extra secure leave a two factor authentication enabled"
           }
         />
+          </div>
       </div>
       <div className="pt-8 flex flex-col gap-6">
         {/* <Input
