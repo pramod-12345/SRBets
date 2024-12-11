@@ -1,20 +1,22 @@
-import React, { useEffect, useRef, useState } from "react";
-import { closeIcon, usdIcon } from "assets";
+import React, { useEffect, useRef } from 'react';
 import {
-  Typography,
-  Seperator,
-  Tabs,
-  Dropdown,
-  BetSlipCards,
-  CommonButton,
-} from "components";
-import { numberItems } from "../../data";
+    closeIcon,
+    usdIcon
+} from "assets"
+import {
+    Typography,
+    Seperator,
+    Tabs,
+    Dropdown,
+    BetSlipCards,
+    CommonButton
+} from "components"
+import { numberItems } from '../../data';
 import { useDispatch, useSelector } from "react-redux";
 import { setBets, setBetSlipToggle } from "../../redux/reducers/dashboard";
 
 const BetSlipSlider = ({ betSlipToggle }) => {
   const { bets } = useSelector((state) => state.dashboard);
-  const [animatedBets, setAnimatedBets] = useState([]);
   const dispatch = useDispatch();
   const containerRef = useRef(null);
 
@@ -44,15 +46,17 @@ const BetSlipSlider = ({ betSlipToggle }) => {
         maxHeight: "calc(100vh - 72px)",
         minHeight: "calc(100vh - 72px)",
       }}
-      // className={`hidden sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${
+      // className={`hidden sidebar-main no-scrollbar p-4 bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${
       //   betSlipToggle
       //     ? "translate-x-0 min-w-[440px] w-[260px]"
       //     : "translate-x-full min-w-[0] w-0"
       // }`}
-      className={`hidden md:flex max-w-md bg-blackRussian text-white rounded-lg p-4 shadow-lg h-screen flex flex-col transition-all ease-in-out duration-300 ${
+      // className={`hidden ${betSlipToggle ? 'p-4' : ''} sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${betSlipToggle ? "translate-x-0 min-w-[440px] w-[260px]" : "translate-x-full min-w-[0] w-0"
+      // }`}
+      className={`hidden md:flex max-w-md bg-blackRussian sidebar-main text-white h-screen flex flex-col transition-all ease-in-out duration-300 ${
         betSlipToggle
-          ? "translate-x-0 min-w-[440px] w-[260px]"
-          : "translate-x-full min-w-[0] w-0"
+          ? "translate-x-0 min-w-[440px] w-[260px] p-4"
+          : "translate-x-full min-w-[0] w-0 overflow-auto"
       }`}
     >
       {/* <div className="px-6 py-7"> */}

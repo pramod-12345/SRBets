@@ -58,6 +58,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const profileMenuRef = useRef(null);
+  const currencyRef = useRef(null);
   // Get modal type and visibility from Redux state
   const { modalType, isModalOpen } = useSelector((state) => state?.auth);
   const { userBalance } = useSelector((state) => state?.dashboard);
@@ -172,6 +173,20 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        currencyRef.current &&
+        !currencyRef.current.contains(event.target)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <>
       <header
@@ -214,7 +229,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                     <span className="text-sm text-white">
                       {userBalance?.body?.balance ?? 0}
                     </span>
-                    <div onClick={() => setIsOpen(!isOpen)}>
+                    <div ref={currencyRef} onClick={() => setIsOpen(!isOpen)}>
                       <img
                         src={navImages.arrowDown}
                         alt="logo"
