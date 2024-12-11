@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   CommonButton,
   Search,
@@ -17,43 +17,63 @@ import {
   AddNewBankAccount,
   PaymentStatus,
 } from "components";
-import navImages, { MBBets, MBCasino, MBFootball, MBHome, MBSetting } from "../../assets/svg/navbar";
+import navImages, {
+  MBBets,
+  MBCasino,
+  MBFootball,
+  MBHome,
+  MBSetting,
+} from "../../assets/svg/navbar";
 import { MbNavTabs } from "../../data";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setModalType, toggleModal } from "../../redux/reducers/authSlice";
+import {
+  logout,
+  setModalType,
+  toggleModal,
+} from "../../redux/reducers/authSlice";
 import { sidebarImg } from "../../assets/svg/sidebar";
 import { btcIcon, rupees } from "assets";
 import { checkBalance } from "services/dashboard.service";
 import { useAxios } from "hooks";
-
-const Navbar = ({
-  setSidebarToggle,
-  sidebarToggle,
+import {
   setBetSlipToggle,
-  betSlipToggle,
-}) => {
+  setUserBalance,
+} from "../../redux/reducers/dashboard";
+
+const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   let balance = 255.76;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { user } = useSelector((state) => state?.auth);
   const { makeRequest } = useAxios();
   const [isOpen, setIsOpen] = useState(false);
+  const [openProfileMenu, setOpenProfileMenu] = useState(false);
   const [selected, setSelected] = useState({
     id: 1,
     label: "INR",
     icon: rupees,
     value: 0,
   });
-  const { isLoggedIn } = useSelector((state) => state.auth);
 
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const profileMenuRef = useRef(null);
   // Get modal type and visibility from Redux state
   const { modalType, isModalOpen } = useSelector((state) => state?.auth);
+  const { userBalance } = useSelector((state) => state?.dashboard);
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
     { id: 1, label: "USD", icon: navImages.usdIcon, value: 0 },
     { id: 2, label: "BTC", icon: btcIcon, value: 0 },
   ];
+
+  const handleLogout = () => {
+    dispatch(logout({}));
+    dispatch(setUserBalance(null));
+    navigate("/");
+    setOpenProfileMenu(false);
+  };
 
   const getActiveIconMBNav = (link, isActive) => {
     switch (link) {
@@ -90,8 +110,10 @@ const Navbar = ({
         >
           {label}
         </span>
-        {isActive && (
+        {isActive ? (
           <span className="w-7 h-1 bg-primary rounded-t-md mt-2"></span>
+        ) : (
+          <span className="w-7 h-1 bg-transparent rounded-t-md mt-2"></span>
         )}
       </Link>
     );
@@ -113,11 +135,17 @@ const Navbar = ({
 
   const CheckBalance = () => {
     const payload = {
-      userId: 2,
+      userId: user?.id,
       currency: selected?.label,
     };
-    checkBalance(makeRequest, payload);
+    checkBalance(makeRequest, payload, dispatch);
   };
+
+  useEffect(() => {
+    if (user?.id) {
+      CheckBalance();
+    }
+  }, [user, selected]);
 
   const getBalanceIcon = () => {
     switch (selected?.label) {
@@ -130,7 +158,19 @@ const Navbar = ({
     }
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        profileMenuRef.current &&
+        !profileMenuRef.current.contains(event.target)
+      ) {
+        setOpenProfileMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <>
@@ -171,7 +211,9 @@ const Navbar = ({
                       alt="logo"
                       className="w-5 h-5"
                     />
-                    <span className="text-sm text-white">{balance}</span>
+                    <span className="text-sm text-white">
+                      {userBalance?.body?.balance ?? 0}
+                    </span>
                     <div onClick={() => setIsOpen(!isOpen)}>
                       <img
                         src={navImages.arrowDown}
@@ -226,14 +268,29 @@ const Navbar = ({
                 alt="logo"
                 className="w-5 h-5 block md:hidden"
               />
-              <img
-                src={navImages.profileIcon}
-                alt="logo"
-                className="sm:w-7 sm:h-7 w-5 h-5"
-              />
+              <div ref={profileMenuRef} className="relative inline-block">
+                <img
+                  onClick={() => setOpenProfileMenu(!openProfileMenu)}
+                  src={navImages.profileIcon}
+                  alt="logo"
+                  className="sm:w-7 sm:h-7 w-5 h-5 cursor-pointer"
+                />
+                {openProfileMenu && user?.id ? (
+                  <ul className="absolute mt-2 w-48 rounded bg-white shadow-lg focus:outline-none right-0 ltr:right-0 ltr:origin-top-right rtl:left-0 rtl:origin-top-left transform opacity-100 scale-100">
+                    <li>
+                      <button
+                        onClick={handleLogout}
+                        className="block w-full py-2.5 px-6 text-sm font-semibold capitalize transition duration-200 hover:text-primary focus:outline-0 ltr:text-left rtl:text-right"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
+                ) : null}
+              </div>
               <div
                 style={{ cursor: "pointer" }}
-                onClick={() => setBetSlipToggle(!betSlipToggle)}
+                onClick={() => dispatch(setBetSlipToggle(!betSlipToggle))}
                 className="hidden md:block"
               >
                 <img src={sidebarImg.bets} alt="logo" className="w-7 h-7" />

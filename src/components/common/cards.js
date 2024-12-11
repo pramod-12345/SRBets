@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Typography from "./typography";
 import Seperator from "./seperator";
 import {usdIcon , correctIcon} from "assets"
@@ -181,12 +181,16 @@ export const BetCards = ({
 };
 
 export const BetSlipCards = ({ isInput = false, data }) => {
-  console.log('data>>>>', data);
+  const [animate, setAnimate] = useState(false);
+  useEffect(() => {
+    const timeoutId = setTimeout(() => setAnimate(true), 50); // Trigger animation slightly after mount
+    return () => clearTimeout(timeoutId);
+  }, []);
   
   return (
     <>
 
-      <div className="bg-darkByzantineBlue w-[392px] rounded-lg">
+      <div className={`bg-darkByzantineBlue min-w-[392px] rounded-lg betslip-card ${animate ? 'betslip-animate' : ''}`}>
         <div className="flex bg-ebonyClay px-4 py-3 items-center gap-2 rounded-t-lg">
           {/* <div className="text-vintageRibbon text-[14px] leading-4 font-medium">
             India vs Bangladesh

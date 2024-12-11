@@ -4,7 +4,7 @@ import { globe } from "assets";
 import { columns, rows } from "../../data";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setBets } from "../../redux/reducers/dashboard";
+import { setBets, setBetSlipToggle } from "../../redux/reducers/dashboard";
 
 const SportsLandingPage = () => {
   const navigate = useNavigate();
@@ -46,6 +46,7 @@ const SportsLandingPage = () => {
 
   const handleClick = (_,e) => {
     // const { clientX, clientY } = e;
+    dispatch(setBetSlipToggle(animatingLabel?.id ? false : true));
     const rect = e.target?.getBoundingClientRect(); // Get position of clicked label
     setAnimatingLabel({ position: rect });
     const targetDiv = document.getElementById("dra-456-bet-slip-space");
@@ -193,7 +194,7 @@ console.log('children',children);
                       <div className="flex items-center gap-4 w-full">
                         <div
                           onClick={(e) =>{ handleActiveBets(betData?.india);  handleClick({ id: 2, text: 'Label 2' }, e);}}
-                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                          className={`text-center cursor-pointer w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
                             getActiveBet(betData?.india?.country)
                               ? "bg-[#1475e1]"
                               : "bg-blackRussian"
@@ -212,7 +213,7 @@ console.log('children',children);
                         </div>
                         <div
                           onClick={(e) =>{ handleActiveBets(betData?.england); handleClick({ id: 2, text: 'Label 2' }, e);}}
-                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                          className={`text-center  cursor-pointer w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
                             getActiveBet(betData?.england?.country)
                               ? "bg-[#1475e1]"
                               : "bg-blackRussian"

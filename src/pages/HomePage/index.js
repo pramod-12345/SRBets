@@ -26,11 +26,8 @@ const HomePage = () => {
   const makeRequest = useAxios();
   const dispatch = useDispatch();
   const { layoutData } = useSelector((state) => state?.dashboard);
-  const { user } = useSelector((state) => state?.auth);
   const casinoSection = layoutData?.layout?.casinoSection
   const sportsSection = layoutData?.layout?.sportsSection
-
-  console.log('user>>>',user);
 
   const tabs = [
     { id: "top-bets", label: "Top bets" },

@@ -3,7 +3,9 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   layoutData: null,
-  bets: []
+  bets: [],
+  betSlipToggle: false,
+  userBalance : null
 };
 
 const dashboard = createSlice({
@@ -16,8 +18,15 @@ const dashboard = createSlice({
     setBets: (state, action) => {
       state.bets = action.payload; // true for open, false for close
     },
+    setBetSlipToggle: (state, action)=>{
+      state.betSlipToggle = action.payload;
+    },
+    setUserBalance: (state, action)=>{
+      state.userBalance = action.payload;
+    }
+    
   },
 });
 
-export const { setLayoutData, setBets } = dashboard.actions;
+export const { setLayoutData, setBets, setBetSlipToggle, setUserBalance } = dashboard.actions;
 export default dashboard.reducer;

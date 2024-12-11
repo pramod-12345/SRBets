@@ -54,7 +54,18 @@ body {
   input:-webkit-autofill::first-line {
     color: #fff !important; /* Change text color for the first line */
   }
+
+  /* Betslip card animation */
+  .betslip-card {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.4s ease-in-out;
+  }
   
+  .betslip-card.betslip-animate {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
   /* --------- Label animation --------------- */
 

@@ -12,11 +12,15 @@ import { useDispatch } from "react-redux";
 import { useAxios } from "hooks"
 import { registerFunc } from "services";
 import { registerValidation } from "helper/helper.validator";
-import { setRegisterPayload } from "../../../redux/reducers/authSlice";
+import { setRegisterPayload, toggleModal } from "../../../redux/reducers/authSlice";
 
 const Register = ({ setModalType }) => {
   const dispatch = useDispatch();
   const { makeRequest} = useAxios();
+
+  const closeModal = () => {
+    dispatch(toggleModal(false));
+  };
 
   // Formik setup
   const formik = useFormik({
@@ -35,7 +39,7 @@ const Register = ({ setModalType }) => {
         phoneNumber: values.phone,
         twoFactorEnabled: false
       }
-      registerFunc(makeRequest, payload);
+      registerFunc(makeRequest, payload, closeModal);
       // dispatch(setRegisterPayload(payload))
       // dispatch(setModalType('registerTerms'))
     },

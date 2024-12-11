@@ -2,7 +2,7 @@
 import { CHECK_BALANCE } from "constants/wallet.api";
 import { layoutJson } from "../constants/layoutData";
 import { setLoader } from "../redux/reducers/authSlice";
-import { setLayoutData } from "../redux/reducers/dashboard";
+import { setLayoutData, setUserBalance } from "../redux/reducers/dashboard";
 
 export const fetchLayout = async (makeRequest, dispatch, ismock = true) => {
   if (ismock) {
@@ -25,7 +25,7 @@ export const fetchLayout = async (makeRequest, dispatch, ismock = true) => {
   }
 };
 
-export const checkBalance = async (makeRequest, payload) => {
+export const checkBalance = async (makeRequest, payload, dispatch) => {
   makeRequest({
       url: CHECK_BALANCE,
       method: "POST",
@@ -34,6 +34,13 @@ export const checkBalance = async (makeRequest, payload) => {
         clientKey: "QXNoaXNo",
         clientId: "QXNoaXNo",
       },
-      data: payload
+      data: payload,
+      reduxAction: setUserBalance,
+      onSuccessCallback:(res)=>{
+        if(res?.responseCode=== 404){
+          console.log('res>>>', res);
+          dispatch(setUserBalance(null))
+        }
+      }
     })
 };

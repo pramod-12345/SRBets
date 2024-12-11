@@ -14,7 +14,8 @@ import { ToastProvider } from "hooks";
 const Layout = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
   const { loading } = useSelector((state) => state?.auth);
-  const [betSlipToggle, setBetSlipToggle] = useState(false);
+  const { betSlipToggle } = useSelector((state) => state?.dashboard);
+  // const [betSlipToggle, setBetSlipToggle] = useState(false);
   return (
     <ToastProvider>
       <>
@@ -24,7 +25,7 @@ const Layout = () => {
             setSidebarToggle={setSidebarToggle}
             sidebarToggle={sidebarToggle}
             betSlipToggle={betSlipToggle}
-            setBetSlipToggle={setBetSlipToggle}
+            // setBetSlipToggle={setBetSlipToggle}
           />
           <section className="pt-[4.5rem] max-h-screen flex no-scrollbar">
             <Sidebar sidebarToggle={sidebarToggle} />
@@ -34,7 +35,9 @@ const Layout = () => {
                 <Footer />
               </Container>
             </div>
-            <BetSlipSlider betSlipToggle={betSlipToggle} setBetSlipToggle={setBetSlipToggle} />
+            <BetSlipSlider betSlipToggle={betSlipToggle} 
+            // setBetSlipToggle={setBetSlipToggle} 
+            />
           </section>
         </div>
       </>

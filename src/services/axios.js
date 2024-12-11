@@ -11,7 +11,7 @@ const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   // Add token to headers if it exists
   const { user } = store.getState().auth;
-  const token = user?.data?.accessToken; // Example of retrieving token from localStorage
+  const token = user?.body?.userContextToken; // Example of retrieving token from localStorage
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

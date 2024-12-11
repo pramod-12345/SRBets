@@ -1,66 +1,86 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from "react";
+import { closeIcon, usdIcon } from "assets";
 import {
-    closeIcon,
-    usdIcon
-} from "assets"
-import {
-    Typography,
-    Seperator,
-    Tabs,
-    Dropdown,
-    BetSlipCards,
-    CommonButton
-} from "components"
-import { numberItems } from '../../data';
-import { useSelector } from "react-redux";
+  Typography,
+  Seperator,
+  Tabs,
+  Dropdown,
+  BetSlipCards,
+  CommonButton,
+} from "components";
+import { numberItems } from "../../data";
+import { useDispatch, useSelector } from "react-redux";
+import { setBets, setBetSlipToggle } from "../../redux/reducers/dashboard";
 
-const BetSlipSlider = ({ betSlipToggle, setBetSlipToggle }) => {
+const BetSlipSlider = ({ betSlipToggle }) => {
   const { bets } = useSelector((state) => state.dashboard);
+  const [animatedBets, setAnimatedBets] = useState([]);
+  const dispatch = useDispatch();
+  const containerRef = useRef(null);
 
-    const tabs = [
-        { id: "single", label: "Single" },
-        { id: "multi", label: "Multi" },
-    ];
+  useEffect(() => {
+    if (containerRef.current) {
+      // Scroll to the bottom of the container
+      containerRef.current.scrollTop = containerRef.current.scrollHeight;
+    }
+  }, [bets]);
+
+  const handleClearBets = () => {
+    dispatch(setBets([]));
+  };
+
+  const tabs = [
+    { id: "single", label: "Single" },
+    { id: "multi", label: "Multi" },
+  ];
 
   const handleNumberSelect = (item) => {
     console.log("Selected Number Option:", item.label);
   };
 
-    return (
-        <aside
-            style={{
-                maxHeight: "calc(100vh - 72px)",
-                minHeight: "calc(100vh - 72px)",
-            }}
-            className={`hidden sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${betSlipToggle ? "translate-x-0 min-w-[440px] w-[260px]" : "translate-x-full min-w-[0] w-0"
-                }`}
-        >
-        <div className="px-6 py-7">
-          <header className="">
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2">
-                <img
-                  src={closeIcon}
-                  alt="Close"
-                  className="w-3 h-3 cursor-pointer"
-                  onClick={() => setBetSlipToggle(false)}
-                />
-                <Typography
-                  color={"white"}
-                  content={"Betslip"}
-                  variant={"size20Semibold"}
-                />
-                <span className="bg-white text-[14px] leading-4 text-blackRussian flex justify-center items-center font-semibold w-[32px] h-[24px] rounded-xl">
-                  1
-                </span>
-              </div>
-              <button className="text-primary whitespace-nowrap flex items-center font-semibold leading-4 text-sm">
-                Go to my bets
-                <span className="ml-3 bg-primary text-white text-sm flex justify-center items-center font-semibold w-[32px] h-[24px] rounded-xl">
-                  10
-                </span>
-              </button>
+  return (
+    <aside
+      style={{
+        maxHeight: "calc(100vh - 72px)",
+        minHeight: "calc(100vh - 72px)",
+      }}
+      // className={`hidden sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${
+      //   betSlipToggle
+      //     ? "translate-x-0 min-w-[440px] w-[260px]"
+      //     : "translate-x-full min-w-[0] w-0"
+      // }`}
+      className={`hidden md:flex max-w-md bg-blackRussian text-white rounded-lg p-4 shadow-lg h-screen flex flex-col transition-all ease-in-out duration-300 ${
+        betSlipToggle
+          ? "translate-x-0 min-w-[440px] w-[260px]"
+          : "translate-x-full min-w-[0] w-0"
+      }`}
+    >
+      {/* <div className="px-6 py-7"> */}
+        <header className="">
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <img
+                src={closeIcon}
+                alt="Close"
+                className="w-3 h-3 cursor-pointer"
+                onClick={() => dispatch(setBetSlipToggle(false))}
+              />
+              <Typography
+                color={"white"}
+                content={"Betslip"}
+                variant={"size20Semibold"}
+              />
+              <span className="bg-white text-[14px] leading-4 text-blackRussian flex justify-center items-center font-semibold w-[32px] h-[24px] rounded-xl">
+                1
+              </span>
             </div>
+            <button className="text-primary whitespace-nowrap flex items-center font-semibold leading-4 text-sm">
+              Go to my bets
+              <span className="ml-3 bg-primary text-white text-sm flex justify-center items-center font-semibold w-[32px] h-[24px] rounded-xl">
+                10
+              </span>
+            </button>
+          </div>
 
           <Seperator color="ebonyClay" />
           <div className="mt-5">
@@ -77,19 +97,30 @@ const BetSlipSlider = ({ betSlipToggle, setBetSlipToggle }) => {
               onSelect={handleNumberSelect}
               placeholder="Accept Any odds"
             />
-            <button className="text-[14px] leading-4 font-semibold">
+            <button
+              onClick={handleClearBets}
+              className="text-[14px] leading-4 font-semibold"
+            >
               Clear all
             </button>
           </div>
         </header>
 
-        <div id='dra-456-bet-slip-space' style={{height: 'calc(55vh - 100px)'}} className="mt-5 min-h-[300px] overflow-auto no-scrollbar">
-          <div className="space-y-4">
-            {bets?.map((item, index) => (
-              <BetSlipCards  key={index} isInput={true} data={item} />
-            ))}
-          </div>
+        {/* <div
+          id="dra-456-bet-slip-space"
+          ref={containerRef}
+          className="mt-5 min-h-[300px] overflow-auto no-scrollbar"
+        > */}
+        <div
+          id="dra-456-bet-slip-space"
+          ref={containerRef}
+          className="flex-1 overflow-y-auto space-y-4 mt-5 mb-[110px] pb-20 no-scrollbar"
+        >
+          {bets?.map((item, index) => (
+            <BetSlipCards key={index} isInput={true} data={item} />
+          ))}
         </div>
+        {/* </div> */}
 
         <footer className="absolute bottom-0 left-0 w-full text-center">
           <div className="bg-darkByzantineBlue p-6">
@@ -129,7 +160,7 @@ const BetSlipSlider = ({ betSlipToggle, setBetSlipToggle }) => {
             </div>
           </div>
         </footer>
-      </div>
+      {/* </div> */}
     </aside>
   );
 };

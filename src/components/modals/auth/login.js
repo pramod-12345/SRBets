@@ -35,7 +35,7 @@ const Login = ({ setModalType }) => {
         email: values.userName,
         password: values.password
       }
-      loginFunc(makeRequest, payload)
+      loginFunc(makeRequest, payload, closeModal)
     },
   });
 
