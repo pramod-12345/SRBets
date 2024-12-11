@@ -132,6 +132,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const handleSelect = (item) => {
     setSelected(item);
     setIsOpen(false);
+    dispatch(setUserBalance(null));
   };
 
   const CheckBalance = () => {
@@ -229,7 +230,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                     <span className="text-sm text-white">
                       {userBalance?.body?.balance ?? 0}
                     </span>
-                    <div ref={currencyRef} onClick={() => setIsOpen(!isOpen)}>
+                    <div onClick={() => setIsOpen(!isOpen)}>
                       <img
                         src={navImages.arrowDown}
                         alt="logo"
@@ -238,7 +239,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                     </div>
                   </div>
                   {isOpen && (
-                    <div className="w-full bg-white shadow-lg rounded-lg z-50 absolute left-0 top-full">
+                    <div ref={currencyRef} className="w-full bg-white shadow-lg rounded-lg z-50 absolute left-0 top-full">
                       <ul className="divide-y divide-[#E5E5E5]">
                         {currencies.map((item, index) => (
                           <li
@@ -283,7 +284,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                 alt="logo"
                 className="w-5 h-5 block md:hidden"
               />
-              <div ref={profileMenuRef} className="relative inline-block">
+              {isLoggedIn && <div ref={profileMenuRef} className="relative inline-block">
                 <img
                   onClick={() => setOpenProfileMenu(!openProfileMenu)}
                   src={navImages.profileIcon}
@@ -302,7 +303,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                     </li>
                   </ul>
                 ) : null}
-              </div>
+              </div>}
               <div
                 style={{ cursor: "pointer" }}
                 onClick={() => dispatch(setBetSlipToggle(!betSlipToggle))}

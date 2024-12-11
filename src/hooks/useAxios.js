@@ -22,7 +22,7 @@ const useAxios = () => {
             reduxAction = null,
             onSuccessCallback = null,
             route = null,
-            isToastVisible = false,
+            isToastVisible = true,
             toggleLoader = true,
       }) => {
             dispatch(setLoader(true));// Show the loader before the request starts
@@ -36,8 +36,10 @@ const useAxios = () => {
                   });
                   if (response?.status === 200 || response?.status === 201) {
                         if (isToastVisible) {
+                              console.log('response',response);
+                              
                               // toast.success(response?.data?.message || 'Success')
-                              showToast("success", "Your request was successful!");
+                              showToast("success", response?.data?.responseMessage);
                         }
                   }
 
@@ -62,7 +64,7 @@ const useAxios = () => {
                   }
                   if (isToastVisible) {
                         // toast.error(error?.response?.data?.message)
-                        showToast("error", "Something went wrong.");
+                        showToast("error", error?.response?.data?.responseMessage);
                   }
                   console.error('Request failed:', error); // Log the error for debugging
                   // navigate('/error'); // Example: redirect to an error page

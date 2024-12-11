@@ -36,11 +36,5 @@ export const checkBalance = async (makeRequest, payload, dispatch) => {
       },
       data: payload,
       reduxAction: setUserBalance,
-      onSuccessCallback:(res)=>{
-        if(res?.responseCode=== 404){
-          console.log('res>>>', res);
-          dispatch(setUserBalance(null))
-        }
-      }
     })
 };
