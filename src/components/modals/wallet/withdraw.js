@@ -163,6 +163,7 @@ const Withdraw = () => {
                   placeholder="Amount to withdraw"
                   error={cryptoFormik.errors.amount}
                   touched={cryptoFormik.touched.amount}
+                  isAmountMax={true}
                 />
               </div>
               <div className="lg:mt-6 mt-4">

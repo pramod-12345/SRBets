@@ -31,7 +31,7 @@ const Tabs = ({ tabs, children, initialTab, isOptions }) => {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`min-w-[130px] px-6 py-2.5 whitespace-nowrap sm:py-3 sm:h-[44px] h-[36px] flex justify-center items-center rounded-xl font-semibold text-sm hover:bg-themeBlack transition-colors duration-200 relative z-10
+                  className={`min-w-[110px] md:min-w-[130px] px-4 py-2.5 whitespace-nowrap sm:py-3 sm:px-6 sm:h-[44px] h-[36px] flex justify-center items-center rounded-xl font-semibold text-sm hover:bg-themeBlack transition-colors duration-200 relative z-10
             ${
               activeTab === tab.id
                 ? "text-white bg-themeBlack"
@@ -47,7 +47,7 @@ const Tabs = ({ tabs, children, initialTab, isOptions }) => {
         {isOptions && (
           <div className="text-white flex items-center gap-4  ">
             {/* Number Dropdown */}
-            <Dropdown
+            {/* <Dropdown
               items={numberItems}
               onSelect={handleNumberSelect}
               placeholder="10"
@@ -57,7 +57,7 @@ const Tabs = ({ tabs, children, initialTab, isOptions }) => {
               items={cricketItems}
               onSelect={handleGameSelect}
               placeholder="Cricket"
-            />
+            /> */}
 
             {/* Selected Bet Dropdown */}
             <Dropdown

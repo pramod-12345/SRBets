@@ -2,6 +2,7 @@ import React from "react";
 import Typography from "./typography";
 import { useDispatch } from "react-redux";
 import { setModalType } from "../../redux/reducers/authSlice";
+import { btcIcon } from "assets";
 
 const Input = ({
   name,
@@ -12,6 +13,7 @@ const Input = ({
   isForgot,
   placeholder,
   isAmount,
+  isAmountMax,
   isAddAcount,
   error,
   touched,
@@ -72,11 +74,23 @@ const Input = ({
           <input
             name={name}
             placeholder={placeholder}
-            className="outline-none w-full text-white px-2 py-2 font-semibold text-sm bg-darkByzantineBlue "
+            className="outline-none grow text-white px-2 py-2 font-semibold text-sm bg-darkByzantineBlue "
             value={value}
             onChange={onChange}
             onBlur={onBlur} // Handle blur for Formik
           />
+
+          {isAmountMax && <div className="flex gap-3 items-center">
+            <img src={btcIcon} className="w-5 h-5" />
+
+            <div className="bg-vintageRibbon py-2 px-4 rounded-lg h-10">
+              <Typography
+                variant={"size12Semibold"}
+                color={"white"}
+                content={"Max"}
+              />
+            </div>
+          </div>}
         </div>
 
         {/* Error Message */}

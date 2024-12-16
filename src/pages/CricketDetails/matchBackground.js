@@ -11,7 +11,7 @@ const MatchBackground = () => {
       {/* Overlay content */}
       <div className="absolute inset-0 bg-black bg-opacity-10"></div>
 
-      <div className="absolute top-5 left-2 sm:left-7 sm:bottom-12 w-full max-w-[360px] w-full bg-black bg-opacity-70 rounded-lg py-4 px-5 text-white">
+      <div className="absolute top-5 left-2 sm:left-7 sm:bottom-12 w-full  max-w-[320px] md:max-w-[360px] w-full bg-black bg-opacity-70 rounded-lg py-4 px-5 text-white">
         <div className="flex items-center space-x-2 mb-2">
           <div className="bg-Amaranth rounded-full py-0.5 px-1">
           <Typography

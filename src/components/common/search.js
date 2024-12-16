@@ -20,8 +20,9 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
       {isFocused && (
         <div className="fixed inset-0 bg-themeBlack opacity-80 z-10" onClick={()=>setIsFocused(false)}></div>
       )}
+      <div className="flex flex-col ">
       <div
-        className={`items-center gap-1 px-3 h-11 rounded-lg w-full ${widthClass} ${bgColor} hidden md:flex z-20`}
+        className={`items-center gap-1 px-3 h-11 rounded-lg w-full ${widthClass} ${bgColor} hidden md:flex ${isFocused ? 'z-20' : ''}`}
       >
         <img src={navImages.searchIcon} alt="logo" className="w-4 h-4" />
         <input
@@ -31,9 +32,9 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
           className="leading-normal bg-transparent text-sm text-white w-full px-2 outline-none"
           onFocus={() => setIsFocused(true)}
         />
-
+      </div>
         {isFocused && (
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 w-[834px] mt-4 bg-charcoal space-y-10 rounded-lg shadow-lg z-20 overflow-auto no-scrollbar max-h-[80vh]">
+          <div className=" transform mt-4 bg-charcoal space-y-10 rounded-lg shadow-lg z-20 overflow-auto no-scrollbar max-h-[80vh]">
             <div className="bg-yankeesBlue p-6 rounded-xl">
               <div className="flex justify-between items-center mb-4">
                 <Typography
@@ -49,7 +50,6 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
                 </button>
               </div>
 
-              {/* Search Suggestions */}
               <div className="grid grid-cols-6 gap-x-4">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((game, index) => (
                   <div
@@ -62,7 +62,6 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
               </div>
             </div>
 
-            {/* Recent Searches */}
             <div className="bg-yankeesBlue p-6 rounded-xl">
               <div className="flex justify-between items-center mt-12">
                 <Typography
@@ -92,7 +91,7 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
             </div>
           </div>
         )}
-      </div>
+        </div>
     </>
   );
 };

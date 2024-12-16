@@ -22,12 +22,14 @@ export const CasinoCard = ({ icon }) => {
 
 export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
   return (
-    <div className={`${width === '176px' ? 'md:min-w-[176px] md:max-w-[176px]' : 'md:min-w-[176px] md:max-w-[176px]'} min-w-[132px] max-w-[132px] min-h-[178px] md:min-h-[280px] transform transition duration-300 hover:-translate-y-2`}>
+    <div className={`${width === '176px' ? ' min-w-[109px]  md:max-w-[176px] md:min-w-[176px] ' : 'md:min-w-[176px] '} min-w-[128px] w-full  min-h-[178px] md:min-h-[280px] h-auto transform transition duration-300 hover:-translate-y-2`}>
       <div
         style={{
           backgroundImage: `url(${bgImg})`,
           backgroundPosition: "center",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
+          aspectRatio: 1/1.3
         }}
         className="rounded-xl md:rounded-[20px] w-full h-full p-2.5 overflow-hidden bg-cover md:bg-contain"
         onClick={onClick}
@@ -49,7 +51,7 @@ export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
           )}
           {/* Playing Count */}
           {number && (
-            <div className="flex items-center bg-black/50 gap-[7px] text-white text-xs py-1 md:py-2 px-2 rounded-full w-fit">
+            <div className="flex items-center bg-black/50 gap-px md:gap-[7px] text-white text-xs py-1 md:py-2 px-2 rounded-full w-fit">
               <div className="w-2.5 h-2.5 bg-green-500 rounded-full" />
               <div className="flex items-center gap-1">
                 <Typography
@@ -190,7 +192,7 @@ export const BetSlipCards = ({ isInput = false, data }) => {
   return (
     <>
 
-      <div className={`bg-darkByzantineBlue min-w-[392px] rounded-lg betslip-card ${animate ? 'betslip-animate' : ''}`}>
+      <div className={`bg-darkByzantineBlue grow rounded-lg betslip-card ${animate ? 'betslip-animate' : ''}`}>
         <div className="flex bg-ebonyClay px-4 py-3 items-center gap-2 rounded-t-lg">
           {/* <div className="text-vintageRibbon text-[14px] leading-4 font-medium">
             India vs Bangladesh
