@@ -40,7 +40,7 @@ const CommonButton = ({
 
   return (
     <button
-      className={`${computedStyle} ${bgColor} text-white font-semibold flex items-center justify-center`}
+      className={`${computedStyle} ${bgColor} text-white font-semibold flex items-center justify-center gap-2`}
       onClick={onClick}
       disabled={disabled}
       type={btnType}

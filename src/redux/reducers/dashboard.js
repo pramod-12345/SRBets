@@ -5,7 +5,8 @@ const initialState = {
   layoutData: null,
   bets: [],
   betSlipToggle: false,
-  userBalance : null
+  userBalance : null,
+  isSearchFocused: false
 };
 
 const dashboard = createSlice({
@@ -23,10 +24,13 @@ const dashboard = createSlice({
     },
     setUserBalance: (state, action)=>{
       state.userBalance = action.payload;
+    },
+    setIsSearchFocused: (state, action)=>{
+      state.isSearchFocused = action.payload;
     }
     
   },
 });
 
-export const { setLayoutData, setBets, setBetSlipToggle, setUserBalance } = dashboard.actions;
+export const { setLayoutData, setBets, setBetSlipToggle, setUserBalance, setIsSearchFocused } = dashboard.actions;
 export default dashboard.reducer;

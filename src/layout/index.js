@@ -39,7 +39,7 @@ const Layout = () => {
           />
           <section className="pt-[4.5rem] max-h-screen flex no-scrollbar">
             <Sidebar sidebarToggle={sidebarToggle} setSidebarToggle={setSidebarToggle} isSmallScreen={isSmallScreen}/>
-            <div className={` p-0 ${isSmallScreen ? 'pl-[72px]' : ''} w-full overflow-auto no-scrollbar`}>
+            <div id='main-content' className={` p-0 ${isSmallScreen ? 'pl-[72px]' : ''} w-full overflow-auto no-scrollbar`}>
               <Container>
                 <Outlet />
                 <Footer />

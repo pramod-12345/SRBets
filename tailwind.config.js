@@ -38,7 +38,8 @@ export default {
         richBlack:"#0A0B1A",
         patriotBlue: '#42395F',
         coffee:'#6A4A36',
-        pecanVeneer:'#E09E75'
+        pecanVeneer:'#E09E75',
+        americanGreen: '#32B74A'
       },
       height: {
         "table-header": "44px", 

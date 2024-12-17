@@ -60,9 +60,13 @@ import ad3Img from "./svg/casino-home/ad3.svg"
 import ad4Img from "./svg/casino-home/ad4.svg"
 import ad5Img from "./svg/casino-home/ad5.svg"
 import ad6Img from "./svg/casino-home/ad6.svg"
+import fullScreenIcon from "./svg/full-screen-icon.svg"
+import playIcon from "./svg/play-icon.svg"
 
 
 export {
+    fullScreenIcon,
+    playIcon,
     ad2Img,
     ad3Img,
     ad4Img,

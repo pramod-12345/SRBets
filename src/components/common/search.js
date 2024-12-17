@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import navImages from "../../assets/svg/navbar";
 import Typography from "./typography";
 import { image } from "assets";
@@ -8,31 +8,53 @@ import CommonButton from "./button";
 const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const widthClass = variant === "full" ? "w-full" : "max-w-[32%]";
+  const widthClass = variant === "full" ? "w-full" : "max-w-[40%] w-full";
 
   const handleButtonClick = (label) => {
     setInputValue(label);
     setIsFocused(false);
   };
 
+  useEffect(() => {
+    const mainContent = document.getElementById("main-content");
+    if (mainContent) {
+      if (isFocused) {
+        mainContent.classList.add("overflow-hidden");
+      } else {
+        mainContent.classList.remove("overflow-hidden");
+      }
+    }
+
+    return () => {
+      if (mainContent) {
+        mainContent.classList.remove("overflow-hidden");
+      }
+    };
+  }, [isFocused]);
+
   return (
     <>
       {isFocused && (
-        <div className="fixed inset-0 bg-themeBlack opacity-80 z-10" onClick={()=>setIsFocused(false)}></div>
+        <div
+          className="fixed inset-0 bg-themeBlack opacity-80 z-10"
+          onClick={() => setIsFocused(false)}
+        ></div>
       )}
-      <div className="flex flex-col ">
-      <div
-        className={`items-center gap-1 px-3 h-11 rounded-lg w-full ${widthClass} ${bgColor} hidden md:flex ${isFocused ? 'z-20' : ''}`}
-      >
-        <img src={navImages.searchIcon} alt="logo" className="w-4 h-4" />
-        <input
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Search game or sport"
-          className="leading-normal bg-transparent text-sm text-white w-full px-2 outline-none"
-          onFocus={() => setIsFocused(true)}
-        />
-      </div>
+      <div className={`flex flex-col ${isFocused ? 'w-full' : widthClass}`}>
+        <div
+          className={`items-center gap-1 px-3 h-11 rounded-lg w-full ${bgColor} hidden md:flex ${
+            isFocused ? "z-20 bg-blackRussian" : ""
+          }`}
+        >
+          <img src={navImages.searchIcon} alt="logo" className="w-4 h-4" />
+          <input
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder="Search game or sport"
+            className="leading-normal bg-transparent text-sm text-white w-full px-2 outline-none"
+            onFocus={() => setIsFocused(true)}
+          />
+        </div>
         {isFocused && (
           <div className=" transform mt-4 bg-charcoal space-y-10 rounded-lg shadow-lg z-20 overflow-auto no-scrollbar max-h-[80vh]">
             <div className="bg-yankeesBlue p-6 rounded-xl">
@@ -91,7 +113,7 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
             </div>
           </div>
         )}
-        </div>
+      </div>
     </>
   );
 };
