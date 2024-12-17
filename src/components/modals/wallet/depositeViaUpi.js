@@ -144,7 +144,7 @@ const DepositeViaUpi = () => {
               />
             </div>
           </div>
-          <div className="md:static absolute bottom-7 w-full left-0">
+          <div className="md:static  bottom-7 w-full left-0">
             <div className="w-full mt-6 text-center">
               <Typography
                 content={`We support all UPI handles`}
@@ -194,7 +194,7 @@ const DepositeViaUpi = () => {
               />
             </div>
           </div>
-          <div className="md:static absolute bottom-7 w-full left-0 px-4 md:px-0">
+          <div className="md:static bottom-7 w-full left-0 px-4 md:px-0">
             <div className="mt-10">
               <Typography
                 variant={"size12Medium"}

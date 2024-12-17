@@ -28,7 +28,7 @@ const PaymentApproved = () => {
         </div>
         <Seperator />
       </div> */}
-      <div className="p-4 pt-5 md:p-0 h-screen md:h-auto">
+      <div className="p-4 pt-5 md:p-0 h-[80vh] md:h-auto">
         <div className="">
           <Typography
             color={"white"}
@@ -36,7 +36,7 @@ const PaymentApproved = () => {
             content={"Deposit Money"}
           />
         </div>
-        <div className=" px-0 md:px-0 py-3 md:py-0 pt-10 md:pt-10 h-screen md:h-auto">
+        <div className=" px-0 md:px-0 py-3 md:py-0 pt-10 md:pt-10  md:h-auto">
           {/* <!-- Status List --> */}
           <div class="space-y-6">
             {/* <!-- Initiated --> */}
