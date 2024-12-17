@@ -5,9 +5,12 @@ const Dropdown = ({
     items = [],
     onSelect,
     placeholder = "Select an option",
+    color="darkByzantineBlue"
 }) => {
     const [isOpen, setIsOpen] = React.useState(false);
     const [selected, setSelected] = React.useState("");
+
+    const bgColor = `bg-${color}`
 
     const handleSelect = (item) => {
         setSelected(item.label);
@@ -19,7 +22,7 @@ const Dropdown = ({
         <div className={`relative`}>
             <button 
             onClick={() => setIsOpen(!isOpen)}
-            className="flex items-center text-[14px] whitespace-nowrap justify-between gap-px font-medium leading-4 max-w-[150px]  bg-darkByzantineBlue px-3 py-3.5 rounded-lg">
+            className={`flex items-center text-[14px] ${bgColor} h-10 md:h-[52px] whitespace-nowrap justify-between gap-px font-medium leading-4 max-w-[150px]  px-3 md:px-4 py-3.5 rounded-2xl`}>
             {selected || placeholder}
             <img src={arrowDown} className="w-7 h-7" alt="Down Arrow" />
           </button>

@@ -9,6 +9,7 @@ import { setBets, setBetSlipToggle } from "../../redux/reducers/dashboard";
 const SportsLandingPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const { bets } = useSelector((state) => state.dashboard);
   const [activeBet, setActiveBet] = useState([]);
   const [animatingLabel, setAnimatingLabel] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -123,8 +124,14 @@ console.log('children',children);
   }, []);
 
   useEffect(() => {
+    // if(!bets?.length){
+    //   setActiveBet([])
+    // }
+    if(activeBet){
     dispatch(setBets(activeBet))
-  }, [activeBet])
+    }
+
+  }, [activeBet, bets])
   
   return (
     <div>
@@ -190,11 +197,11 @@ console.log('children',children);
                       </div>
                     </div>
 
-                    <div className="flex flex-wrap lg:flex-nowrap gap-4">
+                    <div className="flex flex-wrap lg:flex-nowrap gap-4 w-full">
                       <div className="flex items-center gap-4 w-full">
                         <div
                           onClick={(e) =>{ handleActiveBets(betData?.india);  handleClick({ id: 2, text: 'Label 2' }, e);}}
-                          className={`text-center cursor-pointer w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                          className={`text-center cursor-pointer w-full lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
                             getActiveBet(betData?.india?.country)
                               ? "bg-[#1475e1]"
                               : "bg-blackRussian"
@@ -213,7 +220,7 @@ console.log('children',children);
                         </div>
                         <div
                           onClick={(e) =>{ handleActiveBets(betData?.england); handleClick({ id: 2, text: 'Label 2' }, e);}}
-                          className={`text-center  cursor-pointer w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
+                          className={`text-center  cursor-pointer w-full  lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 ${
                             getActiveBet(betData?.england?.country)
                               ? "bg-[#1475e1]"
                               : "bg-blackRussian"
@@ -231,7 +238,7 @@ console.log('children',children);
                           />
                         </div>
                         <div
-                          className={`text-center w-full max-w-[96px] lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded`}
+                          className={`text-center w-full lg:w-[140px] h-[56px] rounded-lg flex flex-col justify-center items-start px-4 py-2.5 bg-blackRussian rounded`}
                         >
                           <Typography
                             color={"white"}

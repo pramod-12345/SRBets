@@ -53,9 +53,9 @@ const BetSlipSlider = ({ betSlipToggle }) => {
       // }`}
       // className={`hidden ${betSlipToggle ? 'p-4' : ''} sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto transition-all ease-in-out duration-300 ${betSlipToggle ? "translate-x-0 min-w-[440px] w-[260px]" : "translate-x-full min-w-[0] w-0"
       // }`}
-      className={`hidden md:flex max-w-md bg-blackRussian sidebar-main text-white h-screen flex flex-col transition-all ease-in-out duration-300 ${
+      className={`hidden absolute right-0 md:flex max-w-md bg-blackRussian sidebar-main text-white h-screen flex flex-col transition-all ease-in-out duration-300 ${
         betSlipToggle
-          ? "translate-x-0 min-w-[440px] w-[260px] p-4"
+          ? "translate-x-0 md:min-w-[350px] max-w-[27.5rem] 2xl:min-w-[27.5rem] p-4"
           : "translate-x-full min-w-[0] w-0 overflow-auto"
       }`}
     >
@@ -96,10 +96,11 @@ const BetSlipSlider = ({ betSlipToggle }) => {
           </div>
 
           <div className="flex items-center justify-between mt-3">
-            <Dropdown
+          <Dropdown
               items={numberItems}
               onSelect={handleNumberSelect}
               placeholder="Accept Any odds"
+              color='transparent'
             />
             <button
               onClick={handleClearBets}

@@ -1,5 +1,5 @@
 import React from "react";
-import { arrowDown, dropdownArrow } from "assets"
+import { dropdownArrow } from "assets"
 
 const ModalDropdown = ({
     items = [],

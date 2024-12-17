@@ -108,7 +108,7 @@ const PaymentStatus = ({ isError, amount, balance, onRetry }) => {
         </div>
 
         {/* Disclaimer Section */}
-        <div className="md:static absolute bottom-7 w-full left-0 px-4 md:px-0">
+        <div className="md:static  bottom-7 w-full left-0 px-4 md:px-0">
           <div className="bg-darkByzantineBlue rounded-lg py-3.5  text-center mt-11">
             <Typography
               variant={"size12Normal"}

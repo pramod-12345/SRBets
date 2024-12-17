@@ -35,14 +35,14 @@ import {
 import { sidebarImg } from "../../assets/svg/sidebar";
 import { btcIcon, rupees } from "assets";
 import { checkBalance } from "services/dashboard.service";
-import { useAxios } from "hooks";
+import { useAxios, useToast } from "hooks";
 import {
   setBetSlipToggle,
   setUserBalance,
 } from "../../redux/reducers/dashboard";
 
 const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
-  let balance = 255.76;
+  const showToast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state?.auth);
@@ -72,6 +72,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const handleLogout = () => {
     dispatch(logout({}));
     dispatch(setUserBalance(null));
+    showToast("success", 'Logout Successfully');
     navigate("/");
     setOpenProfileMenu(false);
   };

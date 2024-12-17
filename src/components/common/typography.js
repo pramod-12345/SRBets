@@ -23,10 +23,36 @@ const Typography = ({ variant, content, color }) => {
     size12Semibold: "text-[12px] leading-3 font-semibold",
   };
 
+  const colorType = {
+    white: "text-white",
+    darkCharcoal: "text-darkCharcoal",
+    primary: "text-primary",
+    blackRussian: "text-blackRussian",
+    darkGunmetal: "text-darkGunmetal",
+    themeBlack: "text-themeBlack",
+    vintageRibbon: "text-vintageRibbon",
+    electricViolet: "text-electricViolet",
+    darkBlueGray: "text-darkBlueGray",
+    darkBlueBlack: "text-darkBlueBlack",
+    secondary: "text-secondary",
+    chinesePurple: "text-chinesePurple",
+    darkByzantineBlue: "text-darkByzantineBlue",
+    purpleFog: "text-purpleFog",
+    neonBlue: "text-neonBlue",
+    yankeesBlue: "text-yankeesBlue",
+    eigengrau: "text-eigengrau",
+    Amaranth: "text-Amaranth",
+    mountainMeadow: "text-mountainMeadow",
+    carminePink: "text-carminePink",
+    ebonyClay: "text-ebonyClay",
+    oxfordBlue: "text-oxfordBlue",
+    pecanVeneer:'text-pecanVeneer'
+  };
+
   const fontColor = `text-${color}`
 
   return (
-    <span className={`${fontType[variant]} ${fontColor}`}>
+    <span className={`${fontType[variant]} ${colorType[color]}`}>
       {content}
     </span>
   );

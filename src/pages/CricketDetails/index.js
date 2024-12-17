@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Typography, Tabs, Accordion } from "components";
 import { star } from "assets";
 import MatchBackground from "./matchBackground";
+import TeamSelection from "./teamSelection";
+import SelectionItem from "./selectedteam";
 
 const CricketDetails = () => {
   const [selected, setSelected] = useState(null);
@@ -21,6 +23,14 @@ const CricketDetails = () => {
     { id: "overs", label: "Overs" },
     { id: "players", label: "Players" },
   ];
+
+
+  const teams = [
+    { label: "India", value: "1.18" },
+    { label: "Bangladesh", value: "4.78" },
+    { label: "Bangladesh", value: "4.78" },
+  ];
+
   return (
     <div>
       <Typography
@@ -36,90 +46,38 @@ const CricketDetails = () => {
       </div>
       <div className="mt-5">
         <Accordion title={"Winner (Incl. Super Over)"} isSeperator={true}>
-          <div className="flex justify-between w-full items-center p-5 gap-2">
-            {/* India */}
-            <div
-              onClick={() => handleSelection("India")}
-              className={`flex justify-between items-center rounded-lg w-1/2 p-4 cursor-pointer ${
-                selectedTeam === "India"
-                  ? "bg-primary text-white"
-                  : "bg-blackRussian"
-              }`}
-            >
-              <span
-                className={`text-sm font-medium ${
-                  selectedTeam === "India" ? "text-white" : "text-white"
-                }`}
-              >
-                India
-              </span>
-              <span
-                className={`text-sm font-bold ${
-                  selectedTeam === "India" ? "text-white" : "text-primary"
-                }`}
-              >
-                1.18
-              </span>
-            </div>
-            {/* Bangladesh */}
-            <div
-              onClick={() => handleSelection("Bangladesh")}
-              className={`flex justify-between items-center rounded-lg w-1/2 p-4 cursor-pointer ${
-                selectedTeam === "Bangladesh"
-                  ? "bg-primary text-white"
-                  : "bg-blackRussian"
-              }`}
-            >
-              <span
-                className={`text-sm font-medium ${
-                  selectedTeam === "Bangladesh" ? "text-white" : "text-white"
-                }`}
-              >
-                Bangladesh
-              </span>
-              <span
-                className={`text-sm font-bold ${
-                  selectedTeam === "Bangladesh" ? "text-white" : "text-primary"
-                }`}
-              >
-                4.78
-              </span>
-            </div>
+          <div className="flex justify-between w-full items-center p-4 md:p-5 gap-2">
+          <TeamSelection
+        teamName="India"
+        selectedTeam={selectedTeam}
+        handleSelection={handleSelection}
+        odds="1.18"
+      />
+      <TeamSelection
+        teamName="Bangladesh"
+        selectedTeam={selectedTeam}
+        handleSelection={handleSelection}
+        odds="4.78"
+      />
           </div>
         </Accordion>
       </div>
-      <div className="mt-5">
+      <div className="mt-4 md:mt-5">
         <Accordion
           title={"1st Innings - Sakib, Tanzim Hasan Total"}
           labelIcon={star}
           isSeperator={true}
         >
-          <div className="flex justify-between  w-full items-center p-5 gap-2">
-            {/* India */}
-            {[
-              { label: "India", value: "1.18" },
-              { label: "Bangladesh", value: "4.78" },
-              { label: "Bangladesh", value: "4.78" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                onClick={() => handleSelect(index)}
-                className={`flex justify-between  items-center rounded-lg w-1/2 p-4 cursor-pointer ${
-                  selected === index ? "bg-russianViolet" : "bg-blackRussian"
-                }`}
-              >
-                <Typography
-                  variant={"size14Normal"}
-                  color={"white"}
-                  content={item.label}
-                />
-                <Typography
-                  variant={"size14Bold"}
-                  color={"primary"}
-                  content={item.value}
-                />
-              </div>
-            ))}
+          <div className="flex flex-col md:flex-row justify-between w-full items-center p-4 md:p-5 gap-2">
+          {teams.map((team, index) => (
+        <SelectionItem
+          key={index}
+          label={team.label}
+          value={team.value}
+          isSelected={selected === index}
+          onSelect={() => handleSelect(index)}
+        />
+      ))}
           </div>
         </Accordion>
       </div>

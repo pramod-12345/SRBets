@@ -53,9 +53,26 @@ import usd from "./svg/usd.svg"
 import waiting from "./svg/waiting.svg"
 import sliderLeftArrow from "./svg/slider-left-arrow.svg"
 import rightDisabled from "./svg/rightDisabled.svg"
+import mbLoginBanner from "./svg/mb-login-banner.svg"
+import advertisementImg from "./svg/casino-home/advetisement.svg"
+import ad2Img from "./svg/casino-home/ad2.svg"
+import ad3Img from "./svg/casino-home/ad3.svg"
+import ad4Img from "./svg/casino-home/ad4.svg"
+import ad5Img from "./svg/casino-home/ad5.svg"
+import ad6Img from "./svg/casino-home/ad6.svg"
+import fullScreenIcon from "./svg/full-screen-icon.svg"
+import playIcon from "./svg/play-icon.svg"
 
 
 export {
+    fullScreenIcon,
+    playIcon,
+    ad2Img,
+    ad3Img,
+    ad4Img,
+    ad5Img,
+    ad6Img,
+    advertisementImg,
     accordionMinusIcon,
     accordionPlusIcon,
     waiting,
@@ -110,5 +127,6 @@ export {
     setting,
     sportsIcon,
     star,
-    sliderLeftArrow
+    sliderLeftArrow,
+    mbLoginBanner
 }

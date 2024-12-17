@@ -12,6 +12,7 @@ const SidebarContent = ({ sidebarToggle }) => {
         {menuData.mainButtons.buttons.map((button, index) => (
           <CommonButton
             key={index}
+            // bgColor={`bg-vintageRibbon`}
             label={sidebarToggle ? null : button?.label}
             icon={button.icon}
             type={button?.type}
@@ -40,9 +41,10 @@ const SidebarContent = ({ sidebarToggle }) => {
   );
 };
 
-const Sidebar = ({ sidebarToggle }) => {
+const Sidebar = ({ sidebarToggle, setSidebarToggle, isSmallScreen }) => {
   const [isCollapsed, setIsCollapsed] = useState(sidebarToggle);
   const [isCalculating, setIsCalculating] = useState(false);
+  // const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 1024);
   const sidebarRef = useRef(null);
 
   useEffect(() => {
@@ -76,23 +78,38 @@ const Sidebar = ({ sidebarToggle }) => {
     };
   }, []);
 
-  return (
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setIsSmallScreen(window.innerWidth <= 1024);
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+  //   return () => window.removeEventListener('resize', handleResize);
+  // }, []);
+
+  return (<div>
+    {!sidebarToggle && isSmallScreen ? <div style={{
+        maxHeight: "calc(100vh - 72px)",
+        minHeight: "calc(100vh - 72px)",
+      }} className="absolute bg-black bg-opacity-50 w-screen z-20" onClick={()=>setSidebarToggle(true)}/>: null}
     <aside
       ref={sidebarRef}
       style={{
         maxHeight: "calc(100vh - 72px)",
         minHeight: "calc(100vh - 72px)",
       }}
-      className={`hidden sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto ${
+      className={`hidden ${isSmallScreen ? 'absolute left-0' : ''} z-50 sidebar-main no-scrollbar bg-blackRussian text-white h-full md:flex flex-col overflow-auto ${
         sidebarToggle ? "min-w-[72px] w-[72px]" : "min-w-[260px] w-[260px]"
       } transition-all ease-in-out duration-300`}
     >
+      
       {isCalculating ? null : isCollapsed ? (
         <SidebarContent sidebarToggle={true} />
       ) : (
         <SidebarContent />
       )}
     </aside>
+    </div>
   );
 };
 

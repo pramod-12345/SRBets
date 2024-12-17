@@ -1,4 +1,5 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const CommonButton = ({
   type = "primary", 
@@ -10,10 +11,11 @@ const CommonButton = ({
   disabled = false,
   btnType
 }) => {
+  const location = useLocation();
  
   const typeStyles = {
-    primary: `bg-chinesePurple ${sidebarToggle ? "py-2.5 px-0" : "p-2.5"} rounded-lg max-w-44 w-full h-9 gap-3 text-sm`,
-    secondary: `bg-secondary ${sidebarToggle ? "py-2.5 px-0" : "p-2.5"} rounded-lg max-w-44 w-full h-9 gap-3 text-sm`,
+    primary: `${location?.pathname === '/sports-home' ? 'bg-chinesePurple': 'bg-ebonyClay'} ${sidebarToggle ? "py-2.5 px-0" : "p-2.5"} hover:bg-chinesePurple rounded-lg max-w-44 w-full h-9 gap-3 text-sm`,
+    secondary: `${location?.pathname === '/casino-home' ? 'bg-secondary': 'bg-ebonyClay'} ${sidebarToggle ? "py-2.5 px-0" : "p-2.5"} hover:bg-secondary rounded-lg max-w-44 w-full h-9 gap-3 text-sm`,
     outline: "bg-darkByzantineBlue min-w-max rounded-lg border max-h-[52px] border-[#5A5F9C] text-vintageRibbon text-sm gap-2 px-4 py-3",
     iconBtn: `${disabled ? "bg-darkByzantineBlue" : "bg-purpleFog"} rounded-2xl w-9 h-9`,
     toasterClose: `rounded-full`,
@@ -38,7 +40,7 @@ const CommonButton = ({
 
   return (
     <button
-      className={`${computedStyle} ${bgColor} text-white font-semibold flex items-center justify-center`}
+      className={`${computedStyle} ${bgColor} text-white font-semibold flex items-center justify-center gap-2`}
       onClick={onClick}
       disabled={disabled}
       type={btnType}
