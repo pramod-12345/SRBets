@@ -1,14 +1,6 @@
-import { casinoImages } from "../assets/svg/casino-games";
-import { sportsImages } from "../assets/svg/sports-games";
-import {
-    bannerImg1,
-    bannerImg2,
-    bannerImg3
-} from "assets";
-
 export const layoutJson = {
     "success": true,
-    "timestamp": 1519296206,
+    "timestamp": "2024-12-27T08:27:33.658+00:00",
     "layoutInfo": {
         "web": {
             "hideCasinoSection": false,
@@ -21,8 +13,8 @@ export const layoutJson = {
             "hideCasinoSection": false,
             "hideSportsSection": false,
             "hideBannerSection": false,
-            "hideTopBetsTable": true,
-            "hideNavigationBar": true
+            "hideTopBetsTable": false,
+            "hideNavigationBar": false
         }
     },
     "layout": {
@@ -30,23 +22,23 @@ export const layoutJson = {
             "sectionTitle": "",
             "banners": [
                 {
-                    "id": "1",
-                    "title": "",
-                    "imageUrl": bannerImg1,
+                    "id": 1,
+                    "title": "Big Bash League",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/playbigWinbig.png",
                     "link": "/about",
                     "hoverText": "Game"
                 },
                 {
-                    "id": "2",
+                    "id": 2,
                     "title": "Casino",
-                    "imageUrl": bannerImg2,
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/casino.png",
                     "link": "/casino",
                     "hoverText": "Casino"
                 },
                 {
-                    "id": "3",
+                    "id": 3,
                     "title": "Sportsbook",
-                    "imageUrl": bannerImg3,
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/sportbook.png",
                     "link": "/sportsbook",
                     "hoverText": "Sportsbook"
                 }
@@ -57,21 +49,43 @@ export const layoutJson = {
             "scroll": "right",
             "featuredCasinoGames": [
                 {
-                    "id": "bj-1234",
-                    "name": "BlackJack",
-                    "imageUrl": casinoImages?.blackJack,
+                    "id": "712",
+                    "name": "Dragon Tiger",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/dragantiger.png",
                     "link": "/bj/bj-123",
                     "position": 1,
-                    "livePlaying": 126,
-                    "category": "blackjack"
+                    "category": "roulette"
                 },
                 {
-                    "id": "tp-1234",
-                    "name": "Teen Patti",
-                    "imageUrl": casinoImages?.roullete,
+                    "id": "713",
+                    "name": "Stock Market",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/Stock+Market.png",
                     "link": "/tp/tp-123",
                     "position": 2,
-                    "livePlaying": 2000,
+                    "category": "roulette"
+                },
+                {
+                    "id": "716",
+                    "name": "Blackjack",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/blackjack.png",
+                    "link": "/tp/tp-124",
+                    "position": 3,
+                    "category": "roulette"
+                },
+                {
+                    "id": "714",
+                    "name": "Roulette",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/roulette.png",
+                    "link": "/tp/tp-125",
+                    "position": 4,
+                    "category": "roulette"
+                },
+                {
+                    "id": "715",
+                    "name": "Triple Card Poker",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/Triple+card.png",
+                    "link": "/tp/tp-126",
+                    "position": 5,
                     "category": "roulette"
                 }
             ]
@@ -81,19 +95,43 @@ export const layoutJson = {
             "scroll": "right",
             "featuredSportsGames": [
                 {
-                    "id": "bj-1234",
+                    "id": "1",
                     "name": "Cricket",
-                    "imageUrl": sportsImages?.cricket,
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/cricket.png",
                     "link": "/bj/bj-123",
                     "position": 1,
                     "category": "sports"
                 },
                 {
-                    "id": "tp-1234",
-                    "name": "Tennis",
-                    "imageUrl": sportsImages?.tennis,
+                    "id": "2",
+                    "name": "Football",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/football.png",
                     "link": "/tp/tp-123",
                     "position": 2,
+                    "category": "sports"
+                },
+                {
+                    "id": "3",
+                    "name": "Horse Racing",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/horse+racing.png",
+                    "link": "/tp/tp-124",
+                    "position": 3,
+                    "category": "sports"
+                },
+                {
+                    "id": "4",
+                    "name": "Politics",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/poltitics.png",
+                    "link": "/tp/tp-125",
+                    "position": 4,
+                    "category": "sports"
+                },
+                {
+                    "id": "5",
+                    "name": "Tennis",
+                    "imageUrl": "https://layout-sr.s3.ap-south-1.amazonaws.com/tennis.png",
+                    "link": "/tp/tp-126",
+                    "position": 5,
                     "category": "sports"
                 }
             ]

@@ -19,7 +19,7 @@ function App() {
           <Route path="/sports-home" element={<SportsHome />} />
           <Route path="/casino-home" element={<CasinoHome />} />
           <Route path="/my-bets" element={<MyBets />} />
-          <Route path="/poker" element={<Poker />} />
+          <Route path="/game-entry/:id" element={<Poker />} />
           <Route path="/cricket-details" element={<CricketDetails />} />
         </Route>
       </Routes>

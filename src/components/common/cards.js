@@ -35,13 +35,13 @@ export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
         onClick={onClick}
       >
         {/* Content */}
-        <div className="flex flex-col h-[inherit] justify-between">
+        <div className="flex flex-col h-[inherit] justify-end">
           {/* Title */}
           {title && (
             <div className="flex pt-1.5 pl-1 flex items-center ">
-              <h1 className="text-white text-[20px] md:text-[28px] font-bold md:font-black text-wrap tracking-wider drop-shadow-lg">
+              {title && <h1 className="text-white text-[20px] md:text-[28px] font-bold md:font-black text-wrap tracking-wider drop-shadow-lg">
                 {title}
-              </h1>
+              </h1>}
               {/* <Typography
                 color={"text-white"}
                 variant={"h2"}

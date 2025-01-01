@@ -22,7 +22,7 @@ const CommonButton = ({
     nav: "bg-chinesePurple sm:h-10 h-7 rounded-lg sm:px-4 px-1.5 sm:text-sm text-xs",
     cashoutBtn: `${disabled ? 'bg-vintageRibbon' : 'bg-vintageRibbon'} w-full text-base font-semibold leading-5 rounded-lg bg-vintageRibbon p-3.5 text-white mt-4`,
     viewBetsBtn: "bg-primary w-full h-[48px] rounded-lg text-[16px] leading-4 font-semibold flex items-center justify-center",
-    playNowBtn : "bg-darkByzantineBlue text-white py-3 px-5 rounded-lg text-sm font-semibold"
+    playNowBtn : "text-white py-3 px-5 rounded-lg text-sm font-semibold"
   };
 
   const imgStyles= {

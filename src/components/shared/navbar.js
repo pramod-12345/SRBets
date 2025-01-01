@@ -38,6 +38,7 @@ import { checkBalance } from "services/dashboard.service";
 import { useAxios, useToast } from "hooks";
 import {
   setBetSlipToggle,
+  setSelectedCurrency,
   setUserBalance,
 } from "../../redux/reducers/dashboard";
 
@@ -49,19 +50,13 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const { makeRequest } = useAxios();
   const [isOpen, setIsOpen] = useState(false);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
-  const [selected, setSelected] = useState({
-    id: 1,
-    label: "INR",
-    icon: rupees,
-    value: 0,
-  });
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const profileMenuRef = useRef(null);
   const currencyRef = useRef(null);
   // Get modal type and visibility from Redux state
   const { modalType, isModalOpen } = useSelector((state) => state?.auth);
-  const { userBalance } = useSelector((state) => state?.dashboard);
+  const { userBalance, selectedCurrency } = useSelector((state) => state?.dashboard);
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
@@ -131,7 +126,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   };
 
   const handleSelect = (item) => {
-    setSelected(item);
+    dispatch(setSelectedCurrency(item));
     setIsOpen(false);
     dispatch(setUserBalance(null));
   };
@@ -139,7 +134,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const CheckBalance = () => {
     const payload = {
       userId: user?.id,
-      currency: selected?.label,
+      currency: selectedCurrency?.label,
     };
     checkBalance(makeRequest, payload, dispatch);
   };
@@ -148,10 +143,11 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
     if (user?.id) {
       CheckBalance();
     }
-  }, [user, selected]);
+
+  }, [user, selectedCurrency]);
 
   const getBalanceIcon = () => {
-    switch (selected?.label) {
+    switch (selectedCurrency?.label) {
       case "USD":
         return navImages.usdIcon;
       case "INR":
@@ -176,6 +172,15 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   }, []);
 
   useEffect(() => {
+    dispatch(
+      setSelectedCurrency({
+        id: 1,
+        label: "INR",
+        icon: rupees,
+        value: 0,
+      })
+    );
+    
     const handleClickOutside = (event) => {
       if (
         currencyRef.current &&

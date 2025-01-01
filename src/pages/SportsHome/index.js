@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from "react";
-import { Typography, Advertisement, Search, Table } from "components";
+import { Typography, Search, Table } from "components";
 import { columns, rows } from "../../data";
 import SportsGamesCard from "./sportsGames";
-
-import { ad4Img, ad5Img, ad6Img } from "assets";
+import { useAxios } from "hooks";
+import { useSelector } from "react-redux";
+import { fetchLayout } from "services";
 
 const SportsHome = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { makeRequest } = useAxios();
+  const { layoutData } = useSelector((state) => state?.dashboard);
+  const sportsSection = layoutData?.layout?.sportsSection;
 
   useEffect(() => {
     setTimeout(() => {
       setData(rows);
       setLoading(false);
     }, 2000);
+    fetchLayout(makeRequest, "SPORTS");
   }, []);
 
   return (
@@ -21,11 +26,14 @@ const SportsHome = () => {
       <Typography color={"white"} variant={"h1"} content={"Sports home"} />
       <div className="mt-5 w-full  overflow-hidden">
         <div className="flex items-center overflow-x-auto md:h-[200px] no-scrollbar gap-x-5">
-          <img src={ad4Img} alt="Advertisemnent" className="md:h-full" />
-
-          <img src={ad5Img} alt="Advertisemnt" className="md:h-full" />
-
-          <img src={ad6Img} alt="Adverisment" className="md:h-full" />
+          {layoutData?.layout?.promoBanners?.banners?.map((item) => (
+            <img
+              key={item.id}
+              src={item?.imageUrl}
+              alt="Advertisemnent"
+              className="md:h-full"
+            />
+          ))}
         </div>
       </div>
       <div className="w-full mt-7">
@@ -35,9 +43,9 @@ const SportsHome = () => {
         <Typography
           color={"white"}
           variant={"h3"}
-          content={"Top 10 Sports Games"}
+          content={sportsSection?.title}
         />
-        <SportsGamesCard />
+        <SportsGamesCard data={sportsSection?.featuredSportsGames} />
       </div>
 
       <div className="mt-12">

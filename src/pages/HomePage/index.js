@@ -5,29 +5,27 @@ import {
   CommonButton,
   Table,
   Tabs,
-  Advertisement
-} from "components"
+  Advertisement,
+} from "components";
 import {
-  casinoGames,
   columns,
   recentPlayed,
   rows,
-  sportsGames,
 } from "../../data";
 import { useNavigate } from "react-router-dom";
-import { fetchLayout } from "../../services/dashboard.service";
-import useAxios from "../../hooks/useAxios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { fetchLayout } from "services";
+import { useAxios } from "hooks";
 
 const HomePage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const makeRequest = useAxios();
-  const dispatch = useDispatch();
+  const { makeRequest } = useAxios();
   const { layoutData } = useSelector((state) => state?.dashboard);
-  const casinoSection = layoutData?.layout?.casinoSection
-  const sportsSection = layoutData?.layout?.sportsSection
+  const casinoSection = layoutData?.layout?.casinoSection;
+  const sportsSection = layoutData?.layout?.sportsSection;
+  const { isLoggedIn } = useSelector((state) => state.auth);
 
   const tabs = [
     { id: "top-bets", label: "Top bets" },
@@ -35,13 +33,17 @@ const HomePage = () => {
     { id: "sports", label: "Sports leaderboard" },
   ];
 
+  const handleGameEntry = (id) => {
+    navigate(`/game-entry/${id}`)
+  };
+
   useEffect(() => {
     setTimeout(() => {
       setData(rows);
       setLoading(false);
     }, 2000);
 
-    fetchLayout(makeRequest, dispatch);
+    fetchLayout(makeRequest, 'HOME');
   }, []);
 
   return (
@@ -60,18 +62,25 @@ const HomePage = () => {
           ))}
         </Slider>
         <Slider title={casinoSection?.title}>
-          {(casinoSection?.featuredCasinoGames ?? casinoGames)?.map((item, index) => (
-            <SportsCard key={index} bgImg={item?.imageUrl} width={"176px"} onClick={() => navigate("/poker")}/>
-          ))}
+          {(casinoSection?.featuredCasinoGames)?.map(
+            (item, index) => (
+              <SportsCard
+                key={index}
+                bgImg={item?.imageUrl}
+                width={"176px"}
+                onClick={() => (isLoggedIn ? handleGameEntry(item?.id) : {})}
+              />
+            )
+          )}
         </Slider>
         <Slider title={sportsSection?.title}>
-          {(sportsSection?.featuredSportsGames ?? sportsGames)?.map((item) => (
+          {(sportsSection?.featuredSportsGames)?.map((item) => (
             <SportsCard
               key={item?.id}
               width={"176px"}
               bgImg={item?.imageUrl}
-              title={item?.name}
-              number={'3224'}
+              // title={item?.name}
+              number={"3224"}
               onClick={() => navigate("/sports-landing")}
             />
           ))}

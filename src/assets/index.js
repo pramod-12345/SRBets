@@ -2,9 +2,6 @@ import accordionMinusIcon from "./svg/accordion-minus-icon.svg"
 import accordionPlusIcon from "./svg/accordion-plus-icon.svg"
 import arrowDown from "./svg/arrow-down.svg"
 import backIcon from "./svg/back.svg"
-import bannerImg1 from "./svg/banner-img1.svg"
-import bannerImg2 from "./svg/banner-img2.svg"
-import bannerImg3 from "./svg/banner-img3.svg"
 import bannerMb1 from "./svg/banner-mb-1.svg"
 import betSlipEmpty from "./svg/bet-slip-empty.svg"
 import btcIcon from "./svg/btc.svg"
@@ -13,7 +10,6 @@ import casionIcon from "./svg/casino-icon.svg"
 import closeIcon from "./svg/close.svg"
 import copy from "./svg/copy.svg"
 import correctIcon from "./svg/correctIcon.svg"
-import cricketBanner from "./svg/cricket-details.svg"
 import dropdownArrow from "./svg/dropdown-arrow.svg"
 import ethIcon from "./svg/eth.svg"
 import eyeIcon from "./svg/eye.svg"
@@ -54,25 +50,12 @@ import waiting from "./svg/waiting.svg"
 import sliderLeftArrow from "./svg/slider-left-arrow.svg"
 import rightDisabled from "./svg/rightDisabled.svg"
 import mbLoginBanner from "./svg/mb-login-banner.svg"
-import advertisementImg from "./svg/casino-home/advetisement.svg"
-import ad2Img from "./svg/casino-home/ad2.svg"
-import ad3Img from "./svg/casino-home/ad3.svg"
-import ad4Img from "./svg/casino-home/ad4.svg"
-import ad5Img from "./svg/casino-home/ad5.svg"
-import ad6Img from "./svg/casino-home/ad6.svg"
 import fullScreenIcon from "./svg/full-screen-icon.svg"
 import playIcon from "./svg/play-icon.svg"
-
 
 export {
     fullScreenIcon,
     playIcon,
-    ad2Img,
-    ad3Img,
-    ad4Img,
-    ad5Img,
-    ad6Img,
-    advertisementImg,
     accordionMinusIcon,
     accordionPlusIcon,
     waiting,
@@ -87,9 +70,6 @@ export {
     betSlipEmpty,
     noBetFound,
     backIcon,
-    bannerImg1,
-    bannerImg2,
-    bannerImg3,
     bannerMb1,
     arrowDown,
     leftArrow,
@@ -109,7 +89,6 @@ export {
     closeIcon,
     copy,
     correctIcon,
-    cricketBanner,
     globe,
     google,
     home,

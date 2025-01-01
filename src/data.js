@@ -2,8 +2,6 @@ import { sidebarImg } from "./assets/svg/sidebar/index";
 import cricket from "./assets/svg/sidebar/cricket.svg";
 import blackJack from "./assets/svg/sidebar/black-jack.svg";
 import tennis from "./assets/svg/sidebar/tennis.svg";
-import { casinoImages } from "./assets/svg/casino-games";
-import { sportsImages } from "./assets/svg/sports-games";
 import navImages from "./assets/svg/navbar";
 import { insta, google, faceBookIcon, twitter } from "assets";
 
@@ -111,74 +109,6 @@ export const recentPlayed = [
   {
     label: "Black jack",
     icon: blackJack,
-  },
-];
-
-export const casinoGames = [
-  {
-    icon: casinoImages?.taxesHoldEm,
-  },
-  {
-    icon: casinoImages?.roullete,
-  },
-  {
-    icon: casinoImages?.blackJack,
-  },
-  {
-    icon: casinoImages?.superSpeedBaracat,
-  },
-  {
-    icon: casinoImages?.dragonTiger,
-  },
-  {
-    icon: casinoImages?.speedBlackJack,
-  },
-];
-export const sportsGames = [
-  {
-    icon: sportsImages?.cricket,
-    title: "Cricket",
-    number: "1254",
-  },
-  {
-    icon: sportsImages?.football,
-    title: "Football",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.horseRacing,
-    title: "Horse Racing",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.politcs,
-    title: "Politcs",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.tennis,
-    title: "Tennis",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.f1Racing,
-    title: "F1 race",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.politcs,
-    title: "Politcs",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.tennis,
-    title: "Tennis",
-    number: "1253",
-  },
-  {
-    icon: sportsImages?.f1Racing,
-    title: "F1 race",
-    number: "1253",
   },
 ];
 
