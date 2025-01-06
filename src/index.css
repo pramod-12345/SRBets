@@ -99,3 +99,23 @@ body {
     }
   }
   
+
+  .iframe-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 200px);
+  }
+  
+  .iframe-container iframe {
+    flex-grow: 1; 
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    width: 100%;
+    border: none;
+    background-color: #1c1c1c; /* Optional: Match your theme */
+  }
+  
+  .bottom-controls {
+    height: 63px; /* Ensure this matches the height of your bottom controls */
+  }
+  

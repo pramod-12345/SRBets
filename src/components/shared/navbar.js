@@ -42,7 +42,8 @@ import {
   setUserBalance,
 } from "../../redux/reducers/dashboard";
 
-const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
+const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) => {
+  const location = useLocation();
   const showToast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -56,7 +57,10 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const currencyRef = useRef(null);
   // Get modal type and visibility from Redux state
   const { modalType, isModalOpen } = useSelector((state) => state?.auth);
-  const { userBalance, selectedCurrency } = useSelector((state) => state?.dashboard);
+  const { userBalance, selectedCurrency } = useSelector(
+    (state) => state?.dashboard
+  );
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
@@ -67,7 +71,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
   const handleLogout = () => {
     dispatch(logout({}));
     dispatch(setUserBalance(null));
-    showToast("success", 'Logout Successfully');
+    showToast("success", "Logout Successfully");
     navigate("/");
     setOpenProfileMenu(false);
   };
@@ -143,7 +147,6 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
     if (user?.id) {
       CheckBalance();
     }
-
   }, [user, selectedCurrency]);
 
   const getBalanceIcon = () => {
@@ -156,6 +159,18 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
         return btcIcon;
     }
   };
+
+  useEffect(() => {
+    const checkBalanceInterval = setInterval(() => {
+      if (user?.id) {
+        CheckBalance();
+      }
+    }, 300000);
+
+    return () => {
+      clearInterval(checkBalanceInterval);
+    };
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -180,12 +195,9 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
         value: 0,
       })
     );
-    
+
     const handleClickOutside = (event) => {
-      if (
-        currencyRef.current &&
-        !currencyRef.current.contains(event.target)
-      ) {
+      if (currencyRef.current && !currencyRef.current.contains(event.target)) {
         setIsOpen(false);
       }
     };
@@ -245,7 +257,10 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                     </div>
                   </div>
                   {isOpen && (
-                    <div ref={currencyRef} className="w-full bg-white shadow-lg rounded-lg z-50 absolute left-0 top-full">
+                    <div
+                      ref={currencyRef}
+                      className="w-full bg-white shadow-lg rounded-lg z-50 absolute left-0 top-full"
+                    >
                       <ul className="divide-y divide-[#E5E5E5]">
                         {currencies.map((item, index) => (
                           <li
@@ -290,26 +305,28 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
                 alt="logo"
                 className="w-5 h-5 block md:hidden"
               />
-              {isLoggedIn && <div ref={profileMenuRef} className="relative inline-block">
-                <img
-                  onClick={() => setOpenProfileMenu(!openProfileMenu)}
-                  src={navImages.profileIcon}
-                  alt="logo"
-                  className="sm:w-7 sm:h-7 w-5 h-5 cursor-pointer"
-                />
-                {openProfileMenu && user?.id ? (
-                  <ul className="absolute mt-2 w-48 rounded bg-white shadow-lg focus:outline-none right-0 ltr:right-0 ltr:origin-top-right rtl:left-0 rtl:origin-top-left transform opacity-100 scale-100">
-                    <li>
-                      <button
-                        onClick={handleLogout}
-                        className="block w-full py-2.5 px-6 text-sm font-semibold capitalize transition duration-200 hover:text-primary focus:outline-0 ltr:text-left rtl:text-right"
-                      >
-                        Logout
-                      </button>
-                    </li>
-                  </ul>
-                ) : null}
-              </div>}
+              {isLoggedIn && (
+                <div ref={profileMenuRef} className="relative inline-block">
+                  <img
+                    onClick={() => setOpenProfileMenu(!openProfileMenu)}
+                    src={navImages.profileIcon}
+                    alt="logo"
+                    className="sm:w-7 sm:h-7 w-5 h-5 cursor-pointer"
+                  />
+                  {openProfileMenu && user?.id ? (
+                    <ul className="absolute mt-2 w-48 rounded bg-white shadow-lg focus:outline-none right-0 ltr:right-0 ltr:origin-top-right rtl:left-0 rtl:origin-top-left transform opacity-100 scale-100">
+                      <li>
+                        <button
+                          onClick={handleLogout}
+                          className="block w-full py-2.5 px-6 text-sm font-semibold capitalize transition duration-200 hover:text-primary focus:outline-0 ltr:text-left rtl:text-right"
+                        >
+                          Logout
+                        </button>
+                      </li>
+                    </ul>
+                  ) : null}
+                </div>
+              )}
               <div
                 style={{ cursor: "pointer" }}
                 onClick={() => dispatch(setBetSlipToggle(!betSlipToggle))}
@@ -321,12 +338,21 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle }) => {
           </div>
         </div>
       </header>
-
-      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] z-20 flex justify-between items-center md:hidden shadow-lg">
-        {MbNavTabs?.map((i, index) => (
-          <NavItem key={index} icon={i?.icon} label={i?.label} link={i?.link} />
-        ))}
-      </div>
+     
+        {showNavbar && <div
+          id="mobile-nav"
+          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] z-20 flex justify-between items-center md:hidden shadow-lg"
+        >
+          {MbNavTabs?.map((i, index) => (
+            <NavItem
+              key={index}
+              icon={i?.icon}
+              label={i?.label}
+              link={i?.link}
+            />
+          ))}
+        </div>}
+    
       {/* Modal Section */}
       {isModalOpen && (
         <Modal onClose={closeModal}>

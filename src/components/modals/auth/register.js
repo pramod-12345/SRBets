@@ -55,18 +55,27 @@ const Register = ({ setModalType }) => {
             alt="Back"
             onClick={() => dispatch(setModalType("login"))}
             className="cursor-pointer"
-          />
+          />  
           <Typography
             color={"white"}
             variant={"size20Bold"}
             content={"Register new account"}
           />
          </div>
+         <div className="hidden md:block">
           <Typography
             color={"vintageRibbon"}
             variant={"size16Medium"}
             content={"Step 1 of 2"}
           />
+          </div>
+         <div className="md:hidden block">
+          <Typography
+            color={"vintageRibbon"}
+            variant={"size16Medium"}
+            content={"1 of 2"}
+          />
+          </div>
         </div>
         <Seperator />
       </div>

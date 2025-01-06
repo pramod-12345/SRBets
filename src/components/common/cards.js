@@ -20,9 +20,9 @@ export const CasinoCard = ({ icon }) => {
   );
 };
 
-export const SportsCard = ({ bgImg, title, number, onClick, width }) => {
+export const SportsCard = ({ bgImg, title, number, onClick, width, style }) => {
   return (
-    <div className={`${width === '176px' ? ' min-w-[109px]  md:max-w-[176px] md:min-w-[176px] ' : 'md:min-w-[176px] '} min-w-[128px] w-full  min-h-[178px] md:min-h-[280px] h-auto transform transition duration-300 hover:-translate-y-2`}>
+    <div className={`${width === '176px' ? ' min-w-[109px]  md:max-w-[176px] md:min-w-[176px] ' : 'md:min-w-[176px] '} min-w-[128px] w-full  min-h-[178px] md:min-h-[280px] h-auto transform transition duration-300 hover:-translate-y-2 ${style}`}>
       <div
         style={{
           backgroundImage: `url(${bgImg})`,

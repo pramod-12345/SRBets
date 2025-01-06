@@ -10,11 +10,12 @@ import {
   ripple,
   closeIcon
 } from "assets"
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setModalType ,toggleModal } from "../../../redux/reducers/authSlice";
 
 const WalletModal = ({ onClose }) => {
   const dispatch = useDispatch();
+  const { userBalance } = useSelector((state) => state?.dashboard);
 
   const closeModal = () => {
     dispatch(toggleModal(false));
@@ -55,7 +56,7 @@ const WalletModal = ({ onClose }) => {
             </div>
 
             <div className="flex items-center justify-between">
-              <h3 className="text-[32px] font-bold text-white">$0.12</h3>
+              <h3 className="text-[32px] font-bold text-white">${userBalance?.body?.balance ?? 0}</h3>
               <div className="hidden md:flex gap-3">
                 <button 
                 onClick={()=> dispatch(setModalType("withdraw"))}

@@ -28,6 +28,7 @@ export const checkBalance = async (makeRequest, payload, dispatch) => {
       },
       data: payload,
       reduxAction: setUserBalance,
+      isToastVisible: false
     })
 };
 export const gameEntry = async (makeRequest, payload, setIframeUrl) => {
@@ -45,5 +46,6 @@ export const gameEntry = async (makeRequest, payload, setIframeUrl) => {
         // console.log('res>>>>>>>>>>>',res?.body?.entry);
         setIframeUrl(res?.body?.entry)
       },
+      isToastVisible: false
     })
 };

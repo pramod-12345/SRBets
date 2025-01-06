@@ -33,8 +33,8 @@ const HomePage = () => {
     { id: "sports", label: "Sports leaderboard" },
   ];
 
-  const handleGameEntry = (id) => {
-    navigate(`/game-entry/${id}`)
+  const handleGameEntry = (id, imageUrl) => {
+    navigate(`/game-entry/${id}`, { state: { imageUrl: imageUrl } })
   };
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const HomePage = () => {
                 key={index}
                 bgImg={item?.imageUrl}
                 width={"176px"}
-                onClick={() => (isLoggedIn ? handleGameEntry(item?.id) : {})}
+                onClick={() => (isLoggedIn ? handleGameEntry(item?.id, item?.imageUrl) : {})}
               />
             )
           )}

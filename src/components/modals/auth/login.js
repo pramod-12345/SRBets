@@ -41,21 +41,21 @@ const Login = ({ setModalType }) => {
 
   return (
     <div>
-      <div className="relative h-[260px] md:hidden bg-blackRussian">
-        {/* <div className=" flex items-center px-4 gap-2 py-5"> */}
+      <div className="relative md:hidden bg-blackRussian">
+        <div className=" flex items-center px-4 pt-3 gap-4 ">
           <img
             src={closeIcon}
             alt="Back"
             onClick={closeModal}
-            className="cursor-pointer z-10 absolute top-4 left-4"
+            className="cursor-pointer z-10 top-4 left-4"
           />
-          <img className="absolute top-0 w-full max-h-[297px]" src={mbLoginBanner}/>
-          {/* <Typography
+          {/* <img className="absolute top-0 w-full max-h-[297px]" src={mbLoginBanner}/> */}
+          <Typography
             color={"white"}
             variant={"size20Bold"}
             content={"Login to SR bets"}
-          /> */}
-        {/* </div> */}
+          />
+        </div>
         {/* <Seperator /> */}
       </div>
       <div className="hidden md:block">
@@ -65,9 +65,9 @@ const Login = ({ setModalType }) => {
           content={"Login to SR bets"}
         />
       </div>
-      <div className="p-4 pt-10 md:p-0">
+      <div className="p-4 md:p-0">
         <form onSubmit={formik.handleSubmit}>
-          <div className="pt-8">
+          <div className="md:pt-6">
             <Input
               name="userName"
               value={formik.values.userName}

@@ -40,7 +40,7 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
           onClick={() => setIsFocused(false)}
         ></div>
       )}
-      <div className={`flex flex-col ${isFocused ? 'w-full' : widthClass}`}>
+      <div className={`hidden md:flex flex-col ${isFocused ? 'w-full' : widthClass}`}>
         <div
           className={`items-center gap-1 px-3 h-11 rounded-lg w-full ${bgColor} hidden md:flex ${
             isFocused ? "z-20 bg-blackRussian" : ""
