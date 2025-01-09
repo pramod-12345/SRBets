@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import {
   Container,
   Navbar,
@@ -13,6 +13,7 @@ import { ToastProvider } from "hooks";
 
 const Layout = () => {
   const mainContentRef = useRef(null);
+  const location = useLocation();
   const [sidebarToggle, setSidebarToggle] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
   const { loading } = useSelector((state) => state?.auth);
@@ -44,6 +45,13 @@ const Layout = () => {
       }
     };
   }, []);
+
+  useEffect(() => {
+    const mainContent = mainContentRef.current;
+    if (mainContent) {
+      mainContent.scrollTo(0, 0); // Scroll to the top
+    }
+  }, [location.pathname]);
 
   return (
     <ToastProvider>

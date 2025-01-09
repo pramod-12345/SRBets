@@ -35,10 +35,6 @@ const Poker = () => {
     { id: 2, label: "BTC", icon: btcIcon, value: 0 },
   ];
 
-  const handleToggle = () => {
-    setIsToggled(!isToggled);
-  };
-
   const handleFullscreen = () => {
     if (iframeRef.current) {
       const iframeContainer = iframeRef.current.parentElement; // Get the parent container of the iframe
@@ -56,6 +52,12 @@ const Poker = () => {
       }
     }
   };
+
+  const handleToggle = () => {
+    setIsToggled(!isToggled);
+  };
+
+  
 
   const handleExitFullscreen = () => {
     if (document.exitFullscreen) {
@@ -94,9 +96,12 @@ const Poker = () => {
     setMobilePlayMode(true);
   };
   const handleMobilePlay = () => {
+    setplayMode(false);
     setMobilePlayMode(true);
     if (isToggled) {
-      toggleFullScreen();
+      setTimeout(() => {
+        handleFullscreen();
+      }, 0);
     }
   };
 
@@ -105,7 +110,6 @@ const Poker = () => {
       gameId: id,
       currency: selected?.label,
     };
-    console.log("payload", payload);
 
     gameEntry(makeRequest, payload, setIframeUrl);
   };
@@ -395,7 +399,7 @@ const Poker = () => {
           </button>
           Play in fullscreen
         </label>
-        <div className="flex items-center gap-2">
+        <div style={{height: '60px'}} className="flex items-center gap-2 h-auto">
           {/* <CommonButton
               type="secondary"
               bgColor="bg-primary"
@@ -404,7 +408,7 @@ const Poker = () => {
           <CommonButton
             type="primary"
             bgColor="bg-americanGreen"
-            label={"Fun Play"}
+            label={"Play"}
             onClick={handleMobilePlay}
           />
         </div>
