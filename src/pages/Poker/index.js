@@ -27,7 +27,7 @@ const Poker = () => {
   const [mobilePlayMode, setMobilePlayMode] = useState(false);
   const [isIFrameFull, setIsIFrameFull] = useState(false);
   const [isToggled, setIsToggled] = useState(false);
-  const { imageUrl } = location?.state;
+  const imageUrl = location?.state?.imageUrl ?? '';
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
