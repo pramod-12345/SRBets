@@ -32,6 +32,9 @@ const Poker = () => {
   const [isIFrameFull, setIsIFrameFull] = useState(false);
   const [isToggled, setIsToggled] = useState(false);
   const imageUrl = location?.state?.imageUrl ?? "";
+  const gameData = location?.state?.gameData ?? {};
+  console.log('gameData',gameData);
+  
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
@@ -249,7 +252,7 @@ const Poker = () => {
             ref={iframeRef}
             src={iframeUrl}
             title="My Iframe"
-            allowFullScreen={window.innerWidth >= 548 ? false : true}
+            allowFullScreen={window.innerWidth < 600 ? false : true}
             className=" bg-darkByzantineBlue"
           ></iframe>
           <div className="bottom-controls bg-blackRussian rounded-b-xl py-2 px-5 flex w-full items-center gap-3">
@@ -300,7 +303,7 @@ const Poker = () => {
                   <div
                     ref={currencyRef}
                     className={`w-full bg-white shadow-lg rounded-lg z-50 absolute ${
-                      isIFrameFull ? "bottom-full mb-2" : "top-full mt-2"
+                      isIFrameFull || isMbIframeFull ? "bottom-full mb-2" : "top-full mt-2"
                     }`}
                     style={isIFrameFull ? { position: "absolute" } : {}}
                   >
@@ -352,11 +355,11 @@ const Poker = () => {
           <div className="flex flex-col justify-between">
             <div className="flex flex-col">
               <h1 className="text-white text-lg font-semibold inline-flex items-center">
-                Sweet Bonanza 1000
+                {gameData?.name}
               </h1>
-              <h2 className="text-white text-base font-semibold">
-                Pragmatic Play
-              </h2>
+              <h4 className="text-purpleFog text-sm font-semibold">
+                {gameData?.description}
+              </h4>
             </div>
           </div>
         </div>

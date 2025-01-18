@@ -21,8 +21,8 @@ const Search = ({ variant = "default", bgColor = "bg-themeBlack" }) => {
     setIsFocused(false);
   };
 
-const handleGameEntry = (id, imageUrl) => {
-    navigate(`/game-entry/${id}`, { state: { imageUrl: imageUrl } })
+const handleGameEntry = (id, imageUrl, data) => {
+    navigate(`/game-entry/${id}`, { state: { imageUrl: imageUrl, gameData: data } })
     setIsFocused(false)
     setInputValue("")
 };
@@ -110,7 +110,7 @@ const handleGameEntry = (id, imageUrl) => {
                           aspectRatio: 1/1.3
                         }}
                         className="rounded-xl md:rounded-[20px] w-full h-full p-2.5 overflow-hidden bg-cover md:bg-contain"
-                        onClick={() => (isLoggedIn ? handleGameEntry(game?.id, game?.imageUrl) : {})}
+                        onClick={() => (isLoggedIn ? handleGameEntry(game?.id, game?.imageUrl, game) : {})}
                       >
                       </div>
                     </div>
