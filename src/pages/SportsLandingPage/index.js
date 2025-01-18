@@ -16,7 +16,6 @@ const SportsLandingPage = () => {
   const [data, setData] = useState([]);
   const [animationName, setAnimationName] = useState("");
 
-  const [position, setPosition] = useState({ top: 0, left: 0 });
   // const [animate, setAnimate] = useState(false);
   const generateKeyframes = (startX, startY, targetPosition) => {
     const { top, left } = targetPosition;

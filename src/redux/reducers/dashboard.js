@@ -1,6 +1,5 @@
 // authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
-import { rupees } from "assets";
 
 const initialState = {
   layoutData: null,
@@ -8,7 +7,8 @@ const initialState = {
   betSlipToggle: false,
   userBalance : null,
   isSearchFocused: false,
-  selectedCurrency: null
+  selectedCurrency: null,
+  isMbIframeFull: false
 };
 
 const dashboard = createSlice({
@@ -32,10 +32,13 @@ const dashboard = createSlice({
     },
     setSelectedCurrency: (state, action)=>{
       state.selectedCurrency = action.payload;
+    },
+    setMbIframeFull: (state, action)=>{
+      state.isMbIframeFull = action.payload;
     }
     
   },
 });
 
-export const { setLayoutData, setBets, setBetSlipToggle, setUserBalance, setIsSearchFocused, setSelectedCurrency } = dashboard.actions;
+export const { setLayoutData, setBets, setBetSlipToggle, setUserBalance, setIsSearchFocused, setSelectedCurrency, setMbIframeFull } = dashboard.actions;
 export default dashboard.reducer;

@@ -12,7 +12,7 @@ import { useDispatch } from "react-redux";
 import { useAxios } from "hooks"
 import { registerFunc } from "services";
 import { registerValidation } from "helper/helper.validator";
-import { setRegisterPayload, toggleModal } from "../../../redux/reducers/authSlice";
+import { toggleModal } from "../../../redux/reducers/authSlice";
 
 const Register = ({ setModalType }) => {
   const dispatch = useDispatch();

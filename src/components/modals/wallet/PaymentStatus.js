@@ -1,6 +1,6 @@
 import React from "react";
 import { CommonButton, Typography } from "components";
-import { backIcon, closeIcon, paymentDone , paymentFail } from "assets";
+import {  closeIcon, paymentDone , paymentFail } from "assets";
 import { useDispatch, useSelector } from "react-redux";
 import { setModalType, toggleModal } from "../../../redux/reducers/authSlice";
 

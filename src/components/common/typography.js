@@ -49,7 +49,7 @@ const Typography = ({ variant, content, color }) => {
     pecanVeneer:'text-pecanVeneer'
   };
 
-  const fontColor = `text-${color}`
+  // const fontColor = `text-${color}`
 
   return (
     <span className={`${fontType[variant]} ${colorType[color]}`}>

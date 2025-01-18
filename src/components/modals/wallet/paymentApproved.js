@@ -1,6 +1,6 @@
 import React from "react";
-import { Typography, Modal, Seperator, CommonButton } from "components";
-import { backIcon, waiting, failed, paymentDone, closeIcon } from "assets";
+import { Typography,  CommonButton } from "components";
+import {  waiting, failed, paymentDone, closeIcon } from "assets";
 import { toggleModal } from "../../../redux/reducers/authSlice";
 import { useDispatch } from "react-redux";
 

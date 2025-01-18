@@ -17,7 +17,7 @@ const Layout = () => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
   const [showNavbar, setShowNavbar] = useState(false);
   const { loading } = useSelector((state) => state?.auth);
-  const { betSlipToggle } = useSelector((state) => state?.dashboard);
+  const { betSlipToggle, isMbIframeFull } = useSelector((state) => state?.dashboard);
   const [isSmallScreen, setIsSmallScreen] = useState(
     window.innerWidth <= 1024 && window.innerWidth >= 768
   );
@@ -65,7 +65,7 @@ const Layout = () => {
             betSlipToggle={betSlipToggle}
             // setBetSlipToggle={setBetSlipToggle}
           />
-          <section className="pt-[4.5rem] max-h-screen flex no-scrollbar">
+          <section className={`${isMbIframeFull ? 'h-screen' : 'pt-[4.5rem] max-h-screen'} flex no-scrollbar`}>
             <Sidebar
               sidebarToggle={sidebarToggle}
               setSidebarToggle={setSidebarToggle}
@@ -80,7 +80,7 @@ const Layout = () => {
             >
               <Container>
                 <Outlet />
-                <Footer />
+                {isMbIframeFull ? null : <Footer />}
               </Container>
             </div>
             <BetSlipSlider

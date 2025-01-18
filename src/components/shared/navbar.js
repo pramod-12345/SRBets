@@ -16,6 +16,8 @@ import {
   PaymentApproved,
   AddNewBankAccount,
   PaymentStatus,
+  Typography,
+  SportsCard,
 } from "components";
 import navImages, {
   MBBets,
@@ -24,7 +26,7 @@ import navImages, {
   MBHome,
   MBSetting,
 } from "../../assets/svg/navbar";
-import { MbNavTabs } from "../../data";
+import { MbNavTabs, recentPlayed } from "../../data";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -33,17 +35,17 @@ import {
   toggleModal,
 } from "../../redux/reducers/authSlice";
 import { sidebarImg } from "../../assets/svg/sidebar";
-import { btcIcon, rupees } from "assets";
+import { btcIcon, closeIcon, rupees } from "assets";
 import { checkBalance } from "services/dashboard.service";
 import { useAxios, useToast } from "hooks";
 import {
   setBetSlipToggle,
+  setIsSearchFocused,
   setSelectedCurrency,
   setUserBalance,
 } from "../../redux/reducers/dashboard";
 
 const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) => {
-  const location = useLocation();
   const showToast = useToast();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -51,6 +53,8 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
   const { makeRequest } = useAxios();
   const [isOpen, setIsOpen] = useState(false);
   const [openProfileMenu, setOpenProfileMenu] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const {layoutData, isMbIframeFull} = useSelector((state)=> state?.dashboard)
 
   const { isLoggedIn } = useSelector((state) => state.auth);
   const profileMenuRef = useRef(null);
@@ -60,7 +64,15 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
   const { userBalance, selectedCurrency } = useSelector(
     (state) => state?.dashboard
   );
+
+  const data = layoutData?.layout?.casinoSection?.featuredCasinoGames || [];
   const [isScrolled, setIsScrolled] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleButtonClick = (label) => {
+    setInputValue(label);
+    setIsSearchOpen(false);
+  };
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
@@ -105,9 +117,8 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
         {/* <img src={icon} alt={`${label} icon`} className="h-8 w-8" /> */}
         {getActiveIconMBNav(link, isActive)}
         <span
-          className={`text-xs font-semibold ${
-            isActive ? "text-white" : ""
-          } mt-1`}
+          className={`text-xs font-semibold ${isActive ? "text-white" : ""
+            } mt-1`}
         >
           {label}
         </span>
@@ -125,6 +136,8 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
     dispatch(toggleModal(true));
   };
 
+  const filteredData = inputValue.length >= 3 ? data.filter((game) => game.name.toLowerCase().includes(inputValue.toLowerCase())): [];
+
   const closeModal = () => {
     dispatch(toggleModal(false));
   };
@@ -141,6 +154,11 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
       currency: selectedCurrency?.label,
     };
     checkBalance(makeRequest, payload, dispatch);
+  };
+
+  const handleGameEntry = (id, imageUrl) => {
+    navigate(`/game-entry/${id}`, { state: { imageUrl: imageUrl } })
+    setIsSearchOpen(false)
   };
 
   useEffect(() => {
@@ -165,7 +183,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
       if (user?.id) {
         CheckBalance();
       }
-    }, 300000);
+    }, 10000);
 
     return () => {
       clearInterval(checkBalanceInterval);
@@ -209,7 +227,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
   return (
     <>
       <header
-        className={`flex w-full items-center bg-blackRussian sm:px-6 sm:py-3.5 p-4 fixed z-20 border-b border-[lightgrey] border-opacity-10`}
+        className={`${isMbIframeFull ? 'hidden' : ''} flex w-full items-center bg-blackRussian sm:px-6 sm:py-3.5 p-4 fixed z-20 border-b border-[lightgrey] border-opacity-10`}
       >
         <div className="w-full">
           <div className="relative flex items-center justify-between">
@@ -304,6 +322,7 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
                 src={navImages.mbSearchIcon}
                 alt="logo"
                 className="w-5 h-5 block md:hidden"
+                onClick={() => setIsSearchOpen(!isSearchOpen)}
               />
               {isLoggedIn && (
                 <div ref={profileMenuRef} className="relative inline-block">
@@ -338,21 +357,21 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
           </div>
         </div>
       </header>
-     
-        {showNavbar && <div
-          id="mobile-nav"
-          className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] z-20 flex justify-between items-center md:hidden shadow-lg"
-        >
-          {MbNavTabs?.map((i, index) => (
-            <NavItem
-              key={index}
-              icon={i?.icon}
-              label={i?.label}
-              link={i?.link}
-            />
-          ))}
-        </div>}
-    
+
+      {showNavbar && <div
+        id="mobile-nav"
+        className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-darkGunmetal rounded-full px-8 pt-2.5 pb-px w-[352px] z-20 flex justify-between items-center md:hidden shadow-lg"
+      >
+        {MbNavTabs?.map((i, index) => (
+          <NavItem
+            key={index}
+            icon={i?.icon}
+            label={i?.label}
+            link={i?.link}
+          />
+        ))}
+      </div>}
+
       {/* Modal Section */}
       {isModalOpen && (
         <Modal onClose={closeModal}>
@@ -378,6 +397,91 @@ const Navbar = ({ setSidebarToggle, sidebarToggle, betSlipToggle, showNavbar }) 
           {modalType === "addBank" && <AddNewBankAccount />}
         </Modal>
       )}
+
+      {
+        isSearchOpen && (
+          <div className="fixed inset-0 flex z-20 items-center justify-center bg-black bg-opacity-50">
+            <div className="min-h-screen bg-[#0B0D1C] w-full mt-4 flex flex-col  p-4">
+              {/* Search Bar */}
+              <div className="w-full max-w-lg flex items-center bg-themeBlack rounded-lg p-3">
+                <img src={navImages.mbSearchIcon} alt="Search" className="mr-2" />
+                <input
+                  type="text"
+                  placeholder="Search game or sport"
+                  className="flex-grow bg-themeBlack text-white focus:outline-none"
+                  onChange={(e)=> setInputValue(e.target.value)}
+                />
+                <button onClick={() => setIsSearchOpen(false)}>
+                  <img src={closeIcon} alt="Close" />
+                </button>
+              </div>
+              <div className="mt-5">
+              {filteredData.length > 0 ? (
+                <div className="flex items-center gap-3.5">
+                  {filteredData.map((game) => (
+                  <div className={`w-[104px] h-[167px] transform transition duration-300 hover:-translate-y-2`}>
+                  <div
+                    style={{
+                      backgroundImage: `url(${game.imageUrl})`,
+                      backgroundPosition: "center",
+                      backgroundSize: "cover",
+                      backgroundRepeat: "no-repeat",
+                      aspectRatio: 1/1.3
+                    }}
+                    className="rounded-xl md:rounded-[20px] w-full h-full p-2.5 overflow-hidden bg-cover md:bg-contain"
+                    onClick={() => (isLoggedIn ? handleGameEntry(game?.id, game?.imageUrl) : {})}
+                  >
+                  </div>
+                </div>
+                  ))}
+                </div>
+              ) : (
+                inputValue.length >= 3 && (
+                  <Typography
+                    variant={"size16Semibold"}
+                    content={"No results found"}
+                    color={"white"}
+                  />
+                )
+              )}
+              </div>
+              {/* Recent Searches */}
+              {
+                inputValue.length ===0 && (
+
+              <div className="w-full max-w-lg mt-6">
+                <div className="flex items-center justify-between">
+                  <Typography
+                    color={"vintageRibbon"}
+                    content={"Recent Searches"}
+                    variant={"size16SemiBold"}
+                  />
+                  <Typography
+                    color={"primary"}
+                    content={"Reset"}
+                    variant={"size12SemiBold"}
+                  />
+                </div>
+                
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  {recentPlayed?.map((item, index) => (
+                    <CommonButton
+                      key={index}
+                      icon={item?.icon}
+                      imageStyle={"w-7 h-7"}
+                      label={item?.label}
+                      type="outline"
+                      onClick={() => handleButtonClick(item.label)}
+                    />
+                  ))}
+                </div>
+              </div>
+                )
+              }
+            </div>
+          </div>
+        )
+      }
     </>
   );
 };

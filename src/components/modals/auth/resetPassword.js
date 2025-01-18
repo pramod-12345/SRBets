@@ -1,5 +1,5 @@
 import React from "react";
-import { Modal, Seperator, Typography } from "components";
+import {  Seperator, Typography } from "components";
 import { closeIcon, paymentDone } from "assets";
 import { toggleModal } from "../../../redux/reducers/authSlice";
 import { useDispatch } from "react-redux";

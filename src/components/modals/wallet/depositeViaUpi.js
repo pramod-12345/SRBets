@@ -1,19 +1,14 @@
 import React, { useState } from "react";
 import {
-  Tabs,
   Typography,
   RadioButton,
   Input,
   CommonButton,
-  Modal,
-  Seperator,
   ModalDetailItem,
   ModalDropdown,
-  PaymentStatus,
-  PaymentApproved,
 } from "components";
 import { modalIcon, socialIcons } from "../../../assets/svg/modal";
-import { backIcon, mbDepositSocialImg } from "assets";
+import {  mbDepositSocialImg } from "assets";
 import { setModalType } from "../../../redux/reducers/authSlice";
 import { useDispatch } from "react-redux";
 
