@@ -21,7 +21,9 @@ const Poker = () => {
   const location = useLocation();
   const iframeRef = useRef(null);
   const currencyRef = useRef(null);
-  const { selectedCurrency, isMbIframeFull } = useSelector((state) => state?.dashboard);
+  const { selectedCurrency, isMbIframeFull } = useSelector(
+    (state) => state?.dashboard
+  );
   const [isOpen, setIsOpen] = useState(false);
   const [iframeUrl, setIframeUrl] = useState("");
   const [selected, setSelected] = useState([]);
@@ -29,7 +31,7 @@ const Poker = () => {
   const [mobilePlayMode, setMobilePlayMode] = useState(false);
   const [isIFrameFull, setIsIFrameFull] = useState(false);
   const [isToggled, setIsToggled] = useState(false);
-  const imageUrl = location?.state?.imageUrl ?? '';
+  const imageUrl = location?.state?.imageUrl ?? "";
 
   const currencies = [
     { id: 1, label: "INR", icon: rupees, value: 0 },
@@ -37,15 +39,15 @@ const Poker = () => {
     { id: 2, label: "BTC", icon: btcIcon, value: 0 },
   ];
 
-  const handleMbIframeFull=()=>{
-    if(isMbIframeFull){
+  const handleMbIframeFull = () => {
+    if (isMbIframeFull) {
       dispatch(setMbIframeFull(false));
-    }else{
+    } else {
       dispatch(setMbIframeFull(true));
       setplayMode(false);
-    setMobilePlayMode(true);
+      setMobilePlayMode(true);
     }
-  }
+  };
 
   const handleFullscreen = () => {
     if (iframeRef.current) {
@@ -64,7 +66,7 @@ const Poker = () => {
       }
     }
   };
-  
+
   const handleToggle = () => {
     setIsToggled(!isToggled);
   };
@@ -136,6 +138,10 @@ const Poker = () => {
   }, [selected]);
 
   useEffect(() => {
+    if (isMbIframeFull) {
+      dispatch(setMbIframeFull(false));
+    }
+
     setSelected(selectedCurrency);
 
     const handleFullscreenChange = () => {
@@ -165,8 +171,11 @@ const Poker = () => {
 
   const renderIframe = () => {
     return (
-      <div className={`rounded-xl ${isMbIframeFull ? '' : ''}`}>
-        <div style={{height: isMbIframeFull ? 'calc(100vh - 3rem)' : ''}} className="iframe-container relative">
+      <div className={`rounded-xl ${isMbIframeFull ? "" : ""}`}>
+        <div
+          style={{ height: isMbIframeFull ? "calc(100vh - 3rem)" : "" }}
+          className="iframe-container relative"
+        >
           {playMode && (
             <div className="absolute hidden inset-0 sm:flex justify-center flex-grow items-center bg-themeBlack opacity-80 z-10 flex-col gap-5">
               <div className="flex items-center">
@@ -422,7 +431,10 @@ const Poker = () => {
           </button>
           Play in fullscreen
         </label>
-        <div style={{height: '60px'}} className="flex items-center gap-2 h-auto">
+        <div
+          style={{ height: "60px" }}
+          className="flex items-center gap-2 h-auto"
+        >
           {/* <CommonButton
               type="secondary"
               bgColor="bg-primary"
@@ -433,7 +445,14 @@ const Poker = () => {
             bgColor="bg-americanGreen"
             label={"Play"}
             // onClick={handleMobilePlay}
-            onClick={handleMbIframeFull}
+            onClick={
+              isToggled
+                ? handleMbIframeFull
+                : () => {
+                    setplayMode(false);
+                    setMobilePlayMode(true);
+                  }
+            }
           />
         </div>
       </div>
@@ -444,8 +463,10 @@ const Poker = () => {
 
   return (
     <div>
-      {isMbIframeFull ? null : <Typography color={"white"} variant={"h1"} content={"Roulette"} />}
-      <div className={isMbIframeFull ? '' : `mt-7`}>
+      {isMbIframeFull ? null : (
+        <Typography color={"white"} variant={"h1"} content={"Roulette"} />
+      )}
+      <div className={isMbIframeFull ? "" : `mt-7`}>
         {isMobile
           ? mobilePlayMode
             ? renderIframe()
