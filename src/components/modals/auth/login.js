@@ -4,10 +4,9 @@ import {
   Typography,
   Input,
   CommonButton,
-  Seperator
 } from "components"
 import SocialLogin from "./socialLogin";
-import { closeIcon, mbLoginBanner } from "assets";
+import { closeIcon } from "assets";
 import { toggleModal } from "../../../redux/reducers/authSlice";
 import { loginFunc } from 'services'
 import { useAxios } from "hooks"

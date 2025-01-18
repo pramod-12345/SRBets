@@ -3,7 +3,7 @@ import { Typography, Search, Table } from "components";
 import { columns, rows } from "../../data";
 import CasinoGamesCard from "./casinoGames";
 import { fetchLayout } from "services";
-import { useDispatch, useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import { useAxios } from "hooks";
 
 const CasinoHome = () => {

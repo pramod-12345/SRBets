@@ -25,7 +25,9 @@ const useAxios = () => {
             isToastVisible = true,
             toggleLoader = true,
       }) => {
-            dispatch(setLoader(true));// Show the loader before the request starts
+            if(toggleLoader){
+                   dispatch(setLoader(true));// Show the loader before the request starts
+            }
 
             try {
                   const response = await axiosInstance({

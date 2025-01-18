@@ -4,15 +4,11 @@ import {
     Typography,
     Seperator
 } from "components"
-import { setModalType, toggleModal } from "../../../redux/reducers/authSlice";
+import { setModalType } from "../../../redux/reducers/authSlice";
 import { useDispatch } from "react-redux";
 
 const RegisterTerms = () => {
     const dispatch = useDispatch();
-
-    const closeModal = () => {
-        dispatch(toggleModal(false));
-    };
 
     const [isChecked, setIsChecked] = useState(false);
 

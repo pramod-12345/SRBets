@@ -81,7 +81,7 @@ const Input = ({
           />
 
           {isAmountMax && <div className="flex gap-3 items-center">
-            <img src={btcIcon} className="w-5 h-5" />
+            <img src={btcIcon} alt="BTC" className="w-5 h-5" />
 
             <div className="bg-vintageRibbon py-2 px-4 rounded-lg h-10">
               <Typography

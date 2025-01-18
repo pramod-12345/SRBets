@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Dropdown from "./dropdown";
-import { cricketItems, numberItems, selectedBetItems } from "../../data";
+import { selectedBetItems } from "../../data";
 
 const Tabs = ({ tabs, children, initialTab, isOptions }) => {
   const [activeTab, setActiveTab] = useState(initialTab ?? tabs?.[0]?.id);
@@ -8,14 +8,6 @@ const Tabs = ({ tabs, children, initialTab, isOptions }) => {
   const activeChild = React.Children.toArray(children).find(
     (child) => child.props.id === activeTab
   );
-
-  const handleGameSelect = (item) => {
-    console.log("Selected Cricket Option:", item.label);
-  };
-
-  const handleNumberSelect = (item) => {
-    console.log("Selected Number Option:", item.label);
-  };
 
   const handleBetTypeSelect = (item) => {
     console.log("Selected Bet Option:", item.label);
